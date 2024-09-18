@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - ScaryObject
   - ScarySound
+  - Circle
   layers:
   - Default
   - TransparentFX
