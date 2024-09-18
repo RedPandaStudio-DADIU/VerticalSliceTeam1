@@ -35,14 +35,13 @@ public class FleeState : NPCBaseState
         {
             if (!movingNpc.pathPending)
             {
-                // controller.ChangeState(new IdleState());
+                controller.ChangeState(new IdleState());
                 Debug.Log("Found the start");
             }
         }
     }
     public override void OnExit(StateController controller){
         controller.DisableNavMeshAgent();
-
     }
 
     public override void OnCollisionEnter(StateController controller, Collision other){

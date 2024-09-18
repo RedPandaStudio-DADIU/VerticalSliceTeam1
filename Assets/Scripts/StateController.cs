@@ -12,17 +12,16 @@ public class StateController : MonoBehaviour
 
     private AudioSource npcVoice;
     private NPCBaseState currentState;
-    private NPCBaseState previousState;
+    private NPCBaseState previousMoveState;
 
     private NavMeshAgent npc;
     private float xRotation = -90f;
-
 
     void Start(){
         npc = GetComponent<NavMeshAgent>();
         npcVoice = GetComponent<AudioSource>();
         currentState = new MoveState();
-        previousState = currentState;
+        previousMoveState = currentState;
         currentState.OnEnter(this);
     }
 
@@ -32,7 +31,9 @@ public class StateController : MonoBehaviour
 
     public void ChangeState(NPCBaseState newState){
         currentState.OnExit(this);
-        previousState = currentState;
+        if(currentState is MoveState || currentState is FleeState){
+            previousMoveState = currentState;
+        }
         currentState = newState;
         currentState.OnEnter(this);
     }
@@ -78,7 +79,7 @@ public class StateController : MonoBehaviour
     }
 
     public NPCBaseState GetPreviousState(){
-        return previousState; 
+        return previousMoveState; 
     }
 }
 

@@ -16,13 +16,14 @@ public class ScaryObjectsController : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log("It's executing");
         Collider[] colliders = Physics.OverlapSphere(stateController.transform.position, collisionRadius);
         
         foreach (Collider col in colliders)
         {
             if (col.CompareTag("ScaryObject") && !(stateController.GetCurrentState() is ScaredState)) 
             {
+                Debug.Log("ChangingToScared");
+                // Bug: Going from Idle to Scared
                 stateController.ChangeState(new ScaredState()); 
                 // For now - put the object far away
                 col.transform.position = new Vector3(300f, 300f, 300f);

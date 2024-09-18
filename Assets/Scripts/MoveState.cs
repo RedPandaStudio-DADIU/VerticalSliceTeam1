@@ -31,7 +31,7 @@ public class MoveState : NPCBaseState
         {
             if (!movingNpc.pathPending)
             {
-                // controller.ChangeState(new IdleState());
+                controller.ChangeState(new IdleState());
                 Debug.Log("Found the end");
             }
         }
