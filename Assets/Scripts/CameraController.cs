@@ -4,54 +4,30 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Player and Camera Settings")]
-    [SerializeField] private Transform playerBody; // The player object the camera will follow
-    [SerializeField] private Vector3 offset = new Vector3(0, 6, -5); // Offset from player (adjust as needed)
-    [SerializeField] private float mouseSensitivity = 100f; // Sensitivity for mouse movement
-    [SerializeField] private float smoothSpeed = 10f; // Camera smooth follow speed
+    [Header("Camera Settings")]
+    public Transform player;        // Player to follow
+    public float distance = 5.0f;   // Distance from the player
+    public float height = 3.0f;     // Height above the player
+    public float cameraSpeed = 10.0f; // Speed at which the camera rotates
 
-    private float xRotation = 0f;
-    private float yRotation = 0f;
-
-    private void Start()
-    {
-        // Lock the cursor to the screen
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    private void Update()
-    {
-        RotateCameraWithMouse();
-    }
+    private float currentX = 0.0f;  // Rotation around Y axis (horizontal)
+    private float currentY = 0.0f;  // Rotation around X axis (vertical)
+    public float sensitivityX = 4.0f; // Sensitivity for horizontal rotation
+    public float sensitivityY = 2.0f; // Sensitivity for vertical rotation
+    public float minYAngle = -40f;  // Limit on how far the camera can look down
+    public float maxYAngle = 60f;   // Limit on how far the camera can look up
 
     private void LateUpdate()
     {
-        FollowPlayer();
-    }
+        // Get mouse movement for rotating the camera
+        currentX += Input.GetAxis("Mouse X") * sensitivityX;
+        currentY -= Input.GetAxis("Mouse Y") * sensitivityY;
+        currentY = Mathf.Clamp(currentY, minYAngle, maxYAngle); // Limit vertical angle
 
-    private void FollowPlayer()
-    {
-        // Camera follows the player's position, but the camera rotates independently
-        Vector3 desiredPosition = playerBody.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.position = smoothedPosition;
-    }
-
-    private void RotateCameraWithMouse()
-    {
-        // Get mouse input for X (horizontal) and Y (vertical) axes
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        // Adjust vertical rotation (Y axis, looking up/down)
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Prevent looking too far up or down
-
-        // Adjust horizontal rotation (X axis, looking left/right)
-        yRotation -= mouseX;
-        // No need to clamp yRotation as we want to rotate freely around
-
-        // Apply the rotations to the camera itself (independent of player)
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        // Calculate the desired camera position and rotation
+        Vector3 direction = new Vector3(0, height, -distance); // Offset behind player
+        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0); // Rotation by mouse
+        transform.position = player.position + rotation * direction; // Position camera relative to player
+        transform.LookAt(player.position); // Camera always looks at player
     }
 }
