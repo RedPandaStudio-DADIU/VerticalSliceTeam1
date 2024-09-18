@@ -12,18 +12,19 @@ public class MoveState : NPCBaseState
         movingNpc.destination = controller.GetEndTransform().position;
         movingNpc.angularSpeed = 0.0f;
         movingNpc.updateRotation = true;
+
     }
     public override void OnUpdate(StateController controller){
         Vector3 direction = movingNpc.velocity.normalized;
 
         if (direction != Vector3.zero){
             controller.transform.LookAt(movingNpc.velocity.normalized);
-            controller.transform.rotation *=  Quaternion.Euler(controller.GetXRotation(), 0f, 0f) ;
+            // // controller.transform.rotation *=  Quaternion.Euler(controller.GetXRotation(), 0f, 0f) ;
 
-            foreach (Transform child in controller.transform)
-            {
-                child.rotation = controller.transform.rotation;
-            }
+            // foreach (Transform child in controller.transform)
+            // {
+            //     child.rotation = controller.transform.rotation;
+            // }
         }
 
 

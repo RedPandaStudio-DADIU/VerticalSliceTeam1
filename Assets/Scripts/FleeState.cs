@@ -23,12 +23,12 @@ public class FleeState : NPCBaseState
 
         if (direction != Vector3.zero){
             controller.transform.LookAt(movingNpc.velocity.normalized);
-            controller.transform.rotation *=  Quaternion.Euler(controller.GetXRotation(), 0f, 0f) ;
+            // controller.transform.rotation *=  Quaternion.Euler(controller.GetXRotation(), 0f, 0f) ;
 
-            foreach (Transform child in controller.transform)
-            {
-                child.rotation = controller.transform.rotation;
-            }
+            // foreach (Transform child in controller.transform)
+            // {
+            //     child.rotation = controller.transform.rotation;
+            // }
         }
 
         if (movingNpc.remainingDistance <= movingNpc.stoppingDistance)

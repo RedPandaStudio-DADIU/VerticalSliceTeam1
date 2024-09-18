@@ -61,7 +61,9 @@ public class StateController : MonoBehaviour
     public Transform GetStartTransform(){
         return start;
     }
-
+    public bool isEnabled(){
+        return npc.enabled;
+    }
     public void DisableNavMeshAgent(){
         npc.enabled = false;
     }
