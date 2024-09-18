@@ -8,13 +8,21 @@ public class StateController : MonoBehaviour
 
     [Header("NPC AI settings")]
     [SerializeField] private Transform end;
+    [SerializeField] private Transform start;
+
+    private AudioSource npcVoice;
     private NPCBaseState currentState;
+    private NPCBaseState previousState;
+
     private NavMeshAgent npc;
     private float xRotation = -90f;
 
+
     void Start(){
         npc = GetComponent<NavMeshAgent>();
+        npcVoice = GetComponent<AudioSource>();
         currentState = new MoveState();
+        previousState = currentState;
         currentState.OnEnter(this);
     }
 
@@ -24,7 +32,7 @@ public class StateController : MonoBehaviour
 
     public void ChangeState(NPCBaseState newState){
         currentState.OnExit(this);
-
+        previousState = currentState;
         currentState = newState;
         currentState.OnEnter(this);
     }
@@ -33,20 +41,44 @@ public class StateController : MonoBehaviour
         currentState.OnCollisionEnter(this, other); 
     }
 
-    public NavMeshAgent getNpc(){
+    void OnCollisionExit(Collision other){
+        currentState.OnCollisionExit(this, other); 
+        Debug.Log("Collision exit");
+    }
+
+    public NavMeshAgent GetNpc(){
         return npc;
     }
 
-    public float getXRotation(){
+    public float GetXRotation(){
         return xRotation;
     }
 
-    public Transform getEndTransform(){
+    public Transform GetEndTransform(){
         return end;
     }
+    public Transform GetStartTransform(){
+        return start;
+    }
 
-    public void disableNavMeshAgent(){
+    public void DisableNavMeshAgent(){
         npc.enabled = false;
+    }
+
+    public void EnableNavMeshAgent(){
+        npc.enabled = true;
+    }
+
+    public AudioSource GetNpcVoice(){
+        return npcVoice; 
+    }
+
+    public NPCBaseState GetCurrentState(){
+        return currentState; 
+    }
+
+    public NPCBaseState GetPreviousState(){
+        return previousState; 
     }
 }
 

@@ -8,5 +8,6 @@ public abstract class NPCBaseState
     public abstract void OnUpdate(StateController controller);
     public abstract void OnExit(StateController controller);
     public abstract void OnCollisionEnter(StateController controller, Collision other);
+    public abstract void OnCollisionExit(StateController controller, Collision other);
 
 }
