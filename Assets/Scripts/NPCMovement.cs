@@ -9,10 +9,7 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private Transform end;
     private NavMeshAgent npc;
     private float xRotation = -90f;
-    private Quaternion initialRotationOffset;
-
-    void Start()
-    {
+    void Start(){
         npc = GetComponent<NavMeshAgent>();
         npc.destination = end.position;
         npc.angularSpeed = 0.0f;
@@ -20,8 +17,7 @@ public class NPCMovement : MonoBehaviour
 
     }
 
-    void Update()
-    {
+    void Update(){
         Vector3 direction = npc.velocity.normalized;
 
         if (direction != Vector3.zero){
