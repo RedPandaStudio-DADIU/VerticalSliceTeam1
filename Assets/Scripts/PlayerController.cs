@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck; 
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask; 
+    [SerializeField] private LayerMask roadMask; 
+
 
     private bool isGrounded;
     private bool canDoubleJump = false; 
@@ -39,9 +41,16 @@ public class PlayerController : MonoBehaviour
         ProcessInputs();
         MovePlayer();
 
+
+        //if(!Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) && !Physics.CheckSphere(groundCheck.position, groundDistance, roadMask)){
+        //    isGrounded = false;
+        //} else {
+        //    isGrounded = true;
+        //}  
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded)
-        {
+
+
+       if (isGrounded){
             canDoubleJump = true;
         }
 
