@@ -4,6 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Road
+  - NPC
+  - Obstacle
+  - ScaryObject
+  - ScarySound
   - Circle
   layers:
   - Default
@@ -12,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Road
+  - Obstacle
+  - Scare
   - 
   - 
   - 
