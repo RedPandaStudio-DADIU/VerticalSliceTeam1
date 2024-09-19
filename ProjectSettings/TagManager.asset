@@ -12,11 +12,12 @@ TagManager:
   - Circle
   - RockSet
   - Rock
+  - FreeRock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ground
   - Water
   - UI
   - Road

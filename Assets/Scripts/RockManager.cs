@@ -6,6 +6,7 @@ public class RockManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> rocks;
     [SerializeField] private List<GameObject> rockSets;
+    [SerializeField] private List<GameObject> freeRocks; 
 
     public int GetRockIndex(GameObject rock)
     {
@@ -21,18 +22,37 @@ public class RockManager : MonoBehaviour
         return null;
     }
 
+    public int GetFreeRockIndex(GameObject freeRock)
+    {
+        return freeRocks.IndexOf(freeRock);
+    }
+
+    public GameObject GetFreeRock(int index)
+    {
+        if (index >= 0 && index < freeRocks.Count)
+        {
+            return freeRocks[index];
+        }
+        return null;
+    }
+
     // Get the index of the rock set
     public int GetRockSetIndex(GameObject rockSet)
     {
         return rockSets.IndexOf(rockSet);
     }
 
+    
     public GameObject GetRockSet(int index)
     {
+        Debug.Log("Requesting RockSet with index: " + index);  // Log the index being requested
+
         if (index >= 0 && index < rockSets.Count)
         {
             return rockSets[index];
         }
+        Debug.Log("RockSet index out of bounds or not found.");
+   
         return null;
     }
 
