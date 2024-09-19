@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck; 
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask; 
+    
 
     private bool isGrounded;
     private bool canDoubleJump = false; 
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private int currentCircleIndex = -1;    // Store the current circle index
     private int currentRockIndex = -1;      // Store the current rock index
     private int currentRockSetIndex = -1;   // Store the current rock set index
+    private int currentFreeRockIndex = -1;  // Store the index for the free rock
 
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
@@ -60,13 +62,24 @@ public class PlayerController : MonoBehaviour
         }
 
         // Handle picking up and placing rocks
-        if (isCarryingRock && currentRockSetIndex != -1 && Input.GetKeyDown(KeyCode.T))
+        if (isCarryingRock && Input.GetKeyDown(KeyCode.T))
         {
-            PlaceRock();
+            if (currentFreeRockIndex != -1)
+            {
+                PlaceFreeRock();  
+            }
+            else
+            {
+                PlaceRock();  
+            }
         }
         else if (!isCarryingRock && currentRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
         {
             PickupRock();
+        }
+        else if (!isCarryingRock && currentFreeRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
+        {
+            PickupFreeRock();
         }
 
         // Disable all circle interaction if carrying a rock
@@ -182,7 +195,32 @@ public class PlayerController : MonoBehaviour
             }
         }
     
+    private void PickupFreeRock()
+    {
+        if (rockManager != null)
+        {
+            currentRock = rockManager.GetFreeRock(currentFreeRockIndex);
+            if (currentRock != null)
+            {
+                isCarryingRock = true;
+                currentRock.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+    }
 
+    private void PlaceFreeRock()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100f, groundMask))
+        {
+            currentRock.transform.position = hit.point;  
+            currentRock.GetComponent<Rigidbody>().isKinematic = false;
+            isCarryingRock = false;
+            currentRock = null;
+            currentFreeRockIndex = -1;
+        }
+    }
 
     // Detect when the player enters the circle
     private void OnTriggerEnter(Collider other)
@@ -217,6 +255,15 @@ public class PlayerController : MonoBehaviour
             {
                 currentRockSetIndex = rockSetIndex; // Store the rock set index
                 Debug.Log("Player near rock set: " + other.gameObject.name);
+            }
+    }
+
+    if (other.CompareTag("FreeRock") && rockManager != null)
+    {
+         int freeRockIndex = rockManager.GetFreeRockIndex(other.gameObject);
+            if (freeRockIndex != -1)
+            {
+                currentFreeRockIndex = freeRockIndex;
             }
     }
 }
