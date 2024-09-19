@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private RockManager rockManager;  // Reference to the RockManager
     private int currentCircleIndex = -1;    // Store the current circle index
     private int currentRockIndex = -1;      // Store the current rock index
+    private int currentRockSetIndex = -1;   // Store the current rock set index
 
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Handle picking up and placing rocks
-        if (isCarryingRock && Input.GetKeyDown(KeyCode.T))
+        if (isCarryingRock && currentRockSetIndex != -1 && Input.GetKeyDown(KeyCode.T))
         {
             PlaceRock();
         }
@@ -142,6 +143,8 @@ public class PlayerController : MonoBehaviour
         if (rockManager != null)
         {
             currentRock = rockManager.GetRock(currentRockIndex);
+            Debug.Log("Current pick rock index: " + currentRockIndex);
+           
             if (currentRock != null)
             {
                 isCarryingRock = true;
@@ -152,20 +155,33 @@ public class PlayerController : MonoBehaviour
     }
 
     private void PlaceRock()
-    {
-        if (rockManager != null)
         {
             GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
-            if (rockSet != null)
+            Debug.Log("Current rock index: " + currentRockIndex);
+            Debug.Log("Attempting to place rock with index: " + currentRockIndex);
+
+            Debug.Log("Rock set found: " + (rockSet != null ? rockSet.name : "null"));
+
+            
+            if (rockManager != null)
             {
-                currentRock.transform.position = rockSet.transform.position; // Place rock on rock set
-                currentRock.GetComponent<Rigidbody>().isKinematic = false;  // Disable floating
-                isCarryingRock = false;
-                currentRock = null;
-                Debug.Log("Placed rock on: " + rockSet.name);
+                //GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
+                if (rockSet != null && rockManager.IsMatchingRockAndSet(currentRockIndex, currentRockSetIndex))
+                {
+                    currentRock.transform.position = rockSet.transform.position; // Place rock on rock set
+                    currentRock.GetComponent<Rigidbody>().isKinematic = false;  // Disable floating
+                    isCarryingRock = false;
+                    currentRock = null;
+                    Debug.Log("Placed rock on: " + rockSet.name);
+                    currentRockSetIndex = -1; // Reset the rock set index after placing the rock
+                }
+                else
+                {
+                    Debug.Log("Rock and RockSet do not match.");
+                }
             }
         }
-    }
+    
 
 
     // Detect when the player enters the circle
@@ -196,8 +212,12 @@ public class PlayerController : MonoBehaviour
     // Check if the player is near a rock set
     if (other.CompareTag("RockSet") && isCarryingRock)
     {
-        Debug.Log("Player near rock set: " + other.gameObject.name);
-        // You can add logic for placing the rock at the rock set here
+        int rockSetIndex = rockManager.GetRockSetIndex(other.gameObject);
+            if (rockSetIndex != -1)
+            {
+                currentRockSetIndex = rockSetIndex; // Store the rock set index
+                Debug.Log("Player near rock set: " + other.gameObject.name);
+            }
     }
 }
 
@@ -220,7 +240,7 @@ private void OnTriggerExit(Collider other)
         int rockIndex = rockManager.GetRockIndex(other.gameObject);
         if (rockIndex != -1)
         {
-            currentRockIndex = -1; // Reset the rock index
+            //currentRockIndex = -1; // Reset the rock index
             Debug.Log("Player left rock area: " + other.gameObject.name);
         }
     }
@@ -228,7 +248,10 @@ private void OnTriggerExit(Collider other)
     // Handle when the player exits a rock set area
     if (other.CompareTag("RockSet") && isCarryingRock)
     {
+        currentRockSetIndex = -1; // Reset the rock set index
+           
         Debug.Log("Player exited rock set area: " + other.gameObject.name);
     }
 }
+
 }
