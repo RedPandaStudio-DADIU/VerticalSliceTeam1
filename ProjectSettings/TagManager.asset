@@ -10,6 +10,8 @@ TagManager:
   - ScaryObject
   - ScarySound
   - Circle
+  - RockSet
+  - Rock
   layers:
   - Default
   - TransparentFX
