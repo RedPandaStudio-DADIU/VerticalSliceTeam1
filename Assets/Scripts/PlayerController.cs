@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask; 
     
-
+    private float freeRockRange = 15f;
     private bool isGrounded;
     private bool canDoubleJump = false; 
 
@@ -212,7 +212,7 @@ public class PlayerController : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100f, groundMask))
+        if (Physics.Raycast(ray, out hit, freeRockRange, groundMask))
         {
             currentRock.transform.position = hit.point;  
             currentRock.GetComponent<Rigidbody>().isKinematic = false;
