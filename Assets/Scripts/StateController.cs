@@ -42,11 +42,6 @@ public class StateController : MonoBehaviour
         currentState.OnCollisionEnter(this, other); 
     }
 
-    void OnCollisionExit(Collision other){
-        currentState.OnCollisionExit(this, other); 
-        Debug.Log("Collision exit");
-    }
-
     public NavMeshAgent GetNpc(){
         return npc;
     }
