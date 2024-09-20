@@ -169,7 +169,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlaceRock()
         {
-            GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
+            //GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
+            GameObject rockSet = rockManager.GetRockSet(currentRockSetIndex);
+          
             Debug.Log("Current rock index: " + currentRockIndex);
             Debug.Log("Attempting to place rock with index: " + currentRockIndex);
 

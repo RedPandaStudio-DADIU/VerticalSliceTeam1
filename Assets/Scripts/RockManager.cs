@@ -59,6 +59,7 @@ public class RockManager : MonoBehaviour
     // Ensure that the rock matches the correct rock set
     public bool IsMatchingRockAndSet(int rockIndex, int rockSetIndex)
     {
+        /*
         if (rockIndex >= 0 && rockIndex < rocks.Count && rockSetIndex >= 0 && rockSetIndex < rockSets.Count)
         {
             // Logic to ensure the rock matches the correct rock set (based on their indices)
@@ -66,5 +67,14 @@ public class RockManager : MonoBehaviour
             return rockIndex == rockSetIndex;
         }
         return false;
+        */
+        if (rockIndex >= 0 && rockIndex < rocks.Count && rockSetIndex >= 0 && rockSetIndex < rockSets.Count)
+        {
+            // Logic to ensure the rock matches the correct rock set (based on their indices)
+            // If rock and rockSet indices match, return true
+            return true; 
+        }
+        return false;
+        // Placeholder logic, replace with actual matching logic
     }
 }
