@@ -1147,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a613b7cae0557e04f809d1ed42a51c0d, type: 3}
       propertyPath: m_TagString
-      value: Rock
+      value: FreeRock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1333,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a613b7cae0557e04f809d1ed42a51c0d, type: 3}
       propertyPath: m_TagString
-      value: Rock
+      value: FreeRock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11529,7 +11529,7 @@ GameObject:
   - component: {fileID: 1426938628}
   m_Layer: 7
   m_Name: RockMove
-  m_TagString: FreeRock
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12417,13 +12417,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocks:
-  - {fileID: 1521350391}
-  - {fileID: 281728715}
+  - {fileID: 1426938623}
   rockSets:
   - {fileID: 580804937}
   - {fileID: 699406186}
   freeRocks:
-  - {fileID: 1426938623}
+  - {fileID: 1521350391}
+  - {fileID: 281728715}
 --- !u!4 &1817497404
 Transform:
   m_ObjectHideFlags: 0
