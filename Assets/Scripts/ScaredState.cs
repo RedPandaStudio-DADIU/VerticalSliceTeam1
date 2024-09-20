@@ -10,15 +10,16 @@ public class ScaredState : NPCBaseState
     // placeholder for future animation
     private float animationDuration = 5f;
     private float animationStartTime;
-
+    private NavMeshAgent movingNpc;
 
     public override void OnEnter(StateController controller){  
         Debug.Log("Entering Scared State");
-        if(controller.isEnabled()){
-            controller.DisableNavMeshAgent();
+        movingNpc = controller.GetNpc();
+        if(movingNpc.enabled && !movingNpc.isStopped){
+            movingNpc.isStopped = true;
         }
+         
 
-        // controller.transform.rotation =  Quaternion.Euler(controller.GetXRotation(), 0f, 0f) ;
         animationStartTime = Time.time;
     
     }
@@ -35,9 +36,8 @@ public class ScaredState : NPCBaseState
     }
     public override void OnExit(StateController controller){
         Debug.Log("Exiting Scared State");
-        // controller.transform.rotation =  Quaternion.Euler(controller.GetXRotation(), 0f, 180f) ;
-        if(!controller.isEnabled()){
-            controller.EnableNavMeshAgent();
+        if(movingNpc.enabled && movingNpc.isStopped){
+            movingNpc.isStopped = false;
         }
 
     }
@@ -45,6 +45,4 @@ public class ScaredState : NPCBaseState
     public override void OnCollisionEnter(StateController controller, Collision other){
     }
 
-    public override void OnCollisionExit(StateController controller, Collision other){
-    }
 }

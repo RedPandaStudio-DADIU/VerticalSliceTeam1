@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class CirclesManager : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class CirclesManager : MonoBehaviour
     [SerializeField] private GameObject[] obstacles;  // Array to hold obstacle objects
     [SerializeField] private Material defaultMaterial;  // The default material for circles
     [SerializeField] private Material disabledMaterial;  // The disabled material for circles
+    [SerializeField] private NavMeshAgent movingNPC;
+    [SerializeField] private float radiusOverlap = 5f;
+
 
     // Method to remove the obstacle based on the circle index
     public void RemoveObstacle(int circleIndex)
@@ -18,11 +23,36 @@ public class CirclesManager : MonoBehaviour
         {
             if (obstacles[circleIndex] != null)
             {
-                obstacles[circleIndex].SetActive(false);  // Disable the obstacle
-                Debug.Log("Obstacle " + obstacles[circleIndex].name + " removed.");
+                // check whether NPC is within specified distance of the obstacle 
+                Collider[] colliders = Physics.OverlapSphere(obstacles[circleIndex].transform.position, radiusOverlap);
+
+                foreach (Collider collider in colliders)
+                {
+                    if (collider.CompareTag("NPC"))
+                    {
+                        obstacles[circleIndex].SetActive(false);  // Disable the obstacle
+                        Debug.Log("Obstacle " + obstacles[circleIndex].name + " removed.");
+                        RecalculatePathForNPC();
+                    }
+                }
+
+                
             }
         }
     }
+
+
+void RecalculatePathForNPC()
+{
+    if (!movingNPC.enabled)
+    {
+        movingNPC.enabled = true;
+        Vector3 currentDestination = movingNPC.destination;
+        movingNPC.ResetPath(); 
+        movingNPC.SetDestination(currentDestination); 
+    }
+    
+}
 
     // Method to get the index of the entered circle
     public int GetCircleIndex(GameObject circle)

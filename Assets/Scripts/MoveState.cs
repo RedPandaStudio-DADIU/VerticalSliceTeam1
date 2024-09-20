@@ -9,6 +9,9 @@ public class MoveState : NPCBaseState
     private NavMeshAgent movingNpc;
     public override void OnEnter(StateController controller){
         movingNpc = controller.GetNpc();
+        if(!movingNpc.enabled){
+            controller.EnableNavMeshAgent();
+        }
         movingNpc.destination = controller.GetEndTransform().position;
         movingNpc.angularSpeed = 0.0f;
         movingNpc.updateRotation = true;
@@ -19,12 +22,6 @@ public class MoveState : NPCBaseState
 
         if (direction != Vector3.zero){
             controller.transform.LookAt(movingNpc.velocity.normalized);
-            // // controller.transform.rotation *=  Quaternion.Euler(controller.GetXRotation(), 0f, 0f) ;
-
-            // foreach (Transform child in controller.transform)
-            // {
-            //     child.rotation = controller.transform.rotation;
-            // }
         }
 
 
@@ -40,18 +37,14 @@ public class MoveState : NPCBaseState
     public override void OnExit(StateController controller){
         Debug.Log("Exiting the Move State");
         controller.DisableNavMeshAgent();
-
     }
 
     public override void OnCollisionEnter(StateController controller, Collision other){
         Debug.Log("Collision");
-        if(other.gameObject.CompareTag("Obstacle")){
+        if(other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Rock")){
             controller.ChangeState(new SpeakState());
         }
     }
 
-    public override void OnCollisionExit(StateController controller, Collision other){
-        Debug.Log("Collision exit");
-    }
 
 }

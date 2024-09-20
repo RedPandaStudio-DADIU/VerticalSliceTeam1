@@ -29,7 +29,4 @@ public class SpeakState : NPCBaseState
         Debug.Log("Collision");
     }
 
-    public override void OnCollisionExit(StateController controller, Collision other){
-        Debug.Log("Collision exit");
-    }
 }
