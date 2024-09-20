@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
             currentRock = rockManager.GetRock(currentRockIndex);
             Debug.Log("Current pick rock index: " + currentRockIndex);
            
-            if (currentRock != null)
+            if (currentRock != null && !isCarryingRock)
             {
                 isCarryingRock = true;
                 currentRock.GetComponent<Rigidbody>().isKinematic = true; // Make rock float
@@ -189,6 +189,7 @@ public class PlayerController : MonoBehaviour
                     currentRock.GetComponent<Rigidbody>().isKinematic = false;  // Disable floating
                     isCarryingRock = false;
                     currentRock = null;
+                    currentRockIndex = -1; // Reset the rock index after placing the rock
                     Debug.Log("Placed rock on: " + rockSet.name);
                     currentRockSetIndex = -1; // Reset the rock set index after placing the rock
                 }
@@ -204,10 +205,12 @@ public class PlayerController : MonoBehaviour
         if (rockManager != null)
         {
             currentRock = rockManager.GetFreeRock(currentFreeRockIndex);
-            if (currentRock != null)
+            if (currentRock != null && !isCarryingRock)
             {
                 isCarryingRock = true;
                 currentRock.GetComponent<Rigidbody>().isKinematic = true;
+                 Debug.Log("Picked up the free rock: " + currentRock.name);
+      
             }
         }
     }
@@ -310,10 +313,10 @@ private void OnTriggerExit(Collider other)
     }
     
     // Handle when the player exits a rock set area
-    if (other.CompareTag("RockSet") && isCarryingRock)
+    if (other.CompareTag("RockSet") && isCarryingRock== false)
     {
         currentRockSetIndex = -1; // Reset the rock set index
-           
+        currentRockIndex = -1;  
         Debug.Log("Player exited rock set area: " + other.gameObject.name);
     }
 }
