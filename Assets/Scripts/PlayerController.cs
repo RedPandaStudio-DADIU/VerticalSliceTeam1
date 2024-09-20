@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck; 
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask; 
+    [SerializeField] private NavMeshAgent movingNPC;
+
     
     private float freeRockRange = 15f;
     private bool isGrounded;
@@ -219,8 +223,21 @@ public class PlayerController : MonoBehaviour
             isCarryingRock = false;
             currentRock = null;
             currentFreeRockIndex = -1;
+            RecalculatePathForNPC();
         }
     }
+
+    void RecalculatePathForNPC()
+{
+    if (!movingNPC.enabled)
+    {
+        movingNPC.enabled = true;
+        Vector3 currentDestination = movingNPC.destination;
+        movingNPC.ResetPath(); 
+        movingNPC.SetDestination(currentDestination); 
+    }
+    
+}
 
     // Detect when the player enters the circle
     private void OnTriggerEnter(Collider other)
