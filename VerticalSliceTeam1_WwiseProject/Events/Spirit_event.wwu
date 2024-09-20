@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="Spirit_event" ID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="spirit_Laugh_play" ID="{ADD47F72-3879-406B-B72D-077944F6B0EE}">
+					<ChildrenList>
+						<Action Name="" ID="{1A53F4CB-9EC3-4E31-8DE0-6BAE256EBEDD}" ShortID="360043910">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="spirit_sfx" ID="{48EA90AC-D76E-4013-8CE9-E337B182471E}" WorkUnitID="{BECA0AB2-99DD-47CF-BDC7-0B52F635419E}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
