@@ -41,7 +41,7 @@ public class MoveState : NPCBaseState
 
     public override void OnCollisionEnter(StateController controller, Collision other){
         Debug.Log("Collision");
-        if(other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("FreeRock")){
+        if(other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("FreeRock") || other.gameObject.CompareTag("Water")){
             controller.ChangeState(new SpeakState());
         }
     }
