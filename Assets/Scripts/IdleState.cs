@@ -13,7 +13,7 @@ public class IdleState : NPCBaseState
     public override void OnUpdate(StateController controller){
         Debug.Log("Update");
         movingNpc = controller.GetNpc();
-        if ((movingNpc.pathStatus == NavMeshPathStatus.PathComplete) || (movingNpc.pathStatus == NavMeshPathStatus.PathPartial) && !movingNpc.pathPending)
+        if ((movingNpc.pathStatus == NavMeshPathStatus.PathComplete) && !movingNpc.pathPending)
         {
             controller.ChangeState(new MoveState());
         }

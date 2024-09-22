@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck; 
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask; 
+    [SerializeField] private NavMeshAgent movingNPC; 
     
+
+    private float rockPosHeight = 0.5f;    
     private float freeRockRange = 15f;
     private bool isGrounded;
     private bool canDoubleJump = false; 
@@ -183,13 +188,16 @@ public class PlayerController : MonoBehaviour
                 //GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
                 if (rockSet != null && rockManager.IsMatchingRockAndSet(currentRockIndex, currentRockSetIndex))
                 {
-                    currentRock.transform.position = rockSet.transform.position; // Place rock on rock set
+                    // currentRock.transform.position = rockSet.transform.position; // Place rock on rock set
+                    currentRock.transform.position = new Vector3(rockSet.transform.position.x, rockPosHeight ,rockSet.transform.position.z); // Place rock on rock set
+
                     currentRock.GetComponent<Rigidbody>().isKinematic = false;  // Disable floating
                     isCarryingRock = false;
                     currentRock = null;
                     currentRockIndex = -1; // Reset the rock index after placing the rock
                     Debug.Log("Placed rock on: " + rockSet.name);
                     currentRockSetIndex = -1; // Reset the rock set index after placing the rock
+                
                 }
                 else
                 {
@@ -305,5 +313,7 @@ private void OnTriggerExit(Collider other)
         Debug.Log("Player exited rock set area: " + other.gameObject.name);
     }
 }
+
+
 
 }

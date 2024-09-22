@@ -8,6 +8,7 @@ public class MoveState : NPCBaseState
 {
     private NavMeshAgent movingNpc;
     public override void OnEnter(StateController controller){
+        Debug.Log("Move state here!");
         movingNpc = controller.GetNpc();
         if(!movingNpc.enabled){
             controller.EnableNavMeshAgent();
@@ -23,7 +24,6 @@ public class MoveState : NPCBaseState
         if (direction != Vector3.zero){
             controller.transform.LookAt(movingNpc.velocity.normalized);
         }
-
 
         if (movingNpc.remainingDistance <= movingNpc.stoppingDistance)
         {
