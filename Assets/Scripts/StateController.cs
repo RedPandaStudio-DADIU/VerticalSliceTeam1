@@ -10,7 +10,7 @@ public class StateController : MonoBehaviour
     [SerializeField] private Transform end;
     [SerializeField] private Transform start;
 
-    private AudioSource npcVoice;
+    // private AudioSource npcVoice;
     private NPCBaseState currentState;
     private NPCBaseState previousMoveState;
 
@@ -19,7 +19,7 @@ public class StateController : MonoBehaviour
 
     void Start(){
         npc = GetComponent<NavMeshAgent>();
-        npcVoice = GetComponent<AudioSource>();
+        // npcVoice = GetComponent<AudioSource>();
         currentState = new MoveState();
         previousMoveState = currentState;
         currentState.OnEnter(this);
@@ -68,9 +68,9 @@ public class StateController : MonoBehaviour
         npc.enabled = true;
     }
 
-    public AudioSource GetNpcVoice(){
-        return npcVoice; 
-    }
+    // public AudioSource GetNpcVoice(){
+    //     return npcVoice; 
+    // }
 
     public NPCBaseState GetCurrentState(){
         return currentState; 

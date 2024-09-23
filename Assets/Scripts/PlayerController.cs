@@ -33,10 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
-    // private float collisionRadius = 10f;
-    // private bool pressedInteraction = false;
     private StateController stateController;
-
 
     private void Start()
     {
@@ -54,9 +51,14 @@ public class PlayerController : MonoBehaviour
         CheckJumping();
         HandleRocks();
         DisableCircles();
+        QuitGame();
     }
 
-
+    public void QuitGame(){
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
+    }
     private void ProcessInputs()
     {
         float moveX = Input.GetAxis("Horizontal");
