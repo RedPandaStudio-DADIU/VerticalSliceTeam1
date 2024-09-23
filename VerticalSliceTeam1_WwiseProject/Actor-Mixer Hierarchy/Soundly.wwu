@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{BECA0AB2-99DD-47CF-BDC7-0B52F635419E}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="Soundly" ID="{BECA0AB2-99DD-47CF-BDC7-0B52F635419E}" PersistMode="Standalone">
+			<ChildrenList>
+				<RandomSequenceContainer Name="spirit sounds" ID="{4F9EB60C-83E0-45BD-BB04-72B76EFAD3DB}" ShortID="769879227">
+					<PropertyList>
+						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="spirit_laugh_sfx" ID="{48EA90AC-D76E-4013-8CE9-E337B182471E}" ShortID="373886971">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>510</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+								<Property Name="Soundly:FileID" Type="string" Value="SND8819"/>
+								<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1726816344GOpkdMMj4dsaSwaGxYh&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND8819/mp3_DBQePuiyghBSdmwFaKpLDXHdYfWfOe"/>
+								<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+								<Property Name="Soundly:HandleStopTime" Type="string" Value="2.770045351473923"/>
+								<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+								<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+								<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+								<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+								<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="2"/>
+								<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/kristinalilleskov/Documents/Soundly Audio/Voices, Misc, Creature, Witch, Voice 04 SND8819.wav"/>
+								<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="44100"/>
+								<Property Name="Soundly:SelectionStartTime" Type="string" Value="0"/>
+								<Property Name="Soundly:SelectionStopTime" Type="string" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Voices, Misc, Creature, Witch, Voice 04 SND8819" ID="{97E6E2B0-F2CF-4A64-AC04-2696FBF3EE0D}">
+									<PropertyList>
+										<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND8819"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Soundly Audio\Voices, Misc, Creature, Witch, Voice 04 SND8819.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="119818390"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Voices, Misc, Creature, Witch, Voice 04 SND8819" ID="{97E6E2B0-F2CF-4A64-AC04-2696FBF3EE0D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
