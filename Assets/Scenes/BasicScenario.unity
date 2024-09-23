@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 262457426}
   - component: {fileID: 262457428}
   - component: {fileID: 262457429}
+  - component: {fileID: 262457430}
   m_Layer: 9
   m_Name: spirit
   m_TagString: Player
@@ -387,7 +388,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262457425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9e2895b75c105c49b0635a07787eaa2, type: 3}
   m_Name: 
@@ -466,6 +467,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.86, y: 6.16, z: 1.71}
   m_Center: {x: 0.2, y: 0.03, z: -0}
+--- !u!114 &262457430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262457425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b2e66f318278449ad41cb5b5e5e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 7
+  groundCheck: {fileID: 902661920}
+  groundDistance: 0.4
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  movingNPC: {fileID: 1474822652}
+  cameraTransform: {fileID: 1594016096}
 --- !u!1001 &272576105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6734,7 +6756,7 @@ GameObject:
   - component: {fileID: 1251273460}
   - component: {fileID: 1251273461}
   - component: {fileID: 1251273462}
-  m_Layer: 7
+  m_Layer: 4
   m_Name: Plane
   m_TagString: Water
   m_Icon: {fileID: 0}

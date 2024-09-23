@@ -27,6 +27,7 @@ public class StateController : MonoBehaviour
 
     void Update(){
         currentState.OnUpdate(this);
+        Debug.Log("Current State: " + currentState);
     }
 
     public void ChangeState(NPCBaseState newState){

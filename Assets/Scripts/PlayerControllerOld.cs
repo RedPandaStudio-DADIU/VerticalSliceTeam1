@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerOld : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private float freeRockRange = 15f;
     private bool isGrounded;
     private bool canDoubleJump = false; 
-    private GameObject closeByRockSet = null;
 
     private Vector3 moveDirection;
     private Rigidbody playerRigidbody;
@@ -33,8 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
-    // private float collisionRadius = 10f;
-    private bool pressedInteraction = false;
+    private float collisionRadius = 10f;
 
 
     private void Start()
@@ -42,6 +40,8 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         circlesManager = FindObjectOfType<CirclesManager>();
         rockManager = FindObjectOfType<RockManager>();
+       
+    
     }
 
     private void Update()
@@ -69,29 +69,28 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.T) && !pressedInteraction){
-            pressedInteraction = true;
-        }
-        if(Input.GetKeyUp(KeyCode.T) && pressedInteraction){
-            pressedInteraction = false;
-        }
-
-        if(pressedInteraction && !isCarryingRock){
-            PickupRock();
-        } else if (pressedInteraction && isCarryingRock && currentRock!=null && closeByRockSet != null){
-            PlaceRock();
-        }
 
         // Handle picking up and placing rocks
-        // TODO - fix the rock positioning
-        if (isCarryingRock && pressedInteraction)
+        if (isCarryingRock && Input.GetKeyDown(KeyCode.T))
         {
             if (currentFreeRockIndex != -1)
             {
                 PlaceFreeRock();  
             }
-            
-        }else if (!isCarryingRock && currentFreeRockIndex != -1 && pressedInteraction)
+            else
+            {
+                PlaceRock();  
+            }
+        }
+        // else if (!isCarryingRock && currentRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
+        // {
+        //     PickupRock();
+        // }
+        else if (!isCarryingRock && Input.GetKeyDown(KeyCode.T))
+        {
+            PickupRock();
+        }
+        else if (!isCarryingRock && currentFreeRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
         {
             PickupFreeRock();
         }
@@ -130,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
         // Calculate the direction to move based on camera's orientation
         moveDirection = (forward * moveZ + right * moveX).normalized;
-    }
+     }
 
 
     private void MovePlayer()
@@ -173,43 +172,85 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Current pick rock index: " + currentRockIndex);           
             if (currentRock != null && !isCarryingRock)
             {
-                ResetRockSet();
                 isCarryingRock = true;
                 currentRock.GetComponent<Rigidbody>().isKinematic = true; // Make rock float
                 Debug.Log("Picked up the rock: " + currentRock.name);
-            }
-        }
-    }   
-
-    private void ResetRockSet(){
-        if (currentRock.transform.position.y == rockPosHeight){
-            foreach (KeyValuePair<GameObject, bool> rockSetEntry in rockManager.rockSetsDict){
-
-                Vector3 position = rockSetEntry.Key.transform.position;
-                
-                // TODO - possibly add offset 
-                if (position.x == currentRock.transform.position.x && position.z == currentRock.transform.position.z) 
-                {
-                    rockManager.rockSetsDict[rockSetEntry.Key] = false;
-                    break;
-                }
-
             }
         }
     }
 
     private void PlaceRock()
     {
-        if(rockManager.rockSetsDict.ContainsKey(closeByRockSet) && !rockManager.rockSetsDict[closeByRockSet]){
-            currentRock.transform.position = new Vector3(closeByRockSet.transform.position.x, rockPosHeight ,closeByRockSet.transform.position.z); 
-            currentRock.GetComponent<Rigidbody>().isKinematic = false;  
-            isCarryingRock = false;
-            currentRock = null;
-            rockManager.rockSetsDict[closeByRockSet] = true;
-            currentRockIndex = -1;
-            currentRockSetIndex = -1;
-        }
-        
+            if(isCarryingRock && currentRock != null){
+                Debug.LogWarning("Placing the rock");
+                foreach(KeyValuePair<GameObject, bool> rockDictEntry in rockManager.GetDictRockSets()){
+                    Collider[] colliders = Physics.OverlapSphere(rockDictEntry.Key.transform.position, collisionRadius);
+                    int index = Array.IndexOf(colliders, rockDictEntry.Key.GetComponent<Collider>());
+                    if (index != -1 && !rockDictEntry.Value){
+                        currentRock.transform.position = new Vector3(rockDictEntry.Key.transform.position.x, rockPosHeight ,rockDictEntry.Key.transform.position.z); 
+                        currentRock.GetComponent<Rigidbody>().isKinematic = false;  
+                        isCarryingRock = false;
+                        currentRock = null;
+                        currentRockIndex = -1;
+                        currentRockSetIndex = -1;
+                        rockManager.GetDictRockSets()[rockDictEntry.Key] = true;
+                        break;
+                    }
+
+                }
+            }
+
+
+
+            // if(isCarryingRock && currentRock != null){
+            //     foreach(GameObject rockSet in rockManager.GetAllRockSets()){
+            //         Collider[] colliders = Physics.OverlapSphere(rockSet.transform.position, collisionRadius);
+            //         int index = Array.IndexOf(colliders, rockSet.GetComponent<Collider>());
+            //         if (index != -1){
+            //             currentRock.transform.position = new Vector3(rockSet.transform.position.x, rockPosHeight ,rockSet.transform.position.z); 
+            //             currentRock.GetComponent<Rigidbody>().isKinematic = false;  
+            //             isCarryingRock = false;
+            //             currentRock = null;
+            //             currentRockIndex = -1;
+            //             currentRockSetIndex = -1;
+            //             break;
+            //         }
+
+            //     }
+            // }
+
+            
+
+            // //GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
+            // GameObject rockSet = rockManager.GetRockSet(currentRockSetIndex);
+          
+            // Debug.Log("Current rock index: " + currentRockIndex);
+            // Debug.Log("Attempting to place rock with index: " + currentRockIndex);
+
+            // Debug.Log("Rock set found: " + (rockSet != null ? rockSet.name : "null"));
+
+            
+            // if (rockManager != null)
+            // {
+            //     //GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
+            //     if (rockSet != null && rockManager.IsMatchingRockAndSet(currentRockIndex, currentRockSetIndex))
+            //     {
+            //         // currentRock.transform.position = rockSet.transform.position; // Place rock on rock set
+            //         currentRock.transform.position = new Vector3(rockSet.transform.position.x, rockPosHeight ,rockSet.transform.position.z); // Place rock on rock set
+
+            //         currentRock.GetComponent<Rigidbody>().isKinematic = false;  // Disable floating
+            //         isCarryingRock = false;
+            //         currentRock = null;
+            //         currentRockIndex = -1; // Reset the rock index after placing the rock
+            //         Debug.Log("Placed rock on: " + rockSet.name);
+            //         currentRockSetIndex = -1; // Reset the rock set index after placing the rock
+                
+            //     }
+            //     else
+            //     {
+            //         Debug.Log("Rock and RockSet do not match.");
+            //     }
+            // }
     }
     
     private void PickupFreeRock()
@@ -274,7 +315,6 @@ public class PlayerController : MonoBehaviour
             {
                 currentRockSetIndex = rockSetIndex; // Store the rock set index
                 Debug.Log("Player near rock set: " + other.gameObject.name);
-                closeByRockSet = other.gameObject;
             }
     }
 
@@ -318,9 +358,9 @@ private void OnTriggerExit(Collider other)
         currentRockSetIndex = -1; // Reset the rock set index
         currentRockIndex = -1;  
         Debug.Log("Player exited rock set area: " + other.gameObject.name);
-        closeByRockSet = null;
-
     }
 }
+
+
 
 }
