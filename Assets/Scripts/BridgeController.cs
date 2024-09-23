@@ -10,6 +10,7 @@ public class BridgeController : MonoBehaviour
     private int noOfCollidingRockSets = 0;
     private int noOfCollidingRocks = 0;
     private StateController stateController;
+    private bool pathRecalculated = false;
 
     void Start(){
         stateController = FindObjectOfType<StateController>();
@@ -17,8 +18,9 @@ public class BridgeController : MonoBehaviour
 
     void Update()
     {
-        if (noOfCollidingRocks == noOfCollidingRockSets){
+        if (noOfCollidingRocks == noOfCollidingRockSets && !pathRecalculated){
             RecalculatePathForNPC();
+            pathRecalculated = true;
         }
     }
 
@@ -48,13 +50,11 @@ public class BridgeController : MonoBehaviour
 
     void RecalculatePathForNPC()
     {
-    if (!movingNPC.enabled)
-    {
-        movingNPC.enabled = true;
-        Vector3 currentDestination = movingNPC.destination;
-        movingNPC.ResetPath(); 
-        movingNPC.SetDestination(currentDestination); 
-        stateController.ChangeState(new MoveState());
-    }
+        if (!movingNPC.enabled){
+            movingNPC.enabled = true;
+            movingNPC.autoBraking = true; 
+            movingNPC.SetDestination(stateController.GetEndTransform().position);
+            stateController.ChangeState(new MoveState());
+        }
     }
 }

@@ -79,6 +79,18 @@ public class StateController : MonoBehaviour
     public NPCBaseState GetPreviousState(){
         return previousMoveState; 
     }
+
+    public void RecalculatePathForNPC()
+    {
+        if (!npc.enabled)
+        {
+            npc.enabled = true;
+            Vector3 currentDestination = npc.destination;
+            npc.ResetPath(); 
+            npc.SetDestination(currentDestination); 
+        }
+        
+    }
 }
 
 

@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private NavMeshAgent movingNPC;     
 
     private float rockPosHeight = 0.5f;    
-    private float freeRockRange = 15f;
+    private float freeRockRange = 25f;
     private bool isGrounded;
     private bool canDoubleJump = false; 
     private GameObject closeByRockSet = null;
@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
     // private float collisionRadius = 10f;
-    private bool pressedInteraction = false;
+    // private bool pressedInteraction = false;
+    private StateController stateController;
 
 
     private void Start()
@@ -42,77 +43,19 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         circlesManager = FindObjectOfType<CirclesManager>();
         rockManager = FindObjectOfType<RockManager>();
+        stateController = FindObjectOfType<StateController>();
+        freeRockRange = 25f;
     }
 
     private void Update()
     {
         ProcessInputs();
         MovePlayer();
-
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded)
-        {
-            canDoubleJump = true;
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isGrounded)
-            {
-                Jump(); 
-            }
-            else if (canDoubleJump)
-            {
-                Jump(); 
-                canDoubleJump = false; // Reset double jump
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.T) && !pressedInteraction){
-            pressedInteraction = true;
-        }
-        if(Input.GetKeyUp(KeyCode.T) && pressedInteraction){
-            pressedInteraction = false;
-        }
-
-        if(pressedInteraction && !isCarryingRock){
-            PickupRock();
-        } else if (pressedInteraction && isCarryingRock && currentRock!=null && closeByRockSet != null){
-            PlaceRock();
-        }
-
-        // Handle picking up and placing rocks
-        // TODO - fix the rock positioning
-        if (isCarryingRock && pressedInteraction)
-        {
-            if (currentFreeRockIndex != -1)
-            {
-                PlaceFreeRock();  
-            }
-            
-        }else if (!isCarryingRock && currentFreeRockIndex != -1 && pressedInteraction)
-        {
-            PickupFreeRock();
-        }
-
-        // Disable all circle interaction if carrying a rock
-        if (isCarryingRock)
-        {
-            circlesManager.SetCircleInteraction(false);
-        }
-        else
-        {
-            circlesManager.SetCircleInteraction(true);
-        }
-
-        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
-        {
-            circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
-            Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
-        }
-
+        CheckJumping();
+        HandleRocks();
+        DisableCircles();
     }
+
 
     private void ProcessInputs()
     {
@@ -158,6 +101,28 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void CheckJumping(){
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded)
+        {
+            canDoubleJump = true;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded)
+            {
+                Jump(); 
+            }
+            else if (canDoubleJump)
+            {
+                Jump(); 
+                canDoubleJump = false; // Reset double jump
+            }
+        }
+    }
+
     private void Jump()
     {
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
@@ -165,10 +130,25 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Jump");
     }
 
+    private void HandleRocks(){
+        if(Input.GetKeyDown(KeyCode.T)){
+            if(!isCarryingRock){
+                if(currentRockIndex != -1){
+                    PickupRock();
+                } else if (currentFreeRockIndex!= -1){
+                    PickupFreeRock();
+                }
+            } else if (isCarryingRock && currentRockIndex!=-1 && closeByRockSet != null){
+                PlaceRock();
+            } else if(isCarryingRock && currentFreeRockIndex != -1){
+                PlaceFreeRock();
+            }
+        }
+    }
+
     private void PickupRock()
     {
-        if (rockManager != null)
-        {
+        if (rockManager != null){
             currentRock = rockManager.GetRock(currentRockIndex);
             Debug.Log("Current pick rock index: " + currentRockIndex);           
             if (currentRock != null && !isCarryingRock)
@@ -223,6 +203,9 @@ public class PlayerController : MonoBehaviour
                 currentRock.GetComponent<Rigidbody>().isKinematic = true;
                 Debug.Log("Picked up the free rock: " + currentRock.name);
       
+                if(stateController.GetCurrentState() is IdleState){
+                    stateController.RecalculatePathForNPC();
+                }
             }
         }
     }
@@ -238,8 +221,30 @@ public class PlayerController : MonoBehaviour
             isCarryingRock = false;
             currentRock = null;
             currentFreeRockIndex = -1;
+            Debug.LogWarning("HERE in if rock?");
+
         }
     }
+
+    private void DisableCircles(){
+        // Disable all circle interaction if carrying a rock
+        if (isCarryingRock)
+        {
+            circlesManager.SetCircleInteraction(false);
+        }
+        else
+        {
+            circlesManager.SetCircleInteraction(true);
+        }
+
+        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
+        {
+            circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
+            Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
+        }
+
+    }
+
 
     // Detect when the player enters the circle
     private void OnTriggerEnter(Collider other)
