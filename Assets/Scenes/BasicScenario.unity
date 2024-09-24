@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 463550992}
   - component: {fileID: 463550991}
   - component: {fileID: 463550996}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: RockMove2
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -6906,7 +6906,7 @@ GameObject:
   - component: {fileID: 1426938628}
   - component: {fileID: 1426938629}
   - component: {fileID: 1426938630}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: RockMove
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -7261,7 +7261,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -8163,7 +8163,7 @@ SceneRoots:
   - {fileID: 317667826}
   - {fileID: 1426714919}
   - {fileID: 2069919924}
-  - {fileID: 3637498687734600827}
   - {fileID: 1078975164}
   - {fileID: 1251273459}
   - {fileID: 514018700}
+  - {fileID: 604358753}
