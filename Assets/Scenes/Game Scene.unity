@@ -10714,7 +10714,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996587027}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -10731,7 +10731,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!1001 &1007930191
 PrefabInstance:
@@ -10892,7 +10892,7 @@ GameObject:
   - component: {fileID: 1021841540}
   - component: {fileID: 1021841542}
   - component: {fileID: 1021841541}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15722,7 +15722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466419555}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Landscape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21011,13 +21011,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942463091}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c29769de4b599341ba8fdb2f6d183f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 852984876}
-  distance: 5
+  distance: 3
   height: 3
   cameraSpeed: 10
   sensitivityX: 4
