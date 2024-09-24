@@ -3,6 +3,7 @@ using UnityEngine.AI;
 using System;
 using System.Collections.Generic;
 
+using AK.Wwise;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,12 +11,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 7f;  // Jump force for player
     [SerializeField] private Transform groundCheck; 
-    [SerializeField] private float groundDistance = 0.7f;
-    [SerializeField] private LayerMask groundMask; 
     [SerializeField] private NavMeshAgent movingNPC;     
 
     private float rockPosHeight = 0.5f;    
     private float freeRockRange = 25f;
+    [SerializeField] private float groundDistance = 0.4f;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private AK.Wwise.Event footstepsEvent;
+    [SerializeField] private AK.Wwise.Switch footstepsSwitchGrass;
+    [SerializeField] private AK.Wwise.Switch footstepsSwitchWood;
+    [SerializeField] private string soundBank = "soundbank_MAIN";
+
     private bool isGrounded;
     private bool canDoubleJump = false; 
     private GameObject closeByRockSet = null;
@@ -34,7 +40,9 @@ public class PlayerController : MonoBehaviour
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
     private StateController stateController;
+    private uint in_playingID;
 
+    private bool isPlaying = false;
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -45,6 +53,8 @@ public class PlayerController : MonoBehaviour
     
         stateController = FindObjectOfType<StateController>();
         freeRockRange = 25f;
+        AkSoundEngine.LoadBank(soundBank, out uint bankID);
+
     }
 
     private void Update()
@@ -83,8 +93,16 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        
         if (moveDirection.magnitude >= 0.1f)
         {
+            if (!isPlaying)
+            {
+                footstepsSwitchGrass.SetValue(gameObject);
+                isPlaying = true;
+                in_playingID = footstepsEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnSoundEnd);
+            }
+
             Vector3 moveVelocity = moveDirection * moveSpeed;
             playerRigidbody.velocity = new Vector3(moveVelocity.x, playerRigidbody.velocity.y, moveVelocity.z);
 
@@ -95,6 +113,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            isPlaying = false;
+            AkSoundEngine.StopPlayingID(in_playingID);
             playerRigidbody.velocity = new Vector3(0, playerRigidbody.velocity.y, 0); // Stop movement when no input
         }
 
@@ -125,6 +145,14 @@ public class PlayerController : MonoBehaviour
                 Jump(); 
                 canDoubleJump = false; // Reset double jump
             }
+        }
+    }
+
+    private void OnSoundEnd(object spirit, AkCallbackType type, AkCallbackInfo info)
+    {
+        if(type == AkCallbackType.AK_EndOfEvent)
+        {
+            isPlaying = false;
         }
     }
 

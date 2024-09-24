@@ -3,7 +3,323 @@
 	<AudioObjects>
 		<WorkUnit Name="Spirit_Player" ID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}" PersistMode="Standalone">
 			<ChildrenList>
-				<SwitchContainer Name="spirit_footsteps_SW" ID="{9F5FE9F4-A880-4A56-BABA-FE9F476CE39C}" ShortID="417057846">
+				<SwitchContainer Name="Footsteps_spirit_SW" ID="{2C489323-CD58-4660-9B59-67F8E1876A02}" ShortID="226109367">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="Wood" ID="{34D5CAE0-FA74-40C0-A58D-2421B748E0A2}" WorkUnitID="{60BED399-FE18-4E62-A8C8-FDB25D5D320B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="Footsteps_SW" ID="{BE6D3F4A-F8BE-4C86-BB7E-3E31CE83F8D2}" WorkUnitID="{60BED399-FE18-4E62-A8C8-FDB25D5D320B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Footsteps_spirit_grass" ID="{CBE97511-F364-4640-A3B7-818867E20977}" ShortID="312250723">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B5115887-1829-46F1-A905-F4B28DC64BE6}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="682"/>
+													<Property Name="Min" Type="Real64" Value="-278"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="FS_Spirit_grass_3" ID="{56A3FF0E-B750-4C16-B23B-D011FF152232}" ShortID="235494798">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{0E5C89B7-404A-4286-866B-C3B2E4F66706}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_3" ID="{7CFF9BCD-5B09-46C4-A48A-82F134B127DC}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1019385149"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_3" ID="{7CFF9BCD-5B09-46C4-A48A-82F134B127DC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="FS_Spirit_grass_1" ID="{7B9546A8-8287-45E9-B1B2-7B634FC8D0C9}" ShortID="327248732">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{5971EC1E-4033-4B68-A389-B87045B074E6}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_1" ID="{D396497C-8F32-4A2C-8279-20E14768617E}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="517003019"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_1" ID="{D396497C-8F32-4A2C-8279-20E14768617E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="FS_Spirit_grass_2" ID="{BBD5005F-AD3F-4DE2-A8CE-E13D700AAAE7}" ShortID="818570653">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{048E1ECB-7C2F-43BF-8804-50A6FE5B3E70}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_2" ID="{42EC2003-302E-4943-A197-5D41BCF43888}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="277534849"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_2" ID="{42EC2003-302E-4943-A197-5D41BCF43888}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="FS_Spirit_grass_4" ID="{9396C3AE-4C00-4ED6-A26E-024DEFB8B22A}" ShortID="547459862">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{82E61732-1E01-4DF1-90B2-8D23EE4C8DCA}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_4" ID="{CFC0E106-825A-40BB-A580-DFDEFA041035}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="698900304"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_4" ID="{CFC0E106-825A-40BB-A580-DFDEFA041035}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Footsteps_spirit_wood" ID="{D8EED895-9445-4AF3-AC67-E0F48CD888FE}" ShortID="605669196">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{074DE237-2B6F-4C7D-8FA9-F61392E90437}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="277"/>
+													<Property Name="Min" Type="Real64" Value="-152"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="FS_Spirit_wood_3" ID="{904AFBCB-4497-4C24-8DDB-55711065149D}" ShortID="78993145">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_wood_3" ID="{0A9A4384-6B3E-49CF-8E67-A843FAF296E3}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_wood_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="389824459"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_wood_3" ID="{0A9A4384-6B3E-49CF-8E67-A843FAF296E3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="FS_Spirit_wood_4" ID="{37E8EF53-2D9B-450F-B897-A0F21E9FB0CC}" ShortID="780599528">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_wood_4" ID="{2B07BA70-FBAD-4F95-8958-14BF6942EB57}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_wood_4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="114548734"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_wood_4" ID="{2B07BA70-FBAD-4F95-8958-14BF6942EB57}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="FS_Spirit_wood_1" ID="{1C384114-AFC1-4155-B201-295E3B4C7119}" ShortID="515481563">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_wood_1" ID="{B1880AE3-687E-4179-AC16-02D1FDEB8CB4}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_wood_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="981129124"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_wood_1" ID="{B1880AE3-687E-4179-AC16-02D1FDEB8CB4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="FS_Spirit_wood_2" ID="{8AB9DEA9-E0F1-4FF5-9A85-DFF059DDDF1D}" ShortID="68112226">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_wood_2" ID="{16AC14C9-8D16-41C8-9383-B325BC64E2ED}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_wood_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="873667171"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_wood_2" ID="{16AC14C9-8D16-41C8-9383-B325BC64E2ED}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Footsteps_spirit_grass" ID="{CBE97511-F364-4640-A3B7-818867E20977}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Footsteps_spirit_wood" ID="{D8EED895-9445-4AF3-AC67-E0F48CD888FE}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="Wood" ID="{34D5CAE0-FA74-40C0-A58D-2421B748E0A2}"/>
+								<ItemList>
+									<ItemRef Name="Footsteps_spirit_wood" ID="{D8EED895-9445-4AF3-AC67-E0F48CD888FE}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="Grass" ID="{48E4A0EB-A378-449C-A92A-391A2854C0F0}"/>
+								<ItemList>
+									<ItemRef Name="Footsteps_spirit_grass" ID="{CBE97511-F364-4640-A3B7-818867E20977}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="Jump_Spirit_SW" ID="{1DCEFD06-BEB7-40D3-B41E-B1D2E8298768}" ShortID="667334310">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
@@ -12,8 +328,170 @@
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
 						</Reference>
 					</ReferenceList>
-					<GroupingInfo/>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Jump_Spirit" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}" ShortID="513130721">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{121E1D0E-FBA5-4190-B5DD-C35C45CC59C0}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="50"/>
+													<Property Name="Min" Type="Real64" Value="-50"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Spirit_jump" ID="{F0A4C8DB-D65F-4035-8527-36ABCF5BAD78}" ShortID="999467317">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_jump" ID="{C36EE37E-3265-4CD0-B299-80FCB437349A}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_jump.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="460389106"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_jump" ID="{C36EE37E-3265-4CD0-B299-80FCB437349A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}" ShortID="497479631">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="FS_Spirit_land" ID="{4DC3869D-E400-43AD-89C5-A43A1185807F}" ShortID="926082926">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FS_Spirit_land" ID="{1B6D6B67-508A-4291-9A67-E7F0205E21E9}">
+											<Language>SFX</Language>
+											<AudioFile>FS_Spirit_land.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="556107957"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="FS_Spirit_land" ID="{1B6D6B67-508A-4291-9A67-E7F0205E21E9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Jump_Spirit" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+					</GroupingInfo>
 				</SwitchContainer>
+				<RandomSequenceContainer Name="Lift_rock_spirit" ID="{1A4AD56A-34EC-4D82-84AF-EA340BBAB7BD}" ShortID="542689504">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Spirit_lift_Rock" ID="{28548DF9-6BD9-49C1-91C6-F726B054BA3F}" ShortID="843758592">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Spirit_lift_Rock" ID="{6FECAB2A-0197-4B0E-9718-0D23F94ED4A8}">
+									<Language>SFX</Language>
+									<AudioFile>Spirit_lift_Rock.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="471097908"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Spirit_lift_Rock" ID="{6FECAB2A-0197-4B0E-9718-0D23F94ED4A8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="put_down_rock_spirit" ID="{67878402-106D-41D5-A55A-98477BC90EDD}" ShortID="415638734">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Spirit_put_down_Rock" ID="{A933164F-845A-4089-91C3-ED666919D846}" ShortID="75396203">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Spirit_put_down_Rock" ID="{1DA6C20C-6B34-4D89-8804-482981204609}">
+									<Language>SFX</Language>
+									<AudioFile>Spirit_put_down_Rock.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="690589593"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Spirit_put_down_Rock" ID="{1DA6C20C-6B34-4D89-8804-482981204609}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

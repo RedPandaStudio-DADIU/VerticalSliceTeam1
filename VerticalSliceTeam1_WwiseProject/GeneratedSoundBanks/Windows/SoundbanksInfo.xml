@@ -9,6 +9,76 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{DF68BD9A-2EAF-1286-F965-58B19CDD83CA}">
+			<ShortName>soundbank_MAIN</ShortName>
+			<Path>soundbank_MAIN.bnk</Path>
+			<Media>
+				<File Id="114548734" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_wood_4.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="277534849" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_2.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="389824459" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_wood_3.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="517003019" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_1.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="698900304" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_4.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="873667171" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_wood_2.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="981129124" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_wood_1.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_wood_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1019385149" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_3.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_3_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="Mixed" DurationMin="2.7694633" DurationMax="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1724755387" Id="2058049674" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="114548734"/>
+								<MediaRef Id="389824459"/>
+								<MediaRef Id="873667171"/>
+								<MediaRef Id="981129124"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1724755387" Id="4248645337"/>
+							<MediaRefs>
+								<MediaRef Id="277534849"/>
+								<MediaRef Id="517003019"/>
+								<MediaRef Id="698900304"/>
+								<MediaRef Id="1019385149"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="1724755387" Name="Footsteps_SW">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="4248645337" Name="Grass"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
 		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6CBD692-12EC-CDBA-0932-48F63C40C91F}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +91,15 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<SwitchGroups>
+				<SwitchGroup Id="1724755387" Name="Footsteps_SW">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="4248645337" Name="Grass"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{65ACD701-C344-9E7E-4B1A-A247DBAA44A3}</FileHash>
+	<FileHash>{09069041-0AAD-4C1E-CABE-DD587D177572}</FileHash>
 </SoundBanksInfo>
