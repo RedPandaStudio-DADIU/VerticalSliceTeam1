@@ -3,7 +3,67 @@ guid: 0da753553a5556442adee172fefd8711
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Belt_buckle
+    second: {fileID: 2100000, guid: 3a6308440754f5e409b60bfe66a91158, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gloves
+    second: {fileID: 2100000, guid: aa968198abfc04e4394d3da2c077e194, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mug_metal
+    second: {fileID: 2100000, guid: 3a6308440754f5e409b60bfe66a91158, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mug_wood
+    second: {fileID: 2100000, guid: 0b6bb69c526f0bd4aaf04c2484b5689a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: d35d4dfd6cd6bbc418efaa27ccf4cfd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt
+    second: {fileID: 2100000, guid: 18aae5352468d7649a5a0216680bf115, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt_arms
+    second: {fileID: 2100000, guid: d00489ce5fe17b24191e3516e411da1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt_neck
+    second: {fileID: 2100000, guid: b18ee73ed8bb7b94f885576dec152441, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 96105da7a371e614281a27b9e62766fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyeballs
+    second: {fileID: 2100000, guid: aee81727adec37e4b9d8f0c0cefeeab1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair
+    second: {fileID: 2100000, guid: df6eb3ce4fc960f449d0e2df251001d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pupils
+    second: {fileID: 2100000, guid: 756e8011ff2fe94418788de9b1ec3435, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
