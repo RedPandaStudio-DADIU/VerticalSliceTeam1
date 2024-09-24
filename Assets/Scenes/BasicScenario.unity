@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 262457426}
   - component: {fileID: 262457428}
   - component: {fileID: 262457429}
+  - component: {fileID: 262457430}
   m_Layer: 9
   m_Name: spirit
   m_TagString: Player
@@ -394,6 +395,22 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  footstepsEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5e5dc687ac82d4196b06a2d12f790225, type: 2}
+  footstepsSwitchGrass:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9496478d4d87b4a38b488eaf4761ba14, type: 2}
+  footstepsSwitchWood:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6eaed39bf86ce41bc84f2570f3c77e02, type: 2}
   cameraTransform: {fileID: 1594016096}
 --- !u!4 &262457427
 Transform:
@@ -460,6 +477,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.86, y: 6.16, z: 1.71}
   m_Center: {x: 0.2, y: 0.03, z: -0}
+--- !u!114 &262457430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262457425}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11491f3273e094debb263bf7db2d962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundBank: soundbank_MAIN
+  soundEvent: Spirit_Footsteps
 --- !u!1001 &272576105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1042,6 +1073,52 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.019168196, y: 0.019167997, z: 0.0042161816}
   m_Center: {x: -0.0000002719462, y: 0.00000094389526, z: -0.0040690675}
+--- !u!1 &604358751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 604358753}
+  - component: {fileID: 604358752}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &604358752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604358751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11491f3273e094debb263bf7db2d962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundBank: soundbank_MAIN
+  soundEvent: Spirit_Footsteps
+--- !u!4 &604358753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604358751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699406186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d263b4fa38607742a5c3f92d38b03fe, type: 3}
@@ -12771,3 +12848,4 @@ SceneRoots:
   - {fileID: 2069919924}
   - {fileID: 1343448917}
   - {fileID: 1078975164}
+  - {fileID: 604358753}

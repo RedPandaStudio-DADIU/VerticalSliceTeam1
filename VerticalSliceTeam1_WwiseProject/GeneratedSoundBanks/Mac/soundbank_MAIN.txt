@@ -1,6 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1695590886	Spirit_Footsteps			\Spirit_event\Spirit_Footsteps	
-	3354084993	spirit_Laugh_play			\Spirit_event\spirit_Laugh_play	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	1724755387	Footsteps_SW			\Default Work Unit\Footsteps\Footsteps_SW	

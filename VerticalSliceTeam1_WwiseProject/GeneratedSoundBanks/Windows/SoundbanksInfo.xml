@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{4F4509F1-961D-89AE-6001-16146A749BA3}">
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{DF68BD9A-2EAF-1286-F965-58B19CDD83CA}">
 			<ShortName>soundbank_MAIN</ShortName>
 			<Path>soundbank_MAIN.bnk</Path>
 			<Media>
@@ -47,7 +47,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="OneShot" DurationMin="2.191785" DurationMax="4.6967626">
+				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="Mixed" DurationMin="2.7694633" DurationMax="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1724755387" Id="2058049674" Default="true"/>
@@ -69,7 +69,6 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="3354084993" Name="spirit_Laugh_play" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<SwitchGroups>
 				<SwitchGroup Id="1724755387" Name="Footsteps_SW">
@@ -102,5 +101,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{976213C3-89A2-AA0B-1528-536BFFF8EE73}</FileHash>
+	<FileHash>{09069041-0AAD-4C1E-CABE-DD587D177572}</FileHash>
 </SoundBanksInfo>

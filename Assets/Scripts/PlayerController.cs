@@ -1,4 +1,5 @@
 using UnityEngine;
+using AK.Wwise;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,8 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 7f;  // Jump force for player
     [SerializeField] private Transform groundCheck; 
     [SerializeField] private float groundDistance = 0.4f;
-    [SerializeField] private LayerMask groundMask; 
-    
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private AK.Wwise.Event footstepsEvent;
+    [SerializeField] private AK.Wwise.Switch footstepsSwitchGrass;
+    [SerializeField] private AK.Wwise.Switch footstepsSwitchWood;
+    [SerializeField] private string soundBank = "soundbank_MAIN";
+
+
     private float freeRockRange = 15f;
     private bool isGrounded;
     private bool canDoubleJump = false; 
@@ -26,14 +32,16 @@ public class PlayerController : MonoBehaviour
 
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
+    private uint in_playingID;
 
+    private bool isPlaying = false;
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         circlesManager = FindObjectOfType<CirclesManager>();
         rockManager = FindObjectOfType<RockManager>();
-       
-    
+        AkSoundEngine.LoadBank(soundBank, out uint bankID);
+
     }
 
     private void Update()
@@ -121,8 +129,16 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        
         if (moveDirection.magnitude >= 0.1f)
         {
+            if (!isPlaying)
+            {
+                footstepsSwitchGrass.SetValue(gameObject);
+                isPlaying = true;
+                in_playingID = footstepsEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnSoundEnd);
+            }
+
             Vector3 moveVelocity = moveDirection * moveSpeed;
             playerRigidbody.velocity = new Vector3(moveVelocity.x, playerRigidbody.velocity.y, moveVelocity.z);
 
@@ -133,6 +149,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            isPlaying = false;
+            AkSoundEngine.StopPlayingID(in_playingID);
             playerRigidbody.velocity = new Vector3(0, playerRigidbody.velocity.y, 0); // Stop movement when no input
         }
 
@@ -142,6 +160,15 @@ public class PlayerController : MonoBehaviour
             currentRock.transform.position = transform.position + transform.right * -2.5f + transform.forward * -2f; // Behind and to the side
         }
 
+    }
+
+
+    private void OnSoundEnd(object spirit, AkCallbackType type, AkCallbackInfo info)
+    {
+        if(type == AkCallbackType.AK_EndOfEvent)
+        {
+            isPlaying = false;
+        }
     }
 
     private void Jump()
