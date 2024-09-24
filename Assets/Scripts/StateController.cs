@@ -9,6 +9,8 @@ public class StateController : MonoBehaviour
     [Header("NPC AI settings")]
     [SerializeField] private Transform end;
     [SerializeField] private Transform start;
+    [SerializeField] private Animator NpcAnimator;
+
 
     // private AudioSource npcVoice;
     private NPCBaseState currentState;
@@ -90,6 +92,10 @@ public class StateController : MonoBehaviour
             npc.SetDestination(currentDestination); 
         }
         
+    }
+
+    public Animator GetNpcAnimator(){
+        return NpcAnimator;
     }
 }
 

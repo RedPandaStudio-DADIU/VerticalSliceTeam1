@@ -6,6 +6,8 @@ public class SpeakState : NPCBaseState
 {
     private bool startedPlaying = false;
     public override void OnEnter(StateController controller){
+        controller.GetNpcAnimator().SetBool("isSpeaking", true);
+
         // AudioSource voice = controller.GetNpcVoice();
         // if(!voice.isPlaying){
         //     voice.Play();
@@ -18,12 +20,15 @@ public class SpeakState : NPCBaseState
         // AudioSource voice = controller.GetNpcVoice();
         // if (startedPlaying && !voice.isPlaying){
         if (startedPlaying){
+            // controller.GetNpcAnimator().SetBool("isSpeaking", false);
             controller.ChangeState(new IdleState());
         }
     }
 
     public override void OnExit(StateController controller){
         Debug.Log("Existng Speak");
+        controller.GetNpcAnimator().SetBool("isSpeaking", false);
+
     }
 
     public override void OnCollisionEnter(StateController controller, Collision other){

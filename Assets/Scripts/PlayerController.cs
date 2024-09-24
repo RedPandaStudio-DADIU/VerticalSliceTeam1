@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Switch footstepsSwitchGrass;
     [SerializeField] private AK.Wwise.Switch footstepsSwitchWood;
     [SerializeField] private string soundBank = "soundbank_MAIN";
+    private Animator spiritAnimator;
+
 
     private bool isGrounded;
     private bool canDoubleJump = false; 
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
         freeRockRange = 25f;
         AkSoundEngine.LoadBank(soundBank, out uint bankID);
         rockPosHeight = 5.5f;
+        spiritAnimator = GetComponent<Animator>();
 
     }
 
@@ -84,7 +87,7 @@ public class PlayerController : MonoBehaviour
         // Get the camera's forward and right vectors
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-
+            
         // Ensure forward and right vectors are aligned to the ground (Y-axis)
         forward.y = 0f;
         right.y = 0f;
@@ -93,6 +96,8 @@ public class PlayerController : MonoBehaviour
 
         // Calculate the direction to move based on camera's orientation
         moveDirection = (forward * moveZ + right * moveX).normalized;
+        spiritAnimator.SetBool("isMoving",  moveDirection.magnitude >= 0.1f);
+
     }
 
 
@@ -120,6 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             isPlaying = false;
             AkSoundEngine.StopPlayingID(in_playingID);
+            spiritAnimator.SetBool("isMoving", false);
             playerRigidbody.velocity = new Vector3(0, playerRigidbody.velocity.y, 0); // Stop movement when no input
         }
 
@@ -137,17 +143,20 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             canDoubleJump = true;
-        }
+            spiritAnimator.SetBool("isJumping", false);
 
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
             {
+                spiritAnimator.SetBool("isJumping", true);
                 Jump(); 
             }
             else if (canDoubleJump)
             {
+                spiritAnimator.SetBool("isJumping", true);
                 Jump(); 
                 canDoubleJump = false; // Reset double jump
             }
@@ -173,14 +182,18 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.T)){
             if(!isCarryingRock){
                 if(currentRockIndex != -1){
+                    spiritAnimator.SetBool("isInteracting", true);
                     PickupRock();
                 } else if (currentFreeRockIndex!= -1){
+                    spiritAnimator.SetBool("isInteracting", true);
                     PickupFreeRock();
                 }
             // } else if (isCarryingRock && currentRockIndex!=-1 && closeByRockSet != null){
             } else if (isCarryingRock && currentRockIndex!=-1){
+                spiritAnimator.SetBool("isInteracting", false);
                 PlaceRock();
             } else if(isCarryingRock && currentFreeRockIndex != -1){
+                spiritAnimator.SetBool("isInteracting", false);
                 PlaceFreeRock();
             }
         }
@@ -307,8 +320,11 @@ public class PlayerController : MonoBehaviour
 
         if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
         {
+            spiritAnimator.SetBool("isInteracting", true);
             circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
             Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
+            spiritAnimator.SetBool("isInteracting", false);
+
         }
 
     }

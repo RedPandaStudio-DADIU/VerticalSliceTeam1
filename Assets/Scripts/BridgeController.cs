@@ -18,7 +18,9 @@ public class BridgeController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Num of colliding rockSets: " + noOfCollidingRockSets + ", Num of colliding rocks: " + noOfCollidingRocks);
         if (noOfCollidingRocks == noOfCollidingRockSets && !pathRecalculated){
+            Debug.LogWarning("Recalculating path");
             RecalculatePathForNPC();
             pathRecalculated = true;
         }
@@ -36,7 +38,7 @@ public class BridgeController : MonoBehaviour
     {
         if (other.CompareTag("Rock"))
         {
-            noOfCollidingRocks++;
+            noOfCollidingRocks--;
         }
     }
 
