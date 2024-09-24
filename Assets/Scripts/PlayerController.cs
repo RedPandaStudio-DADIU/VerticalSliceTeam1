@@ -13,10 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck; 
     [SerializeField] private NavMeshAgent movingNPC;     
 
-    private float rockPosHeight = 0.5f;    
+    private float rockPosHeight = 5.5f;    
     private float freeRockRange = 25f;
+    private float bridgeRockRange = 200f;
+
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask bridgeMask;
+
     [SerializeField] private AK.Wwise.Event footstepsEvent;
     [SerializeField] private AK.Wwise.Switch footstepsSwitchGrass;
     [SerializeField] private AK.Wwise.Switch footstepsSwitchWood;
@@ -54,6 +58,7 @@ public class PlayerController : MonoBehaviour
         stateController = FindObjectOfType<StateController>();
         freeRockRange = 25f;
         AkSoundEngine.LoadBank(soundBank, out uint bankID);
+        rockPosHeight = 5.5f;
 
     }
 
@@ -128,6 +133,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckJumping(){
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    
         if (isGrounded)
         {
             canDoubleJump = true;
@@ -171,7 +177,8 @@ public class PlayerController : MonoBehaviour
                 } else if (currentFreeRockIndex!= -1){
                     PickupFreeRock();
                 }
-            } else if (isCarryingRock && currentRockIndex!=-1 && closeByRockSet != null){
+            // } else if (isCarryingRock && currentRockIndex!=-1 && closeByRockSet != null){
+            } else if (isCarryingRock && currentRockIndex!=-1){
                 PlaceRock();
             } else if(isCarryingRock && currentFreeRockIndex != -1){
                 PlaceFreeRock();
@@ -211,18 +218,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PlaceRock()
-    {
-        if(rockManager.rockSetsDict.ContainsKey(closeByRockSet) && !rockManager.rockSetsDict[closeByRockSet]){
-            currentRock.transform.position = new Vector3(closeByRockSet.transform.position.x, rockPosHeight ,closeByRockSet.transform.position.z); 
-            currentRock.GetComponent<Rigidbody>().isKinematic = false;  
-            isCarryingRock = false;
-            currentRock = null;
-            rockManager.rockSetsDict[closeByRockSet] = true;
-            currentRockIndex = -1;
-            currentRockSetIndex = -1;
-        }
+    // private void PlaceRock()
+    // {
+    //     if(rockManager.rockSetsDict.ContainsKey(closeByRockSet) && !rockManager.rockSetsDict[closeByRockSet]){
+    //         currentRock.transform.position = new Vector3(closeByRockSet.transform.position.x, rockPosHeight ,closeByRockSet.transform.position.z); 
+    //         currentRock.GetComponent<Rigidbody>().isKinematic = false;  
+    //         isCarryingRock = false;
+    //         currentRock = null;
+    //         rockManager.rockSetsDict[closeByRockSet] = true;
+    //         currentRockIndex = -1;
+    //         currentRockSetIndex = -1;
+    //     }
         
+    // }
+
+    private void PlaceRock(){
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, bridgeRockRange,bridgeMask))
+        {
+            if (hit.collider != null)
+            {
+
+                if (hit.collider.CompareTag("RockSet") && !rockManager.rockSetsDict[hit.collider.gameObject])
+                {
+                    Debug.Log("Rock position height: "+rockPosHeight);
+                    currentRock.transform.rotation = Quaternion.Euler(-90, 0, 0); 
+                    // currentRock.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, rockPosHeight ,hit.collider.gameObject.transform.position.z); 
+                    currentRock.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, rockPosHeight,hit.collider.gameObject.transform.position.z); 
+                    // currentRock.transform.position = new Vector3(currentRock.transform.position.x, 5.5f, currentRock.transform.position.z); 
+
+                    currentRock.GetComponent<Rigidbody>().isKinematic = false;  
+                    isCarryingRock = false;
+                    currentRock = null;
+                    rockManager.rockSetsDict[hit.collider.gameObject] = true;
+                    currentRockIndex = -1;
+                    currentRockSetIndex = -1;
+                }
+            }
+        }
     }
     
     private void PickupFreeRock()
