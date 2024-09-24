@@ -6,10 +6,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 7f;  // Jump force for player
     [SerializeField] private Transform groundCheck; 
-    [SerializeField] private float groundDistance = 0.4f;
+    [SerializeField] private float groundDistance = 0.7f;
     [SerializeField] private LayerMask groundMask; 
     
     private float freeRockRange = 15f;
+    [SerializeField] private LayerMask roadMask; 
+
+
     private bool isGrounded;
     private bool canDoubleJump = false; 
 
@@ -32,7 +35,8 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         circlesManager = FindObjectOfType<CirclesManager>();
         rockManager = FindObjectOfType<RockManager>();
-       
+        groundDistance = 0.7f;
+
     
     }
 
@@ -41,9 +45,16 @@ public class PlayerController : MonoBehaviour
         ProcessInputs();
         MovePlayer();
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded)
-        {
+        if(Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || Physics.CheckSphere(groundCheck.position, groundDistance, roadMask)){
+            isGrounded = true;
+        } else {
+            isGrounded = false;
+        }
+
+        Debug.Log("isGrounded check "+isGrounded);
+
+
+       if (isGrounded){
             canDoubleJump = true;
         }
 

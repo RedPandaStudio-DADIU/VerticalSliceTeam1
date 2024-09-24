@@ -13,11 +13,12 @@ TagManager:
   - RockSet
   - Rock
   - FreeRock
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - ground
+  - Ground
   - Water
   - UI
   - Road
@@ -25,7 +26,7 @@ TagManager:
   - Scare
   - Player
   - NPC
-  - 
+  - Postprocess
   - 
   - 
   - 
