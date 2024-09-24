@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Label tabindex="-1" text="name of the game" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 70%; height: 40px; -unity-font: resource(&apos;FlatSkin/Font/Roboto-Regular&apos;); font-size: 80%; -unity-text-align: upper-center; background-color: rgba(226, 203, 110, 0); left: 18%; top: 11%;" />
+    <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="start" enable-rich-text="true" style="width: 143px; visibility: visible; overflow: hidden; position: relative; left: 9%; top: 31%; bottom: auto; font-size: 40px;" />
+</ui:UXML>
