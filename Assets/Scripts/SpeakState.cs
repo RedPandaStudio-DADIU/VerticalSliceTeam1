@@ -6,17 +6,18 @@ public class SpeakState : NPCBaseState
 {
     private bool startedPlaying = false;
     public override void OnEnter(StateController controller){
-        AudioSource voice = controller.GetNpcVoice();
-        if(!voice.isPlaying){
-            voice.Play();
-            voice.volume = 1.0f;
-            Debug.Log("Playing"+ voice.clip.name);
-            startedPlaying = true;
-        }
+        // AudioSource voice = controller.GetNpcVoice();
+        // if(!voice.isPlaying){
+        //     voice.Play();
+        //     voice.volume = 1.0f;
+        //     Debug.Log("Playing"+ voice.clip.name);
+        startedPlaying = true;
+        // }
     }
     public override void OnUpdate(StateController controller){
-        AudioSource voice = controller.GetNpcVoice();
-        if (startedPlaying && !voice.isPlaying){
+        // AudioSource voice = controller.GetNpcVoice();
+        // if (startedPlaying && !voice.isPlaying){
+        if (startedPlaying){
             controller.ChangeState(new IdleState());
         }
     }

@@ -1,4 +1,8 @@
 using UnityEngine;
+using UnityEngine.AI;
+using System;
+using System.Collections.Generic;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,13 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck; 
     [SerializeField] private float groundDistance = 0.7f;
     [SerializeField] private LayerMask groundMask; 
-    
-    private float freeRockRange = 15f;
-    [SerializeField] private LayerMask roadMask; 
+    [SerializeField] private NavMeshAgent movingNPC;     
 
-
+    private float rockPosHeight = 0.5f;    
+    private float freeRockRange = 25f;
     private bool isGrounded;
     private bool canDoubleJump = false; 
+    private GameObject closeByRockSet = null;
 
     private Vector3 moveDirection;
     private Rigidbody playerRigidbody;
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isCarryingRock = false;    // Track if the player is carrying a rock
     private GameObject currentRock;         // The rock the player is carrying
+    private StateController stateController;
 
     private void Start()
     {
@@ -38,79 +43,25 @@ public class PlayerController : MonoBehaviour
         groundDistance = 0.7f;
 
     
+        stateController = FindObjectOfType<StateController>();
+        freeRockRange = 25f;
     }
 
     private void Update()
     {
         ProcessInputs();
         MovePlayer();
-
-        if(Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || Physics.CheckSphere(groundCheck.position, groundDistance, roadMask)){
-            isGrounded = true;
-        } else {
-            isGrounded = false;
-        }
-
-        Debug.Log("isGrounded check "+isGrounded);
-
-
-       if (isGrounded){
-            canDoubleJump = true;
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isGrounded)
-            {
-                Jump(); 
-            }
-            else if (canDoubleJump)
-            {
-                Jump(); 
-                canDoubleJump = false; // Reset double jump
-            }
-        }
-
-        // Handle picking up and placing rocks
-        if (isCarryingRock && Input.GetKeyDown(KeyCode.T))
-        {
-            if (currentFreeRockIndex != -1)
-            {
-                PlaceFreeRock();  
-            }
-            else
-            {
-                PlaceRock();  
-            }
-        }
-        else if (!isCarryingRock && currentRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
-        {
-            PickupRock();
-        }
-        else if (!isCarryingRock && currentFreeRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
-        {
-            PickupFreeRock();
-        }
-
-        // Disable all circle interaction if carrying a rock
-        if (isCarryingRock)
-        {
-            circlesManager.SetCircleInteraction(false);
-        }
-        else
-        {
-            circlesManager.SetCircleInteraction(true);
-        }
-
-        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
-        {
-            circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
-            Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
-        }
-
+        CheckJumping();
+        HandleRocks();
+        DisableCircles();
+        QuitGame();
     }
 
+    public void QuitGame(){
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
+    }
     private void ProcessInputs()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -127,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
         // Calculate the direction to move based on camera's orientation
         moveDirection = (forward * moveZ + right * moveX).normalized;
-     }
+    }
 
 
     private void MovePlayer()
@@ -155,6 +106,28 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void CheckJumping(){
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded)
+        {
+            canDoubleJump = true;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded)
+            {
+                Jump(); 
+            }
+            else if (canDoubleJump)
+            {
+                Jump(); 
+                canDoubleJump = false; // Reset double jump
+            }
+        }
+    }
+
     private void Jump()
     {
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
@@ -162,52 +135,67 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Jump");
     }
 
+    private void HandleRocks(){
+        if(Input.GetKeyDown(KeyCode.T)){
+            if(!isCarryingRock){
+                if(currentRockIndex != -1){
+                    PickupRock();
+                } else if (currentFreeRockIndex!= -1){
+                    PickupFreeRock();
+                }
+            } else if (isCarryingRock && currentRockIndex!=-1 && closeByRockSet != null){
+                PlaceRock();
+            } else if(isCarryingRock && currentFreeRockIndex != -1){
+                PlaceFreeRock();
+            }
+        }
+    }
+
     private void PickupRock()
     {
-        if (rockManager != null)
-        {
+        if (rockManager != null){
             currentRock = rockManager.GetRock(currentRockIndex);
-            Debug.Log("Current pick rock index: " + currentRockIndex);
-           
+            Debug.Log("Current pick rock index: " + currentRockIndex);           
             if (currentRock != null && !isCarryingRock)
             {
+                ResetRockSet();
                 isCarryingRock = true;
                 currentRock.GetComponent<Rigidbody>().isKinematic = true; // Make rock float
                 Debug.Log("Picked up the rock: " + currentRock.name);
             }
         }
+    }   
+
+    private void ResetRockSet(){
+        if (currentRock.transform.position.y == rockPosHeight){
+            foreach (KeyValuePair<GameObject, bool> rockSetEntry in rockManager.rockSetsDict){
+
+                Vector3 position = rockSetEntry.Key.transform.position;
+                
+                // TODO - possibly add offset 
+                if (position.x == currentRock.transform.position.x && position.z == currentRock.transform.position.z) 
+                {
+                    rockManager.rockSetsDict[rockSetEntry.Key] = false;
+                    break;
+                }
+
+            }
+        }
     }
 
     private void PlaceRock()
-        {
-            //GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
-            GameObject rockSet = rockManager.GetRockSet(currentRockSetIndex);
-          
-            Debug.Log("Current rock index: " + currentRockIndex);
-            Debug.Log("Attempting to place rock with index: " + currentRockIndex);
-
-            Debug.Log("Rock set found: " + (rockSet != null ? rockSet.name : "null"));
-
-            
-            if (rockManager != null)
-            {
-                //GameObject rockSet = rockManager.GetRockSet(currentRockIndex);
-                if (rockSet != null && rockManager.IsMatchingRockAndSet(currentRockIndex, currentRockSetIndex))
-                {
-                    currentRock.transform.position = rockSet.transform.position; // Place rock on rock set
-                    currentRock.GetComponent<Rigidbody>().isKinematic = false;  // Disable floating
-                    isCarryingRock = false;
-                    currentRock = null;
-                    currentRockIndex = -1; // Reset the rock index after placing the rock
-                    Debug.Log("Placed rock on: " + rockSet.name);
-                    currentRockSetIndex = -1; // Reset the rock set index after placing the rock
-                }
-                else
-                {
-                    Debug.Log("Rock and RockSet do not match.");
-                }
-            }
+    {
+        if(rockManager.rockSetsDict.ContainsKey(closeByRockSet) && !rockManager.rockSetsDict[closeByRockSet]){
+            currentRock.transform.position = new Vector3(closeByRockSet.transform.position.x, rockPosHeight ,closeByRockSet.transform.position.z); 
+            currentRock.GetComponent<Rigidbody>().isKinematic = false;  
+            isCarryingRock = false;
+            currentRock = null;
+            rockManager.rockSetsDict[closeByRockSet] = true;
+            currentRockIndex = -1;
+            currentRockSetIndex = -1;
         }
+        
+    }
     
     private void PickupFreeRock()
     {
@@ -218,8 +206,11 @@ public class PlayerController : MonoBehaviour
             {
                 isCarryingRock = true;
                 currentRock.GetComponent<Rigidbody>().isKinematic = true;
-                 Debug.Log("Picked up the free rock: " + currentRock.name);
+                Debug.Log("Picked up the free rock: " + currentRock.name);
       
+                if(stateController.GetCurrentState() is IdleState){
+                    stateController.RecalculatePathForNPC();
+                }
             }
         }
     }
@@ -235,8 +226,30 @@ public class PlayerController : MonoBehaviour
             isCarryingRock = false;
             currentRock = null;
             currentFreeRockIndex = -1;
+            Debug.LogWarning("HERE in if rock?");
+
         }
     }
+
+    private void DisableCircles(){
+        // Disable all circle interaction if carrying a rock
+        if (isCarryingRock)
+        {
+            circlesManager.SetCircleInteraction(false);
+        }
+        else
+        {
+            circlesManager.SetCircleInteraction(true);
+        }
+
+        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
+        {
+            circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
+            Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
+        }
+
+    }
+
 
     // Detect when the player enters the circle
     private void OnTriggerEnter(Collider other)
@@ -271,6 +284,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentRockSetIndex = rockSetIndex; // Store the rock set index
                 Debug.Log("Player near rock set: " + other.gameObject.name);
+                closeByRockSet = other.gameObject;
             }
     }
 
@@ -314,6 +328,8 @@ private void OnTriggerExit(Collider other)
         currentRockSetIndex = -1; // Reset the rock set index
         currentRockIndex = -1;  
         Debug.Log("Player exited rock set area: " + other.gameObject.name);
+        closeByRockSet = null;
+
     }
 }
 

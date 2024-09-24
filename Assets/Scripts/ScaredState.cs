@@ -25,7 +25,7 @@ public class ScaredState : NPCBaseState
     }
     public override void OnUpdate(StateController controller){
         // placeholder for future animation
-        if (Time.time - animationStartTime >= animationDuration)
+        if ((Time.time - animationStartTime) >= animationDuration)
         {
             if(controller.GetPreviousState() is MoveState){
                 controller.ChangeState(new FleeState());

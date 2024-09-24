@@ -7,6 +7,13 @@ public class RockManager : MonoBehaviour
     [SerializeField] private List<GameObject> rocks;
     [SerializeField] private List<GameObject> rockSets;
     [SerializeField] private List<GameObject> freeRocks; 
+    public Dictionary<GameObject, bool> rockSetsDict =  new Dictionary<GameObject, bool>(); 
+
+    void Start(){
+        foreach (GameObject rockSet in rockSets){
+            rockSetsDict.Add(rockSet.gameObject, false);
+        }
+    }
 
     public int GetRockIndex(GameObject rock)
     {
@@ -76,5 +83,13 @@ public class RockManager : MonoBehaviour
         }
         return false;
         // Placeholder logic, replace with actual matching logic
+    }
+
+    public List<GameObject> GetAllRockSets(){
+        return rockSets;
+    }
+
+    public Dictionary<GameObject, bool> GetDictRockSets(){
+        return rockSetsDict;
     }
 }
