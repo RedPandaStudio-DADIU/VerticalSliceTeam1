@@ -3,19 +3,28 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Road
+  - NPC
+  - Obstacle
+  - ScaryObject
+  - ScarySound
+  - Circle
+  - RockSet
+  - Rock
+  - FreeRock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Road
+  - Obstacle
+  - Scare
+  - Player
+  - NPC
   - 
   - 
   - 
