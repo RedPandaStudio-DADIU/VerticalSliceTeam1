@@ -10936,11 +10936,28 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 7
   groundCheck: {fileID: 324023698}
+  movingNPC: {fileID: 1739602231}
   groundDistance: 0.7
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  movingNPC: {fileID: 1739602231}
+  footstepsEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5e5dc687ac82d4196b06a2d12f790225, type: 2}
+  footstepsSwitchGrass:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9496478d4d87b4a38b488eaf4761ba14, type: 2}
+  footstepsSwitchWood:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6eaed39bf86ce41bc84f2570f3c77e02, type: 2}
+  soundBank: soundbank_MAIN
   cameraTransform: {fileID: 1615092200}
 --- !u!1001 &1007930191
 PrefabInstance:
