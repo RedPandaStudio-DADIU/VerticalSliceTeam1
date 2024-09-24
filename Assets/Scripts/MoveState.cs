@@ -19,20 +19,20 @@ public class MoveState : NPCBaseState
 
     }
     public override void OnUpdate(StateController controller){
-        Vector3 direction = movingNpc.velocity.normalized;
+        // Vector3 direction = movingNpc.velocity.normalized;
 
-        if (direction != Vector3.zero){
-            controller.transform.LookAt(movingNpc.velocity.normalized);
-        }
+        // if (direction != Vector3.zero){
+        //     controller.transform.LookAt(movingNpc.velocity.normalized);
+        // }
 
-        if (movingNpc.remainingDistance <= movingNpc.stoppingDistance)
-        {
-            if (!movingNpc.pathPending)
-            {
-                controller.ChangeState(new IdleState());
-                Debug.Log("Found the end");
-            }
-        }
+        // if (movingNpc.remainingDistance <= movingNpc.stoppingDistance)
+        // {
+        //     if (!movingNpc.pathPending)
+        //     {
+        //         controller.ChangeState(new IdleState());
+        //         Debug.Log("Found the end");
+        //     }
+        // }
     }
     public override void OnExit(StateController controller){
         Debug.Log("Exiting the Move State");
