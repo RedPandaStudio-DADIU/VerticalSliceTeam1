@@ -15283,6 +15283,7 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 6eaed39bf86ce41bc84f2570f3c77e02, type: 2}
   soundBank: soundbank_MAIN
   cameraTransform: {fileID: 1615092200}
+  currentCircleIndex: -1
 --- !u!95 &996587032
 Animator:
   serializedVersion: 5
@@ -19274,10 +19275,14 @@ MonoBehaviour:
   - {fileID: 1363357838}
   - {fileID: 26644052}
   - {fileID: 1631824969}
-  defaultMaterial: {fileID: 2100000, guid: c8723e30f1a5b384ba4f9a89550dea00, type: 2}
-  disabledMaterial: {fileID: 2100000, guid: 06f0d836804733d47a37bcc7ae6b335a, type: 2}
   movingNPC: {fileID: 1739602231}
+  npc: {fileID: 1059889125}
   radiusOverlap: 5
+  fireflyEffect: {fileID: 0}
+  playerController: {fileID: 0}
+  npcAnimator: {fileID: 1739602235}
+  idleStateName: Idle
+  timeToTriggerFireflies: 5
 --- !u!4 &1297719944
 Transform:
   m_ObjectHideFlags: 0

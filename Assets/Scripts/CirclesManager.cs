@@ -10,13 +10,24 @@ public class CirclesManager : MonoBehaviour
     [Header("Circle and Obstacle Configuration")]
     [SerializeField] private GameObject[] circles;  // Array to hold circle objects
     [SerializeField] private GameObject[] obstacles;  // Array to hold obstacle objects
-    [SerializeField] private Material defaultMaterial;  // The default material for circles
-    [SerializeField] private Material disabledMaterial;  // The disabled material for circles
     [SerializeField] private NavMeshAgent movingNPC;
+    [SerializeField] private GameObject npc;
     [SerializeField] private float radiusOverlap = 5f;
-    private StateController stateController;
+    [SerializeField] private GameObject fireflyEffect; 
+    [SerializeField] private PlayerController playerController; 
+    [SerializeField] private Animator npcAnimator;  
+    [SerializeField] private string idleStateName = "Idle";  
 
+    private StateController stateController;
+    private float idleTime = 0f;
+    private bool firefliesTriggered = false;
+    public float timeToTriggerFireflies = 3;
     void Start(){
+        
+        SetCircleInteraction(false); 
+
+        fireflyEffect.SetActive(false);
+
         stateController = FindObjectOfType<StateController>();
     }
 
@@ -45,6 +56,42 @@ public class CirclesManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        
+        if (npcAnimator != null && npcAnimator.GetCurrentAnimatorStateInfo(0).IsName(idleStateName))
+        {
+            int currentCircleIndex = playerController.currentCircleIndex;  // 从PlayerController获取currentCircleIndex
+
+            idleTime += Time.deltaTime;
+
+            if (idleTime >= timeToTriggerFireflies && !firefliesTriggered)
+            {
+                
+                ShowFirefliesAtCircle(currentCircleIndex);  
+                //firefliesTriggered = true;
+                //SetCircleInteraction(true);  
+            }
+        }
+        else
+        {
+            idleTime = 0f;  
+            fireflyEffect.SetActive(false);
+            //firefliesTriggered = false;  
+            //SetCircleInteraction(false);  
+        }
+    }
+
+   
+    public void ShowFirefliesAtCircle(int circleIndex)
+    {
+        foreach (GameObject circle in circles)
+        {
+            fireflyEffect.transform.position = circle.transform.position;
+            fireflyEffect.SetActive(true); 
+        }
+    }
+
 
 
 
@@ -69,14 +116,14 @@ public class CirclesManager : MonoBehaviour
             Renderer circleRenderer = circle.GetComponent<Renderer>();
             if (circleRenderer != null)
             {
-                circleRenderer.material = isEnabled ? defaultMaterial : disabledMaterial;
+                circleRenderer.enabled = false;  // Keep the object invisible
             }
 
-            // Disable/Enable the circle's collider to prevent interaction
+            // Keep the collider active for interaction
             Collider circleCollider = circle.GetComponent<Collider>();
             if (circleCollider != null)
             {
-                circleCollider.enabled = isEnabled;
+                circleCollider.enabled = isEnabled;  // Only disable collider when explicitly needed
             }
         }
 

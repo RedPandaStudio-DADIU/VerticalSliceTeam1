@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     
     private CirclesManager circlesManager;  // Reference to the CirclesManager
     private RockManager rockManager;  // Reference to the RockManager
-    private int currentCircleIndex = -1;    // Store the current circle index
+    public int currentCircleIndex = -1;    // Store the current circle index
     private int currentRockIndex = -1;      // Store the current rock index
     private int currentRockSetIndex = -1;   // Store the current rock set index
     private int currentFreeRockIndex = -1;  // Store the index for the free rock
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleRocks(){
-        if(Input.GetKeyDown(KeyCode.T)){
+        if(Input.GetKeyDown(KeyCode.E)){
             if(!isCarryingRock){
                 if(currentRockIndex != -1){
                     spiritAnimator.SetBool("isInteracting", true);
@@ -318,7 +318,7 @@ public class PlayerController : MonoBehaviour
             circlesManager.SetCircleInteraction(true);
         }
 
-        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
+        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.E))
         {
             spiritAnimator.SetBool("isInteracting", true);
             circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
