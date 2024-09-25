@@ -38,7 +38,7 @@ public class MenuManager : MonoBehaviour
     // Start the game by loading another scene
     public void OnStartButtonPressed()
     {
-        SceneManager.LoadScene("BasicScenario");  // Replace with your actual scene name
+        SceneManager.LoadScene("Game Scene");  // Replace with your actual scene name
     }
 
     // Quit the game (this works in the built version of the game, not in the editor)
