@@ -10,6 +10,13 @@
 						</Reference>
 					</ReferenceList>
 				</Bus>
+				<Bus Name="Reverb INT" ID="{4EC66D51-4A36-4E9A-AA2D-B784669DD181}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{8FBCD410-CA5F-45AF-8188-BCACB626A9D3}" WorkUnitID="{E2B1EF4A-4B6F-4296-811F-9FB8BA261C1E}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>
