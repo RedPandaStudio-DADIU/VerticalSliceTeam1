@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Scene.unity
     guid: e72f833c489a5164681a7e2ab29eaca8
+  - enabled: 1
+    path: Assets/Scenes/LVL2 grayboxing.unity
+    guid: 56f6a5b08b0e11b41a23947cc551991d
   m_configObjects: {}

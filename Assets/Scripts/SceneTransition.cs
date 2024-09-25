@@ -7,35 +7,40 @@ public class SceneTransition : MonoBehaviour
 {
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 3f;
+    [SerializeField] private StateController stateController;
 
     private bool isFading = false;
 
-    public void TriggerSceneTransition()
-    {
-        if (!isFading)
-        {
-            StartCoroutine(FadeToBlackAndLoadScene("NextSceneName"));
+    void Start(){
+        Color color = fadeImage.color;
+        color.a = 0f;
+        fadeImage.color = color;
+    }
+
+    void Update(){
+        if(stateController.GetIsAgentDone()){
+            if (!isFading)
+            {
+                StartCoroutine(FadeToBlack());
+            }
         }
     }
 
-    private IEnumerator FadeToBlackAndLoadScene(string sceneName)
+
+    private IEnumerator FadeToBlack()
     {
         isFading = true;
-
-        Color color = fadeImage.color;
-        float startAlpha = 0f;
-        float endAlpha = 1f;
-
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeDuration);
+            Color color = fadeImage.color;
+            color.a = Mathf.Clamp01(elapsedTime / fadeDuration);
             fadeImage.color = color;
             yield return null;
         }
 
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("LVL2 grayboxing");
     }
 }

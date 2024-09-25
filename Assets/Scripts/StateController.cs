@@ -9,7 +9,10 @@ public class StateController : MonoBehaviour
 {
 
     [Header("NPC AI settings")]
-    [SerializeField] private Transform end;
+    [SerializeField] private Queue<Transform> ends = new Queue<Transform>();
+    [SerializeField] private Transform end1;
+    [SerializeField] private Transform end2;
+
     [SerializeField] private Transform start;
     [SerializeField] private Animator NpcAnimator;
     [SerializeField] private GameObject npcGameObject;
@@ -22,6 +25,12 @@ public class StateController : MonoBehaviour
 
     private NavMeshAgent npc;
     private float xRotation = -90f;
+    private bool isAgentDone = false;
+
+    void Awake(){
+        ends.Enqueue(end1);
+        ends.Enqueue(end2);
+    }
 
     void Start(){
         npc = GetComponent<NavMeshAgent>();
@@ -30,7 +39,6 @@ public class StateController : MonoBehaviour
         previousMoveState = currentState;
         currentState.OnEnter(this);
         AkSoundEngine.LoadBank(soundBank, out uint bankID);
-
     }
 
     void Update(){
@@ -60,7 +68,14 @@ public class StateController : MonoBehaviour
     }
 
     public Transform GetEndTransform(){
-        return end;
+        return ends.Peek();
+    }
+    public Transform RemoveEndTransform(){
+        if(ends.Count > 1){
+            return ends.Dequeue();
+        } else{
+            return null;
+        }
     }
     public Transform GetStartTransform(){
         return start;
@@ -106,6 +121,17 @@ public class StateController : MonoBehaviour
     public GameObject GetNpcGameObject(){
         return npcGameObject;
     }
+
+    public void SetIsAgentDone(bool done){
+        isAgentDone = true;
+    }
+
+    public bool GetIsAgentDone(){
+        return isAgentDone;
+    }
+
+
 }
+
 
 

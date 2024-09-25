@@ -32,6 +32,7 @@ public class MoveState : NPCBaseState
             controller.EnableNavMeshAgent();
         }
         movingNpc.destination = controller.GetEndTransform().position;
+        Debug.Log("Moving destination" + movingNpc.destination);
         movingNpc.angularSpeed = 0.0f;
         movingNpc.updateRotation = true;
 
@@ -59,9 +60,18 @@ public class MoveState : NPCBaseState
         {
             if (!movingNpc.pathPending)
             {
-                controller.ChangeState(new IdleState());
-                Debug.Log("Found the end");
-                // controller.RecalculatePathForNPC();
+
+                if(controller.RemoveEndTransform() != null){
+                    movingNpc.destination = controller.GetEndTransform().position;
+                    controller.RecalculatePathForNPC();
+                } else {
+                    controller.ChangeState(new IdleState());
+                    Debug.Log("Found the end");
+                    controller.SetIsAgentDone(true);
+                    // controller.RecalculatePathForNPC();
+                }
+
+               
 
             }
         }
