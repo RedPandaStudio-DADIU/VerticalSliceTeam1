@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private float rockPosHeight = 5.5f;    
     private float freeRockRange = 25f;
-    private float bridgeRockRange = 200f;
+    private float bridgeRockRange = 30f;
 
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
@@ -167,15 +167,18 @@ public class PlayerController : MonoBehaviour
         {
             landSwitch.SetValue(gameObject);
             // AkSoundEngine.SetSwitch("Jump_SW", "Land_jump", gameObject);
+            spiritAnimator.SetBool("isJumping", false);
             if(!wasGroundedPrev){
                 in_playingJumpID = jumpEvent.Post(gameObject);
+
             }
             canDoubleJump = true;
-            spiritAnimator.SetBool("isJumping", false);
 
         } else {
             isPlaying = false;
             AkSoundEngine.StopPlayingID(in_playingID);
+            spiritAnimator.SetBool("isJumping", true);
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -184,12 +187,12 @@ public class PlayerController : MonoBehaviour
             {
                 // AkSoundEngine.SetSwitch("Jump_SW", "single_jump", gameObject);
                 jumpSwitch.SetValue(gameObject);
-                spiritAnimator.SetBool("isJumping", true);
+                // spiritAnimator.SetBool("isJumping", true);
                 Jump(); 
             }
             else if (canDoubleJump)
             {
-                spiritAnimator.SetBool("isJumping", true);
+                // spiritAnimator.SetBool("isJumping", true);
                 Jump(); 
                 canDoubleJump = false; // Reset double jump
             }
@@ -206,7 +209,6 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        
         in_playingJumpID = jumpEvent.Post(gameObject);
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
@@ -285,7 +287,7 @@ public class PlayerController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, bridgeRockRange,bridgeMask))
+        if (Physics.Raycast(ray, out hit, bridgeRockRange, bridgeMask))
         {
             if (hit.collider != null)
             {
@@ -295,9 +297,7 @@ public class PlayerController : MonoBehaviour
                     in_movingStuffID = putRockEvent.Post(gameObject);;
                     Debug.Log("Rock position height: "+rockPosHeight);
                     currentRock.transform.rotation = Quaternion.Euler(-90, 0, 0); 
-                    // currentRock.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, rockPosHeight ,hit.collider.gameObject.transform.position.z); 
                     currentRock.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, rockPosHeight,hit.collider.gameObject.transform.position.z); 
-                    // currentRock.transform.position = new Vector3(currentRock.transform.position.x, 5.5f, currentRock.transform.position.z); 
 
                     currentRock.GetComponent<Rigidbody>().isKinematic = false;  
                     isCarryingRock = false;
