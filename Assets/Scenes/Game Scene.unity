@@ -25662,6 +25662,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: b4e83bc97bfe6c44098f0dd40a1e6cdb, type: 2}
+  npcDialogEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: fc075b169dd24cc40bbb07ba4b9a26d8, type: 2}
 --- !u!95 &1739602235
 Animator:
   serializedVersion: 5
