@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{121D58EA-4E73-44C8-88ED-40AC8F46C02F}" SchemaVersion="119" RootDocumentID="{358091DE-7C8E-4480-9DC7-FC7D76F6BBED}" ParentDocumentID="{358091DE-7C8E-4480-9DC7-FC7D76F6BBED}">
+	<InteractiveMusic>
+		<WorkUnit Name="Ambience" ID="{121D58EA-4E73-44C8-88ED-40AC8F46C02F}" OwnerID="{358091DE-7C8E-4480-9DC7-FC7D76F6BBED}" PersistMode="Nested">
+			<ChildrenList>
+				<MusicSegment Name="Ambience" ID="{44374B2C-A5A9-4BC3-AB64-14418C0E3392}" ShortID="344009023">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{CFE02B0C-0BBF-40A5-BEED-AA483688874C}"/>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{D1E84B4F-283A-4579-BF45-9065B6F24BBB}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="1000"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

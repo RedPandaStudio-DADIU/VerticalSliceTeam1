@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{55F8C160-E91D-4F7C-BC5A-04DB03D4C286}" SchemaVersion="119" RootDocumentID="{21679EDA-AEAA-4350-A8D4-022D2B4D5CE0}" ParentDocumentID="{21679EDA-AEAA-4350-A8D4-022D2B4D5CE0}">
+	<Switches>
+		<WorkUnit Name="Jump" ID="{55F8C160-E91D-4F7C-BC5A-04DB03D4C286}" OwnerID="{21679EDA-AEAA-4350-A8D4-022D2B4D5CE0}" PersistMode="Nested">
+			<ChildrenList>
+				<SwitchGroup Name="Jump_SW" ID="{193D7ECA-8C62-40CA-A3FE-6991CFECD38E}">
+					<ChildrenList>
+						<Switch Name="Double_jump" ID="{6B4D8E56-35B7-474F-BB3D-F93BAF7E2E37}"/>
+						<Switch Name="single_jump" ID="{E7CC18E7-BF1F-4472-8A47-6967BF5003B8}"/>
+						<Switch Name="Land_jump" ID="{F944AD4B-7033-4D67-8D5C-AD00A3B18AC9}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

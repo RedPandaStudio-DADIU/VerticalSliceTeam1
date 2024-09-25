@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}" SchemaVersion="119">
+<WwiseDocument Type="WorkUnit" ID="{539C2E08-73B7-49F6-8916-F81953184DEE}" SchemaVersion="119">
 	<AudioObjects>
-		<WorkUnit Name="Drunk_Guy_NPC" ID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}" PersistMode="Standalone">
+		<WorkUnit Name="Ambience" ID="{539C2E08-73B7-49F6-8916-F81953184DEE}" PersistMode="Standalone">
 			<ChildrenList>
-				<RandomSequenceContainer Name="npc_footsteps" ID="{CDF6C686-A5D7-4BF4-9DCA-FB79BFC289D5}" ShortID="20933542">
+				<BlendContainer Name="Ambience" ID="{61A8A2B5-6F75-403E-9272-5B01B6B9E0B4}" ShortID="1038027720">
 					<PropertyList>
-						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
-						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+						<Property Name="BlendBehavior" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -19,7 +16,10 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Npc_footsteps_1" ID="{76EFCC09-D158-4D5C-A892-808F396891D4}" ShortID="861443992">
+						<Sound Name="Game Jam 2_ambience_4" ID="{F90E3986-ABF0-42E0-94C4-36A5F92F8483}" ShortID="746238006">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
@@ -29,19 +29,22 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Npc_footsteps_1" ID="{BED4DD22-AA9B-45A3-B35D-624F98467DBF}">
+								<AudioFileSource Name="Game Jam 2_ambience_4" ID="{1E706666-C3A5-49EC-8BA6-241887DC8FF1}">
 									<Language>SFX</Language>
-									<AudioFile>Npc_footsteps_1.wav</AudioFile>
+									<AudioFile>Game Jam 2_ambience_4.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="913920049"/>
+										<MediaID ID="653060333"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Npc_footsteps_1" ID="{BED4DD22-AA9B-45A3-B35D-624F98467DBF}" Platform="Linked"/>
+								<ActiveSource Name="Game Jam 2_ambience_4" ID="{1E706666-C3A5-49EC-8BA6-241887DC8FF1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Npc_footsteps_2" ID="{C2648228-ECA1-4792-A743-F61E9BC99FAF}" ShortID="488764979">
+						<Sound Name="Game Jam 2_ambience_1" ID="{982BC943-09E3-48A5-9977-3BE0047DD244}" ShortID="124072092">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
@@ -51,19 +54,22 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Npc_footsteps_2" ID="{825BAC7E-00FE-4CDC-8310-3277FB3AC547}">
+								<AudioFileSource Name="Game Jam 2_ambience_1" ID="{00154F40-8064-40F2-A827-2CB941D18C0A}">
 									<Language>SFX</Language>
-									<AudioFile>Npc_footsteps_2.wav</AudioFile>
+									<AudioFile>Game Jam 2_ambience_1.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="120818419"/>
+										<MediaID ID="281730157"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Npc_footsteps_2" ID="{825BAC7E-00FE-4CDC-8310-3277FB3AC547}" Platform="Linked"/>
+								<ActiveSource Name="Game Jam 2_ambience_1" ID="{00154F40-8064-40F2-A827-2CB941D18C0A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Npc_footsteps_3" ID="{8329DD5A-18DF-40B5-A585-DB0D523E01C2}" ShortID="393231318">
+						<Sound Name="Game Jam 2_ambience_2" ID="{7BAFE093-4C2B-4AD7-B58D-11A5C638C5B2}" ShortID="808717387">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
@@ -73,19 +79,27 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Npc_footsteps_3" ID="{AFE7FA54-0C9D-4B06-89B1-4A60D6D78481}">
+								<AudioFileSource Name="Game Jam 2_ambience_2" ID="{D1803EAD-39F1-4668-A71E-6FA1A747C39B}">
 									<Language>SFX</Language>
-									<AudioFile>Npc_footsteps_3.wav</AudioFile>
+									<AudioFile>Game Jam 2_ambience_2.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="475927476"/>
+										<MediaID ID="432606348"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Npc_footsteps_3" ID="{AFE7FA54-0C9D-4B06-89B1-4A60D6D78481}" Platform="Linked"/>
+								<ActiveSource Name="Game Jam 2_ambience_2" ID="{D1803EAD-39F1-4668-A71E-6FA1A747C39B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Npc_footsteps_4" ID="{8C5CCC68-476C-489F-8F5D-06B02677F70F}" ShortID="785033520">
+						<Sound Name="Game Jam 2_ambience_3" ID="{5EFF72C7-7051-4158-80AE-2146C95BE553}" ShortID="968519579">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
@@ -95,30 +109,20 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Npc_footsteps_4" ID="{05A1AAAD-EAA2-4C22-9ED8-86166290CDA3}">
+								<AudioFileSource Name="Game Jam 2_ambience_3" ID="{17FE633D-F371-4FA9-B3F6-A34A2C1D8B2C}">
 									<Language>SFX</Language>
-									<AudioFile>Npc_footsteps_4.wav</AudioFile>
+									<AudioFile>Game Jam 2_ambience_3.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="729821709"/>
+										<MediaID ID="811388392"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Npc_footsteps_4" ID="{05A1AAAD-EAA2-4C22-9ED8-86166290CDA3}" Platform="Linked"/>
+								<ActiveSource Name="Game Jam 2_ambience_3" ID="{17FE633D-F371-4FA9-B3F6-A34A2C1D8B2C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
-				</RandomSequenceContainer>
-				<RandomSequenceContainer Name="npc_idle" ID="{8F4189C2-EEE5-468B-9308-B63D90423401}" ShortID="900058319">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
-						</Reference>
-					</ReferenceList>
-				</RandomSequenceContainer>
+				</BlendContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
