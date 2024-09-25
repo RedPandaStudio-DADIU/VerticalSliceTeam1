@@ -352,9 +352,6 @@
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
 						</Reference>
-						<Reference Name="SwitchGroupOrStateGroup">
-							<ObjectRef Name="Jump_SW" ID="{193D7ECA-8C62-40CA-A3FE-6991CFECD38E}" WorkUnitID="{55F8C160-E91D-4F7C-BC5A-04DB03D4C286}"/>
-						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<RandomSequenceContainer Name="spirit_jump_single" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}" ShortID="513130721">
@@ -431,7 +428,6 @@
 									<ChildrenList>
 										<AudioFileSource Name="FS_Spirit_land" ID="{1B6D6B67-508A-4291-9A67-E7F0205E21E9}">
 											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -498,26 +494,6 @@
 								<ItemRef Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}"/>
 							</GroupingBehavior>
 						</GroupingBehaviorList>
-						<GroupingList>
-							<Grouping>
-								<SwitchRef Name="Land_jump" ID="{F944AD4B-7033-4D67-8D5C-AD00A3B18AC9}"/>
-								<ItemList>
-									<ItemRef Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}"/>
-								</ItemList>
-							</Grouping>
-							<Grouping>
-								<SwitchRef Name="Double_jump" ID="{6B4D8E56-35B7-474F-BB3D-F93BAF7E2E37}"/>
-								<ItemList>
-									<ItemRef Name="spirit_jump_double" ID="{9C1D0424-81B0-4FE3-AAE4-B9109C038DA3}"/>
-								</ItemList>
-							</Grouping>
-							<Grouping>
-								<SwitchRef Name="single_jump" ID="{E7CC18E7-BF1F-4472-8A47-6967BF5003B8}"/>
-								<ItemList>
-									<ItemRef Name="spirit_jump_single" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}"/>
-								</ItemList>
-							</Grouping>
-						</GroupingList>
 					</GroupingInfo>
 				</SwitchContainer>
 				<RandomSequenceContainer Name="Lift_rock_spirit" ID="{1A4AD56A-34EC-4D82-84AF-EA340BBAB7BD}" ShortID="542689504">
@@ -613,7 +589,6 @@
 							<ChildrenList>
 								<AudioFileSource Name="Spirit_Spell" ID="{F0131248-0BCF-4831-B331-60A4A8B78CCD}">
 									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="1.90679824561403"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 									</PropertyList>
 									<Language>SFX</Language>
@@ -645,6 +620,30 @@
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Spirit_Scream" ID="{AF607EBD-85C0-4C8B-A880-40E1B48E2E24}" ShortID="700918605">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Spirit_Scream" ID="{8F7D922A-3934-4019-AE8A-BA91591FE4E4}">
+									<Language>SFX</Language>
+									<AudioFile>Spirit_Scream.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="118344990"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Spirit_Scream" ID="{8F7D922A-3934-4019-AE8A-BA91591FE4E4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
