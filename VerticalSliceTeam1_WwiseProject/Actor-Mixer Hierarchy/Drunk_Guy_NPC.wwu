@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="Drunk_Guy_NPC" ID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}" PersistMode="Standalone">
+			<ChildrenList>
+				<RandomSequenceContainer Name="npc_footsteps" ID="{CDF6C686-A5D7-4BF4-9DCA-FB79BFC289D5}" ShortID="20933542">
+					<PropertyList>
+						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Npc_footsteps_1" ID="{76EFCC09-D158-4D5C-A892-808F396891D4}" ShortID="861443992">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Npc_footsteps_1" ID="{BED4DD22-AA9B-45A3-B35D-624F98467DBF}">
+									<Language>SFX</Language>
+									<AudioFile>Npc_footsteps_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="913920049"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Npc_footsteps_1" ID="{BED4DD22-AA9B-45A3-B35D-624F98467DBF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Npc_footsteps_2" ID="{C2648228-ECA1-4792-A743-F61E9BC99FAF}" ShortID="488764979">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Npc_footsteps_2" ID="{825BAC7E-00FE-4CDC-8310-3277FB3AC547}">
+									<Language>SFX</Language>
+									<AudioFile>Npc_footsteps_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="120818419"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Npc_footsteps_2" ID="{825BAC7E-00FE-4CDC-8310-3277FB3AC547}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Npc_footsteps_3" ID="{8329DD5A-18DF-40B5-A585-DB0D523E01C2}" ShortID="393231318">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Npc_footsteps_3" ID="{AFE7FA54-0C9D-4B06-89B1-4A60D6D78481}">
+									<Language>SFX</Language>
+									<AudioFile>Npc_footsteps_3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="475927476"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Npc_footsteps_3" ID="{AFE7FA54-0C9D-4B06-89B1-4A60D6D78481}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Npc_footsteps_4" ID="{8C5CCC68-476C-489F-8F5D-06B02677F70F}" ShortID="785033520">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Npc_footsteps_4" ID="{05A1AAAD-EAA2-4C22-9ED8-86166290CDA3}">
+									<Language>SFX</Language>
+									<AudioFile>Npc_footsteps_4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="729821709"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Npc_footsteps_4" ID="{05A1AAAD-EAA2-4C22-9ED8-86166290CDA3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="npc_idle" ID="{8F4189C2-EEE5-468B-9308-B63D90423401}" ShortID="900058319">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

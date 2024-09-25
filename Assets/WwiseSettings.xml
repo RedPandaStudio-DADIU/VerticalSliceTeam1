@@ -11,7 +11,7 @@
   <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
   <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
   <WwiseInstallationPathMac>/Applications/Audiokinetic/Wwise2023.1.7.8574/Wwise.app</WwiseInstallationPathMac>
-  <WwiseInstallationPathWindows />
+  <WwiseInstallationPathWindows>C:\Wwise2023.1.7.8574</WwiseInstallationPathWindows>
   <WwiseProjectPath>../VerticalSliceTeam1_WwiseProject/VerticalSliceTeam1_WwiseProject.wproj</WwiseProjectPath>
   <UseWaapi>true</UseWaapi>
   <WaapiPort>8080</WaapiPort>
