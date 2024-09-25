@@ -11,6 +11,9 @@ public class FleeState : NPCBaseState
     public override void OnEnter(StateController controller){  
         Debug.Log("Entering Flee State");
         controller.GetNpcAnimator().SetBool("isFleeing", true);
+        controller.GetNpcAnimator().SetBool("isScared", false);
+        controller.GetNpcAnimator().SetBool("isSpeaking", false);
+        controller.GetNpcAnimator().SetBool("isMoving", false);
 
         movingNpc = controller.GetNpc();
         if(!movingNpc.enabled){
@@ -24,17 +27,16 @@ public class FleeState : NPCBaseState
 
     }
     public override void OnUpdate(StateController controller){
-        Vector3 direction = (controller.GetStartTransform().position - movingNpc.transform.position).normalized;
+        // Vector3 direction = (controller.GetStartTransform().position - movingNpc.transform.position).normalized;
 
-        if (direction != Vector3.zero){
-            controller.transform.LookAt(movingNpc.velocity.normalized);
-        }
+        // if (direction != Vector3.zero){
+        //     controller.transform.LookAt(movingNpc.velocity.normalized);
+        // }
 
         if (movingNpc.remainingDistance <= movingNpc.stoppingDistance)
         {
             if (!movingNpc.pathPending)
             {
-                // controller.GetNpcAnimator().SetBool("isFleeing", false);
                 controller.ChangeState(new IdleState());
                 Debug.Log("Found the start");
             }

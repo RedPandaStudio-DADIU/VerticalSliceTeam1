@@ -10,6 +10,10 @@ public class MoveState : NPCBaseState
     public override void OnEnter(StateController controller){
         Debug.Log("Move state here!");
         controller.GetNpcAnimator().SetBool("isMoving", true);
+        controller.GetNpcAnimator().SetBool("isFleeing", false);
+        controller.GetNpcAnimator().SetBool("isScared", false);
+        controller.GetNpcAnimator().SetBool("isSpeaking", false);
+
         movingNpc = controller.GetNpc();
         if(!movingNpc.enabled){
             controller.EnableNavMeshAgent();
@@ -34,7 +38,6 @@ public class MoveState : NPCBaseState
         {
             if (!movingNpc.pathPending)
             {
-                // controller.GetNpcAnimator().SetBool("isMoving", false);
                 controller.ChangeState(new IdleState());
                 // Debug.Log("Found the end");
                 controller.RecalculatePathForNPC();
@@ -52,7 +55,6 @@ public class MoveState : NPCBaseState
     public override void OnCollisionEnter(StateController controller, Collision other){
         Debug.Log("Collision");
         if(other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("FreeRock") || other.gameObject.CompareTag("Water")){
-            // controller.GetNpcAnimator().SetBool("isSpeaking", true);
             controller.ChangeState(new SpeakState());
         }
     }

@@ -7,6 +7,9 @@ public class SpeakState : NPCBaseState
     private bool startedPlaying = false;
     public override void OnEnter(StateController controller){
         controller.GetNpcAnimator().SetBool("isSpeaking", true);
+        controller.GetNpcAnimator().SetBool("isFleeing", false);
+        controller.GetNpcAnimator().SetBool("isScared", false);
+        controller.GetNpcAnimator().SetBool("isMoving", false);
 
         // AudioSource voice = controller.GetNpcVoice();
         // if(!voice.isPlaying){
@@ -20,7 +23,6 @@ public class SpeakState : NPCBaseState
         // AudioSource voice = controller.GetNpcVoice();
         // if (startedPlaying && !voice.isPlaying){
         if (startedPlaying){
-            // controller.GetNpcAnimator().SetBool("isSpeaking", false);
             controller.ChangeState(new IdleState());
         }
     }

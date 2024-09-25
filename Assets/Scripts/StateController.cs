@@ -18,7 +18,6 @@ public class StateController : MonoBehaviour
 
     private NavMeshAgent npc;
     private float xRotation = -90f;
-
     void Start(){
         npc = GetComponent<NavMeshAgent>();
         // npcVoice = GetComponent<AudioSource>();

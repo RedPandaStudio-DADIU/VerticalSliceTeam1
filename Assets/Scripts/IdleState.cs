@@ -9,6 +9,11 @@ public class IdleState : NPCBaseState
     private NavMeshAgent movingNpc;
     public override void OnEnter(StateController controller){
         Debug.Log("Enter");
+        controller.GetNpcAnimator().SetBool("isFleeing", false);
+        controller.GetNpcAnimator().SetBool("isScared", false);
+        controller.GetNpcAnimator().SetBool("isSpeaking", false);
+        controller.GetNpcAnimator().SetBool("isMoving", false);
+
         controller.GetNpcAnimator().SetBool("isMoving", false);
 
     }
@@ -17,7 +22,6 @@ public class IdleState : NPCBaseState
         movingNpc = controller.GetNpc();
         if ((movingNpc.pathStatus == NavMeshPathStatus.PathComplete) && !movingNpc.pathPending)
         {
-            // controller.GetNpcAnimator().SetBool("isMoving", true);
             controller.ChangeState(new MoveState());
             
         }

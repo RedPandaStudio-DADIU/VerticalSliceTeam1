@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 using System.Collections.Generic;
+using System.Collections;
+
 
 using AK.Wwise;
 
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
         CheckJumping();
         HandleRocks();
         DisableCircles();
+        ScarePlayer();
         QuitGame();
     }
 
@@ -329,6 +332,33 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void ScarePlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.T) && (stateController.GetCurrentState() is FleeState) || (stateController.GetCurrentState() is IdleState && stateController.GetPreviousState() is FleeState))
+        {
+            if (IsPlayerBehindNpc())
+            {
+                Debug.Log("Scaring the NPC");
+                StartCoroutine(PlayScareSequence());
+            }
+        }
+    }
+
+    private IEnumerator PlayScareSequence()
+    {
+        yield return new WaitForSeconds(1f);
+        stateController.ChangeState(new ScaredState());
+    }
+
+    private bool IsPlayerBehindNpc()
+    {
+        Vector3 directionToPlayer = (transform.position - movingNPC.transform.position).normalized;
+        Vector3 npcForward = movingNPC.transform.forward;
+        float angle = Vector3.Angle(npcForward, directionToPlayer);
+        // return angle > 90f;
+        return angle < 90f;
+
+    }
 
     // Detect when the player enters the circle
     private void OnTriggerEnter(Collider other)
