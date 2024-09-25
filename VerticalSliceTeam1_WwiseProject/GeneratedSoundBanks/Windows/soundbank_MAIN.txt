@@ -1,20 +1,38 @@
 Event	ID	Name			Wwise Object Path	Notes
+	41484105	Spirit_Jump			\Spirit_event\Spirit_Jump	
+	214727577	Spirit_Spell			\Spirit_event\Spirit_Spell	
 	1695590886	Spirit_Footsteps			\Spirit_event\Spirit_Footsteps	
+	2127638682	Spirit_landing			\Spirit_event\Spirit_landing	
+	4075077934	Spirit_scream			\Spirit_event\Spirit_scream	
+	4148702810	npc_footsteps			\NPC_events\npc_footsteps	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
+	562888138	Jump_SW			\Default Work Unit\Jump\Jump_SW	
 	1724755387	Footsteps_SW			\Default Work Unit\Footsteps\Footsteps_SW	
 
 Switch	ID	Name	Switch Group			Notes
+	433051569	Double_jump	Jump_SW			
+	2401821937	Land_jump	Jump_SW			
+	2925909356	single_jump	Jump_SW			
 	2058049674	Wood	Footsteps_SW			
 	4248645337	Grass	Footsteps_SW			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	114548734	FS_Spirit_wood_4	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_4_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_4		664624
+	118344990	Spirit_Scream	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Spirit_Scream_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Scream_scare_spirit\Spirit_Scream		2160096
+	120818419	Npc_footsteps_2	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_2_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_2		276096
 	277534849	FS_Spirit_grass_2	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_2_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_2		768096
+	304120103	Spirit_double_jump	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Spirit_double_jump_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Jump_Spirit_SW\spirit_jump_double\Spirit_double_jump		912096
 	389824459	FS_Spirit_wood_3	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_3_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_3		694572
+	460389106	Spirit_jump	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_jump_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Jump_Spirit_SW\spirit_jump_single\Spirit_jump		1344096
+	475927476	Npc_footsteps_3	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_3_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_3		276096
 	517003019	FS_Spirit_grass_1	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_1_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_1		624096
+	556107957	FS_Spirit_land	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_land_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Jump_Spirit_SW\Spirit_land\FS_Spirit_land		1008096
 	698900304	FS_Spirit_grass_4	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_4_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_4		768096
+	729821709	Npc_footsteps_4	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_4_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_4		276096
 	873667171	FS_Spirit_wood_2	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_2_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_2		768096
+	913920049	Npc_footsteps_1	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_1_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_1		276096
+	942835718	Spirit_Spell	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Spirit_Spell_A9CD63A1.wem		\Actor-Mixer Hierarchy\Spirit_Player\Spell_spirit\Spirit_Spell		2256096
 	981129124	FS_Spirit_wood_1	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_1_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_1		624096
 	1019385149	FS_Spirit_grass_3	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_3_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_3		624096
 
