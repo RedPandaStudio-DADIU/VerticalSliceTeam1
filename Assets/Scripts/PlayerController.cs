@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event spellEvent;
     [SerializeField] private AK.Wwise.Event putRockEvent;
     [SerializeField] private AK.Wwise.Event pickUpRockEvent;
+    [SerializeField] private AK.Wwise.Event scarePlayerEvent;
 
 
     [SerializeField] private string soundBank = "soundbank_MAIN";
@@ -165,6 +166,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             landSwitch.SetValue(gameObject);
+            // AkSoundEngine.SetSwitch("Jump_SW", "Land_jump", gameObject);
             if(!wasGroundedPrev){
                 in_playingJumpID = jumpEvent.Post(gameObject);
             }
@@ -180,6 +182,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
+                // AkSoundEngine.SetSwitch("Jump_SW", "single_jump", gameObject);
                 jumpSwitch.SetValue(gameObject);
                 spiritAnimator.SetBool("isJumping", true);
                 Jump(); 
@@ -203,6 +206,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        
         in_playingJumpID = jumpEvent.Post(gameObject);
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
@@ -371,17 +375,20 @@ public class PlayerController : MonoBehaviour
         {
             if (IsPlayerBehindNpc())
             {
+                scarePlayerEvent.Post(gameObject);
                 Debug.Log("Scaring the NPC");
-                StartCoroutine(PlayScareSequence());
+                stateController.ChangeState(new ScaredState());
+
+                // StartCoroutine(PlayScareSequence());
             }
         }
     }
 
-    private IEnumerator PlayScareSequence()
-    {
-        yield return new WaitForSeconds(1f);
-        stateController.ChangeState(new ScaredState());
-    }
+    // private IEnumerator PlayScareSequence()
+    // {
+    //     yield return new WaitForSeconds(1f);
+    //     stateController.ChangeState(new ScaredState());
+    // }
 
     private bool IsPlayerBehindNpc()
     {

@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class SpeakState : NPCBaseState
 {
-    private bool startedPlaying = false;
+    private uint playingID;
     public override void OnEnter(StateController controller){
         controller.GetNpcAnimator().SetBool("isSpeaking", true);
         controller.GetNpcAnimator().SetBool("isFleeing", false);
         controller.GetNpcAnimator().SetBool("isScared", false);
         controller.GetNpcAnimator().SetBool("isMoving", false);
-
-        // AudioSource voice = controller.GetNpcVoice();
-        // if(!voice.isPlaying){
-        //     voice.Play();
-        //     voice.volume = 1.0f;
-        //     Debug.Log("Playing"+ voice.clip.name);
-        startedPlaying = true;
-        // }
+        
+        playingID = AkSoundEngine.PostEvent("npc_dialogue", controller.GetNpcGameObject(), (uint)AkCallbackType.AK_EndOfEvent, SoundEndCallback, controller);
     }
-    public override void OnUpdate(StateController controller){
-        // AudioSource voice = controller.GetNpcVoice();
-        // if (startedPlaying && !voice.isPlaying){
-        if (startedPlaying){
-            controller.ChangeState(new IdleState());
+
+    private void SoundEndCallback(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
+    {
+        if (in_type == AkCallbackType.AK_EndOfEvent)
+        {
+            StateController controller = in_cookie as StateController;
+            if (controller != null)
+            {
+                controller.ChangeState(new IdleState());
+            }
         }
+    }
+
+    public override void OnUpdate(StateController controller){
+        // controller.ChangeState(new IdleState());
     }
 
     public override void OnExit(StateController controller){

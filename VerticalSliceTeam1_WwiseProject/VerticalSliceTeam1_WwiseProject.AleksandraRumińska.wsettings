@@ -3,7 +3,9 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{EAE8E661-C72D-4FA5-AB83-BC4AC8C67B2C}">
 			<PropertyList>
+				<Property Name="Event Action List\{3DEE82E6-209A-443C-866D-1DE909940D5A}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{ADD47F72-3879-406B-B72D-077944F6B0EE}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{D5A5D146-03BD-4D1C-A188-6F4A6978BDE6}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="EventView\FilterMode2" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
@@ -82,7 +84,7 @@
 				<Property Name="SoundBank Manager\x64_Expand Folders Auto" Type="string" Value=""/>
 				<Property Name="SoundBank Manager\x64_Expand Folders User" Type="string" Value="BwAAAA=="/>
 				<Property Name="SoundBank Manager\x64_Expand States Auto" Type="string" Value=""/>
-				<Property Name="SoundBank Manager\x64_Expand States User" Type="string" Value=""/>
+				<Property Name="SoundBank Manager\x64_Expand States User" Type="string" Value="pKGHaOEfg0CAtTDRfEcCTA=="/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>

@@ -15337,6 +15337,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0ed5b900c67d00848bc52bb3fc6ab268, type: 2}
+  scarePlayerEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2757f7226a4c95944a426dff1e437c2f, type: 2}
   soundBank: soundbank_MAIN
   cameraTransform: {fileID: 1615092200}
 --- !u!95 &996587032

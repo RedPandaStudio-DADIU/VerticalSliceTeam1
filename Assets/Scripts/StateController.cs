@@ -17,6 +17,8 @@ public class StateController : MonoBehaviour
     [SerializeField] private Animator NpcAnimator;
     [SerializeField] private GameObject npcGameObject;
     [SerializeField] private AK.Wwise.Event npcWalkEvent;
+    [SerializeField] private AK.Wwise.Event npcDialogEvent;
+
 
     private NPCBaseState currentState;
     private NPCBaseState previousMoveState;
@@ -114,6 +116,10 @@ public class StateController : MonoBehaviour
 
     public AK.Wwise.Event GetNpcWalkEvent(){
         return npcWalkEvent;
+    }
+
+    public AK.Wwise.Event GetNpcDialogEvent(){
+        return npcDialogEvent;
     }
 
     public GameObject GetNpcGameObject(){
