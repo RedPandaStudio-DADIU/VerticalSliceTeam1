@@ -334,7 +334,7 @@ public class PlayerController : MonoBehaviour
 
     void ScarePlayer()
     {
-        if (Input.GetKeyDown(KeyCode.T) && (stateController.GetCurrentState() is FleeState) || (stateController.GetCurrentState() is IdleState && stateController.GetPreviousState() is FleeState))
+        if (Input.GetKeyDown(KeyCode.T) && ((stateController.GetCurrentState() is FleeState) || (stateController.GetCurrentState() is IdleState && stateController.GetPreviousState() is FleeState)))
         {
             if (IsPlayerBehindNpc())
             {
