@@ -27,10 +27,10 @@ public class ScaryObjectsController : MonoBehaviour
         
         foreach (Collider col in colliders)
         {
-            if (col.CompareTag("ScaryObject") && !(stateController.GetCurrentState() is ScaredState)) 
+            // if (col.CompareTag("ScaryObject") && !(stateController.GetCurrentState() is ScaredState)) 
+            if (col.CompareTag("ScaryObject") && (stateController.GetCurrentState() is MoveState)) 
             {
                 Debug.Log("ChangingToScared");
-                // Bug: Going from Idle to Scared
                 stateController.ChangeState(new ScaredState()); 
                 // For now - put the object far away
                 col.transform.position = new Vector3(300f, 300f, 300f);
@@ -46,14 +46,6 @@ public class ScaryObjectsController : MonoBehaviour
             Vector3 spawnPosition = npc.transform.position + npc.transform.forward * 15f;
             spawnPosition.y = spawnHeight; 
             GameObject scaryObject = Instantiate(scaryObjectPrefab, spawnPosition, Quaternion.identity);
-            Rigidbody rb = scaryObject.AddComponent<Rigidbody>();
-            rb.useGravity = true;
-            rb.mass = 1000f;
-            rb.isKinematic = false;
-            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-            int layerIndex = LayerMask.NameToLayer("Scare");
-            scaryObject.layer = layerIndex;
-            scaryObject.tag = "ScaryObject"; 
         }
     }
 
