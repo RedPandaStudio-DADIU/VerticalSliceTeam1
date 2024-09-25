@@ -324,7 +324,7 @@ public class PlayerController : MonoBehaviour
         if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
         {
             spiritAnimator.SetBool("isInteracting", true);
-            circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
+            circlesManager.RemoveObstacle(currentCircleIndex); 
             Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
             spiritAnimator.SetBool("isInteracting", false);
 
