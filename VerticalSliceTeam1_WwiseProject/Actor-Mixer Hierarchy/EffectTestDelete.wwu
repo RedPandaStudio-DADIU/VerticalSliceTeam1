@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3BEE4CC2-37FB-4195-9777-65A37940F8F6}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="EffectTestDelete" ID="{3BEE4CC2-37FB-4195-9777-65A37940F8F6}" PersistMode="Standalone"/>
+	</AudioObjects>
+</WwiseDocument>
