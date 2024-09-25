@@ -9,6 +9,58 @@
 							<ObjectRef Name="System" ID="{8FBCD410-CA5F-45AF-8188-BCACB626A9D3}" WorkUnitID="{E2B1EF4A-4B6F-4296-811F-9FB8BA261C1E}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Folder Name="Rooms" ID="{6072D305-A3A1-4009-8A62-A276E9F8661D}" ShortID="147758419">
+							<ChildrenList>
+								<Bus Name="Forest" ID="{9425D2B8-5EFD-456A-80AF-A1DE2F9882AE}">
+									<ChildrenList>
+										<AuxBus Name="Rvrb_Forest_General" ID="{CB093780-467C-4E86-BD73-28A0E345CA09}">
+											<ObjectLists>
+												<ObjectList Name="Effects">
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{54ADE05F-33ED-47C4-9409-0EFDB19ADFFE}" ShortID="220063003">
+																<ReferenceList>
+																	<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+																		<ObjectRef Name="Plate_Small" ID="{5681977F-CD7F-4D09-AA58-118BEFA48C8C}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{337D1172-E788-4F6B-95B6-AE2D52D77B63}" ShortID="560591134">
+																<PropertyList>
+																	<Property Name="Bypass" Type="bool" Value="True"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+																		<ObjectRef Name="Hall_Large_Dark" ID="{0F6A7D6D-131C-4650-9561-FC05F5C7A37B}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{2A2535D1-72A2-47D5-AF89-3C553E517A09}" ShortID="941924617">
+																<ReferenceList>
+																	<Reference Name="Effect" PluginName="Wwise Stereo Delay" CompanyID="0" PluginID="135" PluginType="3">
+																		<ObjectRef Name="Blue_Distant_Echoes" ID="{ABFA9875-521E-451F-AAB9-AB148847B9C0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</AuxBus>
+									</ChildrenList>
+								</Bus>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>
