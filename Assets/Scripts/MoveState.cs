@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using AK.Wwise;
+
 
 
 public class MoveState : NPCBaseState
 {
     private NavMeshAgent movingNpc;
+    // private bool isPlaying = false;
+    // private uint in_playingID;
+
     public override void OnEnter(StateController controller){
         Debug.Log("Move state here!");
+        // Manage animations
         controller.GetNpcAnimator().SetBool("isMoving", true);
         controller.GetNpcAnimator().SetBool("isFleeing", false);
         controller.GetNpcAnimator().SetBool("isScared", false);
         controller.GetNpcAnimator().SetBool("isSpeaking", false);
+
+        // //Manage sounds
+        // if(!isPlaying){
+        //     isPlaying = true;
+        //     in_playingID = controller.GetNpcWalkEvent().Post(controller.GetNpcGameObject(), (uint)AkCallbackType.AK_EndOfEvent, OnSoundEnd);
+
+        // }
 
         movingNpc = controller.GetNpc();
         if(!movingNpc.enabled){
@@ -23,6 +36,14 @@ public class MoveState : NPCBaseState
         movingNpc.updateRotation = true;
 
     }
+
+    // private void OnSoundEnd(object spirit, AkCallbackType type, AkCallbackInfo info)
+    // {
+    //     if(type == AkCallbackType.AK_EndOfEvent)
+    //     {
+    //         isPlaying = false;
+    //     }
+    // }
     public override void OnUpdate(StateController controller){
         // Vector3 direction = movingNpc.velocity.normalized;
 
@@ -39,8 +60,8 @@ public class MoveState : NPCBaseState
             if (!movingNpc.pathPending)
             {
                 controller.ChangeState(new IdleState());
-                // Debug.Log("Found the end");
-                controller.RecalculatePathForNPC();
+                Debug.Log("Found the end");
+                // controller.RecalculatePathForNPC();
 
             }
         }
@@ -49,6 +70,7 @@ public class MoveState : NPCBaseState
         Debug.Log("Exiting the Move State");
         controller.DisableNavMeshAgent();
         controller.GetNpcAnimator().SetBool("isMoving", false);
+        // isPlaying = false;
 
     }
 

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using AK.Wwise;
+
 
 public class StateController : MonoBehaviour
 {
@@ -10,20 +12,25 @@ public class StateController : MonoBehaviour
     [SerializeField] private Transform end;
     [SerializeField] private Transform start;
     [SerializeField] private Animator NpcAnimator;
-
+    [SerializeField] private GameObject npcGameObject;
+    [SerializeField] private AK.Wwise.Event npcWalkEvent;
 
     // private AudioSource npcVoice;
     private NPCBaseState currentState;
     private NPCBaseState previousMoveState;
+    private string soundBank = "soundbank_MAIN";
 
     private NavMeshAgent npc;
     private float xRotation = -90f;
+
     void Start(){
         npc = GetComponent<NavMeshAgent>();
         // npcVoice = GetComponent<AudioSource>();
         currentState = new MoveState();
         previousMoveState = currentState;
         currentState.OnEnter(this);
+        AkSoundEngine.LoadBank(soundBank, out uint bankID);
+
     }
 
     void Update(){
@@ -68,11 +75,6 @@ public class StateController : MonoBehaviour
     public void EnableNavMeshAgent(){
         npc.enabled = true;
     }
-
-    // public AudioSource GetNpcVoice(){
-    //     return npcVoice; 
-    // }
-
     public NPCBaseState GetCurrentState(){
         return currentState; 
     }
@@ -95,6 +97,14 @@ public class StateController : MonoBehaviour
 
     public Animator GetNpcAnimator(){
         return NpcAnimator;
+    }
+
+    public AK.Wwise.Event GetNpcWalkEvent(){
+        return npcWalkEvent;
+    }
+
+    public GameObject GetNpcGameObject(){
+        return npcGameObject;
     }
 }
 

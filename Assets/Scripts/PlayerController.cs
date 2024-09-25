@@ -23,9 +23,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private LayerMask bridgeMask;
 
+    [Header("Player Sounds Settings - Wwise")]
+
     [SerializeField] private AK.Wwise.Event footstepsEvent;
     [SerializeField] private AK.Wwise.Switch footstepsSwitchGrass;
     [SerializeField] private AK.Wwise.Switch footstepsSwitchWood;
+
+    [SerializeField] private AK.Wwise.Event jumpEvent;
+    [SerializeField] private AK.Wwise.Switch jumpSwitch;
+    [SerializeField] private AK.Wwise.Switch doubleJumpSwitch;
+    [SerializeField] private AK.Wwise.Switch landSwitch;
+    [SerializeField] private AK.Wwise.Event spellEvent;
+    [SerializeField] private AK.Wwise.Event putRockEvent;
+    [SerializeField] private AK.Wwise.Event pickUpRockEvent;
+
+
     [SerializeField] private string soundBank = "soundbank_MAIN";
     private Animator spiritAnimator;
 
