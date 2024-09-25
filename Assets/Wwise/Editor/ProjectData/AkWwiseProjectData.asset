@@ -106,7 +106,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Main
     guid: a4a18768e11f834080b530d17c47024c
     GuidInternal: 
-    m_lastTime: -8584743248345806891
+    m_lastTime: -8584743135222480055
     List:
     - name: soundbank_MAIN
       guid: 11a4d6a248e66f45b2b5bf6b05ad1c46
@@ -241,8 +241,8 @@ MonoBehaviour:
         guid: 46d1a5d5bd031c4da1886f4a6978bde6
       Path: Events\Spirit_event\Spirit_Jump
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 7.205116
+      minDuration: 4.75
     - name: Spirit_landing
       guid: b73a96fca9830c48a7ff82453dab272b
       id: 2127638682
@@ -258,8 +258,8 @@ MonoBehaviour:
         guid: b73a96fca9830c48a7ff82453dab272b
       Path: Events\Spirit_event\Spirit_landing
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 5.25
+      minDuration: 5.25
     - name: Spirit_lift_rock
       guid: bed48fb4ddec7e47961f5e8555ad743f
       id: 6041474
@@ -275,8 +275,8 @@ MonoBehaviour:
         guid: bed48fb4ddec7e47961f5e8555ad743f
       Path: Events\Spirit_event\Spirit_lift_rock
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 14
+      minDuration: 14
     - name: Spirit_put_rock_down
       guid: 9969d421cbf1d0498d9e2deaa4978d17
       id: 1498164727
@@ -292,8 +292,8 @@ MonoBehaviour:
         guid: 9969d421cbf1d0498d9e2deaa4978d17
       Path: Events\Spirit_event\Spirit_put_rock_down
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 8.5
+      minDuration: 8.5
     - name: Spirit_Spell
       guid: 77155b086c033c48864eeb6d2d1a8e77
       id: 214727577
@@ -309,8 +309,8 @@ MonoBehaviour:
         guid: 77155b086c033c48864eeb6d2d1a8e77
       Path: Events\Spirit_event\Spirit_Spell
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 11.75
+      minDuration: 11.75
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -536,7 +536,7 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584748667969194078
     List: []
-  ExpandedFileSystemItemIds: 020000000300000004000000050000000600000007000000080000000f000000100000001100000012000000130000001400000015000000160000001f000000
+  ExpandedFileSystemItemIds: 020000000300000004000000050000000600000007000000080000000f000000100000001100000012000000130000001400000015000000160000001c0000001e0000001f000000
   ExpandedWaapiItemIds: 020000000300000004000000050000000600000007000000080000000f000000100000001100000012000000130000001400000015000000160000001f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1

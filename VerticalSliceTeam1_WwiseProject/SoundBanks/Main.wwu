@@ -6,6 +6,13 @@
 				<SoundBank Name="soundbank_MAIN" ID="{A2D6A411-E648-456F-B2B5-BF6B05AD1C46}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Spirit_Footsteps" ID="{BFC207D1-1645-4001-BCB2-C88BEF0BE922}" WorkUnitID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Ambience_play" ID="{7FAE433B-17AF-429D-A85C-8CEB1C51FFB2}" WorkUnitID="{833C7C32-9D49-444D-8ACA-931F701C7714}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Spirit_lift_rock" ID="{B48FD4BE-ECDD-477E-961F-5E8555AD743F}" WorkUnitID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Spirit_landing" ID="{FC963AB7-83A9-480C-A7FF-82453DAB272B}" WorkUnitID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Spirit_Spell" ID="{085B1577-036C-483C-864E-EB6D2D1A8E77}" WorkUnitID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Spirit_put_rock_down" ID="{21D46999-F1CB-49D0-8D9E-2DEAA4978D17}" WorkUnitID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Spirit_Jump" ID="{D5A5D146-03BD-4D1C-A188-6F4A6978BDE6}" WorkUnitID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="npc_footsteps" ID="{8BEDFFFE-3596-4F59-942C-6A820A92201E}" WorkUnitID="{B70F807A-1CAE-435F-9F4E-2AA5EE425465}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

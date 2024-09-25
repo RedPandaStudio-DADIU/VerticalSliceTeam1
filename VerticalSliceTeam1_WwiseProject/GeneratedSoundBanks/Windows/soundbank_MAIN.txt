@@ -1,20 +1,45 @@
 Event	ID	Name			Wwise Object Path	Notes
+	6041474	Spirit_lift_rock			\Spirit_event\Spirit_lift_rock	
+	41484105	Spirit_Jump			\Spirit_event\Spirit_Jump	
+	214727577	Spirit_Spell			\Spirit_event\Spirit_Spell	
+	1496310610	Ambience_play			\Ambience\Ambience_play	
+	1498164727	Spirit_put_rock_down			\Spirit_event\Spirit_put_rock_down	
 	1695590886	Spirit_Footsteps			\Spirit_event\Spirit_Footsteps	
+	2127638682	Spirit_landing			\Spirit_event\Spirit_landing	
+	4148702810	npc_footsteps			\NPC_events\npc_footsteps	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
+	562888138	Jump_SW			\Default Work Unit\Jump\Jump_SW	
 	1724755387	Footsteps_SW			\Default Work Unit\Footsteps\Footsteps_SW	
 
 Switch	ID	Name	Switch Group			Notes
+	433051569	Double_jump	Jump_SW			
+	2401821937	Land_jump	Jump_SW			
+	2925909356	single_jump	Jump_SW			
 	2058049674	Wood	Footsteps_SW			
 	4248645337	Grass	Footsteps_SW			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	114548734	FS_Spirit_wood_4	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_4_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_4		664624
-	277534849	FS_Spirit_grass_2	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_2_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_2		768096
-	389824459	FS_Spirit_wood_3	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_3_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_3		694572
-	517003019	FS_Spirit_grass_1	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_1_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_1		624096
-	698900304	FS_Spirit_grass_4	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_4_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_4		768096
-	873667171	FS_Spirit_wood_2	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_2_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_2		768096
-	981129124	FS_Spirit_wood_1	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_1_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_1		624096
-	1019385149	FS_Spirit_grass_3	Y:\Documents\GitHub\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_3_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_3		624096
+	114548734	FS_Spirit_wood_4	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_4_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_4		664624
+	120818419	Npc_footsteps_2	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_2_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_2		276096
+	277534849	FS_Spirit_grass_2	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_2_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_2		768096
+	281730157	Game Jam 2_ambience_1	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Game Jam 2_ambience_1_FBC78EF0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\Game Jam 2_ambience_1		26598096
+	304120103	Spirit_double_jump	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Spirit_double_jump_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Jump_Spirit_SW\spirit_jump_double\Spirit_double_jump		912096
+	389824459	FS_Spirit_wood_3	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_3_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_3		694572
+	432606348	Game Jam 2_ambience_2	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Game Jam 2_ambience_2_FBC78EF0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\Game Jam 2_ambience_2		23040096
+	460389106	Spirit_jump	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_jump_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Jump_Spirit_SW\spirit_jump_single\Spirit_jump		1344096
+	471097908	Spirit_lift_Rock	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Spirit_lift_Rock_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Lift_rock_spirit\Spirit_lift_Rock		2688096
+	475927476	Npc_footsteps_3	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_3_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_3		276096
+	517003019	FS_Spirit_grass_1	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_1_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_1		624096
+	556107957	FS_Spirit_land	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_land_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Jump_Spirit_SW\Spirit_land\FS_Spirit_land		1008096
+	653060333	Game Jam 2_ambience_4	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Game Jam 2_ambience_4_FBC78EF0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\Game Jam 2_ambience_4		6720096
+	690589593	Spirit_put_down_Rock	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Spirit_put_down_Rock_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\put_down_rock_spirit\Spirit_put_down_Rock		1632096
+	698900304	FS_Spirit_grass_4	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_4_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_4		768096
+	729821709	Npc_footsteps_4	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_4_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_4		276096
+	811388392	Game Jam 2_ambience_3	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Game Jam 2_ambience_3_FBC78EF0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\Game Jam 2_ambience_3		14208096
+	873667171	FS_Spirit_wood_2	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_2_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_2		768096
+	913920049	Npc_footsteps_1	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Npc_footsteps_1_818F3B66.wem		\Actor-Mixer Hierarchy\Drunk_Guy_NPC\npc_footsteps\Npc_footsteps_1		276096
+	942835718	Spirit_Spell	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\Spirit_Spell_A9CD63A1.wem		\Actor-Mixer Hierarchy\Spirit_Player\Spell_spirit\Spirit_Spell		2256096
+	981129124	FS_Spirit_wood_1	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_wood_1_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_wood\FS_Spirit_wood_1		624096
+	1019385149	FS_Spirit_grass_3	C:\Unity\DADIU_1\VerticalSliceTeam1\VerticalSliceTeam1_WwiseProject\.cache\Windows\SFX\FS_Spirit_3_818F3B66.wem		\Actor-Mixer Hierarchy\Spirit_Player\Footsteps_spirit_SW\Footsteps_spirit_grass\FS_Spirit_grass_3		624096
 

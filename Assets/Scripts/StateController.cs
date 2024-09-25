@@ -18,7 +18,6 @@ public class StateController : MonoBehaviour
     [SerializeField] private GameObject npcGameObject;
     [SerializeField] private AK.Wwise.Event npcWalkEvent;
 
-    // private AudioSource npcVoice;
     private NPCBaseState currentState;
     private NPCBaseState previousMoveState;
     private string soundBank = "soundbank_MAIN";
@@ -34,7 +33,6 @@ public class StateController : MonoBehaviour
 
     void Start(){
         npc = GetComponent<NavMeshAgent>();
-        // npcVoice = GetComponent<AudioSource>();
         currentState = new MoveState();
         previousMoveState = currentState;
         currentState.OnEnter(this);

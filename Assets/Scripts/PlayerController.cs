@@ -42,7 +42,9 @@ public class PlayerController : MonoBehaviour
     private Animator spiritAnimator;
 
 
-    private bool isGrounded;
+    private bool isGrounded = true;
+    private bool wasGroundedPrev = true;
+
     private bool canDoubleJump = false; 
     private GameObject closeByRockSet = null;
 
@@ -61,6 +63,8 @@ public class PlayerController : MonoBehaviour
     private GameObject currentRock;         // The rock the player is carrying
     private StateController stateController;
     private uint in_playingID;
+    private uint in_playingJumpID;
+    private uint in_movingStuffID;
 
     private bool isPlaying = false;
     private void Start()
@@ -125,7 +129,9 @@ public class PlayerController : MonoBehaviour
             {
                 footstepsSwitchGrass.SetValue(gameObject);
                 isPlaying = true;
-                in_playingID = footstepsEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnSoundEnd);
+                // in_playingID = footstepsEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnSoundEnd);
+                in_playingID = footstepsEvent.Post(gameObject);
+
             }
 
             Vector3 moveVelocity = moveDirection * moveSpeed;
@@ -153,10 +159,15 @@ public class PlayerController : MonoBehaviour
     }
 
     private void CheckJumping(){
+        wasGroundedPrev = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
     
         if (isGrounded)
         {
+            landSwitch.SetValue(gameObject);
+            if(!wasGroundedPrev){
+                in_playingJumpID = jumpEvent.Post(gameObject);
+            }
             canDoubleJump = true;
             spiritAnimator.SetBool("isJumping", false);
 
@@ -169,6 +180,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
+                jumpSwitch.SetValue(gameObject);
                 spiritAnimator.SetBool("isJumping", true);
                 Jump(); 
             }
@@ -181,17 +193,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnSoundEnd(object spirit, AkCallbackType type, AkCallbackInfo info)
-    {
-        if(type == AkCallbackType.AK_EndOfEvent)
-        {
-            isPlaying = false;
-        }
-    }
+    // private void OnSoundEnd(object spirit, AkCallbackType type, AkCallbackInfo info)
+    // {
+    //     if(type == AkCallbackType.AK_EndOfEvent)
+    //     {
+    //         isPlaying = false;
+    //     }
+    // }
 
     private void Jump()
     {
-        // jumpEvent.Post(gameObject);
+        in_playingJumpID = jumpEvent.Post(gameObject);
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
         Debug.Log("Jump");
@@ -226,6 +238,7 @@ public class PlayerController : MonoBehaviour
             if (currentRock != null && !isCarryingRock)
             {
                 ResetRockSet();
+                in_movingStuffID = pickUpRockEvent.Post(gameObject);;
                 isCarryingRock = true;
                 currentRock.GetComponent<Rigidbody>().isKinematic = true; // Make rock float
                 Debug.Log("Picked up the rock: " + currentRock.name);
@@ -275,6 +288,7 @@ public class PlayerController : MonoBehaviour
 
                 if (hit.collider.CompareTag("RockSet") && !rockManager.rockSetsDict[hit.collider.gameObject])
                 {
+                    in_movingStuffID = putRockEvent.Post(gameObject);;
                     Debug.Log("Rock position height: "+rockPosHeight);
                     currentRock.transform.rotation = Quaternion.Euler(-90, 0, 0); 
                     // currentRock.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, rockPosHeight ,hit.collider.gameObject.transform.position.z); 
@@ -299,6 +313,7 @@ public class PlayerController : MonoBehaviour
             currentRock = rockManager.GetFreeRock(currentFreeRockIndex);
             if (currentRock != null && !isCarryingRock)
             {
+                in_movingStuffID = pickUpRockEvent.Post(gameObject);;
                 isCarryingRock = true;
                 currentRock.GetComponent<Rigidbody>().isKinematic = true;
                 Debug.Log("Picked up the free rock: " + currentRock.name);
@@ -316,6 +331,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, freeRockRange, groundMask))
         {
+            in_movingStuffID = putRockEvent.Post(gameObject);;
             currentRock.transform.position = hit.point;  
             currentRock.GetComponent<Rigidbody>().isKinematic = false;
             isCarryingRock = false;
@@ -340,6 +356,7 @@ public class PlayerController : MonoBehaviour
         if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
         {
             spiritAnimator.SetBool("isInteracting", true);
+            in_movingStuffID = spellEvent.Post(gameObject);;
             circlesManager.RemoveObstacle(currentCircleIndex); 
             Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
             spiritAnimator.SetBool("isInteracting", false);

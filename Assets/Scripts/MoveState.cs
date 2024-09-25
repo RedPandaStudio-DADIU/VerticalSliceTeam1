@@ -10,7 +10,7 @@ public class MoveState : NPCBaseState
 {
     private NavMeshAgent movingNpc;
     // private bool isPlaying = false;
-    // private uint in_playingID;
+    private uint playingId;
 
     public override void OnEnter(StateController controller){
         Debug.Log("Move state here!");
@@ -20,12 +20,11 @@ public class MoveState : NPCBaseState
         controller.GetNpcAnimator().SetBool("isScared", false);
         controller.GetNpcAnimator().SetBool("isSpeaking", false);
 
-        // //Manage sounds
-        // if(!isPlaying){
-        //     isPlaying = true;
-        //     in_playingID = controller.GetNpcWalkEvent().Post(controller.GetNpcGameObject(), (uint)AkCallbackType.AK_EndOfEvent, OnSoundEnd);
+        //Manage sounds
 
-        // }
+        playingId = controller.GetNpcWalkEvent().Post(controller.GetNpcGameObject());
+
+
 
         movingNpc = controller.GetNpc();
         if(!movingNpc.enabled){
@@ -38,13 +37,6 @@ public class MoveState : NPCBaseState
 
     }
 
-    // private void OnSoundEnd(object spirit, AkCallbackType type, AkCallbackInfo info)
-    // {
-    //     if(type == AkCallbackType.AK_EndOfEvent)
-    //     {
-    //         isPlaying = false;
-    //     }
-    // }
     public override void OnUpdate(StateController controller){
         // Vector3 direction = movingNpc.velocity.normalized;
 
@@ -71,8 +63,6 @@ public class MoveState : NPCBaseState
                     // controller.RecalculatePathForNPC();
                 }
 
-               
-
             }
         }
     }
@@ -80,13 +70,17 @@ public class MoveState : NPCBaseState
         Debug.Log("Exiting the Move State");
         controller.DisableNavMeshAgent();
         controller.GetNpcAnimator().SetBool("isMoving", false);
+        AkSoundEngine.StopPlayingID(playingId);
         // isPlaying = false;
+        
 
     }
 
     public override void OnCollisionEnter(StateController controller, Collision other){
         Debug.Log("Collision");
         if(other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("FreeRock") || other.gameObject.CompareTag("Water")){
+            AkSoundEngine.StopPlayingID(playingId);
+            // isPlaying = false;
             controller.ChangeState(new SpeakState());
         }
     }
