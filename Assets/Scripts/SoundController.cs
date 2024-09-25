@@ -1,29 +1,17 @@
-using UnityEngine;
-using AK.Wwise;
+// using UnityEngine;
+// using AK.Wwise;
 
-public class SoundController : MonoBehaviour
-{
-    public string soundBank = "soundbank_MAIN";
-    public string soundEvent = "Footsteps_spirit_SW";
+// public class SoundController : MonoBehaviour
+// {
+//     [SerializeField] private string soundBank = "soundbank_MAIN";
+//     [SerializeField] private AK.Wwise.Event ambienceEvent;
 
-    void Start()
-    {
-        AkSoundEngine.LoadBank(soundBank, out uint bankID);
-        Debug.Log("Bank: " + bankID);
 
-    }
+//     void Start()
+//     {
+//         AkSoundEngine.LoadBank(soundBank, out uint bankID);
+//         Debug.Log("Bank: " + bankID);
+//         ambienceEvent.Post(gameObject);
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Playing Sound?");
-            PlaySound(soundEvent);
-        }
-    }
-
-    public void PlaySound(string eventName)
-    {
-         AkSoundEngine.PostEvent(eventName, gameObject);
-    }
-}
+//     }
+// }

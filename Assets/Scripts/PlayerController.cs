@@ -160,6 +160,9 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = true;
             spiritAnimator.SetBool("isJumping", false);
 
+        } else {
+            isPlaying = false;
+            AkSoundEngine.StopPlayingID(in_playingID);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -188,6 +191,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        // jumpEvent.Post(gameObject);
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
         Debug.Log("Jump");
