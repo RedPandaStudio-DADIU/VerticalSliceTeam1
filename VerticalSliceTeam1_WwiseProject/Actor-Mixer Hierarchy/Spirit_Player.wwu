@@ -21,6 +21,11 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="Footsteps_spirit_grass" ID="{CBE97511-F364-4640-A3B7-818867E20977}" ShortID="312250723">
 							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.5</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -37,7 +42,7 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.4"/>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 							</PropertyList>
 							<ReferenceList>
@@ -193,6 +198,10 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -214,6 +223,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FS_Spirit_wood_3" ID="{0A9A4384-6B3E-49CF-8E67-A843FAF296E3}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="3.01156305066079"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FS_Spirit_wood_3.wav</AudioFile>
 											<MediaIDList>
@@ -236,6 +249,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FS_Spirit_wood_4" ID="{2B07BA70-FBAD-4F95-8958-14BF6942EB57}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="3.00875379344102"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FS_Spirit_wood_4.wav</AudioFile>
 											<MediaIDList>
@@ -258,6 +275,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FS_Spirit_wood_1" ID="{B1880AE3-687E-4179-AC16-02D1FDEB8CB4}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="3.00660792951542"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FS_Spirit_wood_1.wav</AudioFile>
 											<MediaIDList>
@@ -280,6 +301,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FS_Spirit_wood_2" ID="{16AC14C9-8D16-41C8-9383-B325BC64E2ED}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="3.01321585903084"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FS_Spirit_wood_2.wav</AudioFile>
 											<MediaIDList>
@@ -327,9 +352,12 @@
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
 						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="Jump_SW" ID="{193D7ECA-8C62-40CA-A3FE-6991CFECD38E}" WorkUnitID="{55F8C160-E91D-4F7C-BC5A-04DB03D4C286}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<RandomSequenceContainer Name="Jump_Spirit" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}" ShortID="513130721">
+						<RandomSequenceContainer Name="spirit_jump_single" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}" ShortID="513130721">
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
@@ -365,6 +393,9 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FS_Spirit_jump" ID="{C36EE37E-3265-4CD0-B299-80FCB437349A}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FS_Spirit_jump.wav</AudioFile>
 											<MediaIDList>
@@ -399,6 +430,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="FS_Spirit_land" ID="{1B6D6B67-508A-4291-9A67-E7F0205E21E9}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>FS_Spirit_land.wav</AudioFile>
 											<MediaIDList>
@@ -412,16 +447,77 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="spirit_jump_double" ID="{9C1D0424-81B0-4FE3-AAE4-B9109C038DA3}" ShortID="932533309">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Spirit_double_jump" ID="{3FE0582E-0BD3-4A3D-B31B-F97052DEE95B}" ShortID="783281755">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Spirit_double_jump" ID="{77310273-3801-4BAC-B84E-9B9138EA2688}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Spirit_double_jump.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="304120103"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Spirit_double_jump" ID="{77310273-3801-4BAC-B84E-9B9138EA2688}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 					<GroupingInfo>
 						<GroupingBehaviorList>
 							<GroupingBehavior>
-								<ItemRef Name="Jump_Spirit" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}"/>
+								<ItemRef Name="spirit_jump_single" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="spirit_jump_double" ID="{9C1D0424-81B0-4FE3-AAE4-B9109C038DA3}"/>
 							</GroupingBehavior>
 							<GroupingBehavior>
 								<ItemRef Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}"/>
 							</GroupingBehavior>
 						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="Land_jump" ID="{F944AD4B-7033-4D67-8D5C-AD00A3B18AC9}"/>
+								<ItemList>
+									<ItemRef Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="Double_jump" ID="{6B4D8E56-35B7-474F-BB3D-F93BAF7E2E37}"/>
+								<ItemList>
+									<ItemRef Name="spirit_jump_double" ID="{9C1D0424-81B0-4FE3-AAE4-B9109C038DA3}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="single_jump" ID="{E7CC18E7-BF1F-4472-8A47-6967BF5003B8}"/>
+								<ItemList>
+									<ItemRef Name="spirit_jump_single" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
 					</GroupingInfo>
 				</SwitchContainer>
 				<RandomSequenceContainer Name="Lift_rock_spirit" ID="{1A4AD56A-34EC-4D82-84AF-EA340BBAB7BD}" ShortID="542689504">
@@ -491,6 +587,64 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Spell_spirit" ID="{09D21584-2319-483F-AFCD-E303E843FA78}" ShortID="730095074">
+					<PropertyList>
+						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Spirit_Spell" ID="{1D4EB9CE-005A-4471-BB8C-50E62939E1DB}" ShortID="584776719">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Spirit_Spell" ID="{F0131248-0BCF-4831-B331-60A4A8B78CCD}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.90679824561403"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Spirit_Spell.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="942835718"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Spirit_Spell" ID="{F0131248-0BCF-4831-B331-60A4A8B78CCD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Playlist">
+							<Reference>
+								<ObjectRef Name="Spirit_Spell" ID="{1D4EB9CE-005A-4471-BB8C-50E62939E1DB}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Scream_scare_spirit" ID="{3A84A07B-4E58-4C40-BC99-098EB81D9C22}" ShortID="191411822">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
 				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>

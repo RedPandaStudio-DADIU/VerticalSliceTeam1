@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{DF68BD9A-2EAF-1286-F965-58B19CDD83CA}">
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{27451776-112D-39B1-B5F9-C8BFC41ADEB4}">
 			<ShortName>soundbank_MAIN</ShortName>
 			<Path>soundbank_MAIN.bnk</Path>
 			<Media>
@@ -47,7 +47,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="Mixed" DurationMin="2.7694633" DurationMax="Infinite">
+				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1724755387" Id="2058049674" Default="true"/>
@@ -79,7 +79,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6CBD692-12EC-CDBA-0932-48F63C40C91F}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C2162A80-5251-B561-7C25-FCC9033D1B43}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -89,9 +89,17 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="2735937508" Name="Reverb EXT"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<SwitchGroups>
+				<SwitchGroup Id="562888138" Name="Jump_SW">
+					<Switches>
+						<Switch Id="433051569" Name="Double_jump"/>
+						<Switch Id="2401821937" Name="Land_jump"/>
+						<Switch Id="2925909356" Name="single_jump"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="1724755387" Name="Footsteps_SW">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
@@ -101,5 +109,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{09069041-0AAD-4C1E-CABE-DD587D177572}</FileHash>
+	<FileHash>{93EFC108-D491-71D3-7A80-46F824B61059}</FileHash>
 </SoundBanksInfo>

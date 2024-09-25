@@ -29,6 +29,18 @@ namespace AK
             } // namespace SWITCH
         } // namespace FOOTSTEPS_SW
 
+        namespace JUMP_SW
+        {
+            static const AkUniqueID GROUP = 562888138U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DOUBLE_JUMP = 433051569U;
+                static const AkUniqueID LAND_JUMP = 2401821937U;
+                static const AkUniqueID SINGLE_JUMP = 2925909356U;
+            } // namespace SWITCH
+        } // namespace JUMP_SW
+
     } // namespace SWITCHES
 
     namespace BANKS
@@ -40,6 +52,7 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID REVERB_EXT = 2735937508U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES
