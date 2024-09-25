@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Handle picking up and placing rocks
-        if (isCarryingRock && Input.GetKeyDown(KeyCode.T))
+        if (isCarryingRock && Input.GetKeyDown(KeyCode.E))
         {
             if (currentFreeRockIndex != -1)
             {
@@ -84,11 +84,11 @@ public class PlayerController : MonoBehaviour
                 PlaceRock();  
             }
         }
-        else if (!isCarryingRock && currentRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
+        else if (!isCarryingRock && currentRockIndex != -1 && Input.GetKeyDown(KeyCode.E))
         {
             PickupRock();
         }
-        else if (!isCarryingRock && currentFreeRockIndex != -1 && Input.GetKeyDown(KeyCode.T))
+        else if (!isCarryingRock && currentFreeRockIndex != -1 && Input.GetKeyDown(KeyCode.E))
         {
             PickupFreeRock();
         }
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             circlesManager.SetCircleInteraction(true);
         }
 
-        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.R))
+        if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.E))
         {
             circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
             Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
