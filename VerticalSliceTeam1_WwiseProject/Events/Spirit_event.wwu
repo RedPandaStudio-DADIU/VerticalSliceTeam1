@@ -16,21 +16,10 @@
 				</Event>
 				<Event Name="Spirit_Jump" ID="{D5A5D146-03BD-4D1C-A188-6F4A6978BDE6}">
 					<ChildrenList>
-						<Action Name="" ID="{D421587B-0770-48F8-A389-99B3A9E6076A}" ShortID="596755436">
+						<Action Name="" ID="{99257A74-FE38-4B63-B688-096132949543}" ShortID="701395627">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Jump_Spirit" ID="{23BB1E22-B812-4F12-A96E-10E3A3BA6BB4}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Spirit_landing" ID="{FC963AB7-83A9-480C-A7FF-82453DAB272B}">
-					<ChildrenList>
-						<Action Name="" ID="{F02B4A50-2036-4768-BF56-8F888BB74A00}" ShortID="545929227">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+									<ObjectRef Name="Jump_Spirit_SW" ID="{1DCEFD06-BEB7-40D3-B41E-B1D2E8298768}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -53,6 +42,28 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="put_down_rock_spirit" ID="{67878402-106D-41D5-A55A-98477BC90EDD}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_Spell" ID="{085B1577-036C-483C-864E-EB6D2D1A8E77}">
+					<ChildrenList>
+						<Action Name="" ID="{55B03C09-4AE3-40E4-BB5D-D156E37F9259}" ShortID="853425310">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Spell_spirit" ID="{09D21584-2319-483F-AFCD-E303E843FA78}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_scream" ID="{804508C2-EEEB-4F00-B568-F51FEB52C9E2}">
+					<ChildrenList>
+						<Action Name="" ID="{D9660079-4D29-4CEE-BFD8-9BD8AA9630B9}" ShortID="832941674">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Scream_scare_spirit" ID="{3A84A07B-4E58-4C40-BC99-098EB81D9C22}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

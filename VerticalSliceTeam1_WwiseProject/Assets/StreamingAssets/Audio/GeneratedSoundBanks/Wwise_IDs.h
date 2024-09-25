@@ -13,7 +13,14 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID NPC_DIALOGUE = 1541636155U;
+        static const AkUniqueID NPC_DIALOGUE_CLOSE_TO_SPIRIT = 2961262330U;
+        static const AkUniqueID NPC_DIALOGUE_START_GAME = 1639183423U;
+        static const AkUniqueID NPC_FOOTSTEPS = 4148702810U;
         static const AkUniqueID SPIRIT_FOOTSTEPS = 1695590886U;
+        static const AkUniqueID SPIRIT_JUMP = 41484105U;
+        static const AkUniqueID SPIRIT_SCREAM = 4075077934U;
+        static const AkUniqueID SPIRIT_SPELL = 214727577U;
     } // namespace EVENTS
 
     namespace SWITCHES
