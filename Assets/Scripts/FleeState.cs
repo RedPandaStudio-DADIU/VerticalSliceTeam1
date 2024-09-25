@@ -10,6 +10,11 @@ public class FleeState : NPCBaseState
 
     public override void OnEnter(StateController controller){  
         Debug.Log("Entering Flee State");
+        controller.GetNpcAnimator().SetBool("isFleeing", true);
+        controller.GetNpcAnimator().SetBool("isScared", false);
+        controller.GetNpcAnimator().SetBool("isSpeaking", false);
+        controller.GetNpcAnimator().SetBool("isMoving", false);
+
         movingNpc = controller.GetNpc();
         if(!movingNpc.enabled){
             controller.EnableNavMeshAgent();
@@ -22,11 +27,11 @@ public class FleeState : NPCBaseState
 
     }
     public override void OnUpdate(StateController controller){
-        Vector3 direction = (controller.GetStartTransform().position - movingNpc.transform.position).normalized;
+        // Vector3 direction = (controller.GetStartTransform().position - movingNpc.transform.position).normalized;
 
-        if (direction != Vector3.zero){
-            controller.transform.LookAt(movingNpc.velocity.normalized);
-        }
+        // if (direction != Vector3.zero){
+        //     controller.transform.LookAt(movingNpc.velocity.normalized);
+        // }
 
         if (movingNpc.remainingDistance <= movingNpc.stoppingDistance)
         {
@@ -39,6 +44,8 @@ public class FleeState : NPCBaseState
     }
     public override void OnExit(StateController controller){
         controller.DisableNavMeshAgent();
+        controller.GetNpcAnimator().SetBool("isFleeing", false);
+
     }
 
     public override void OnCollisionEnter(StateController controller, Collision other){

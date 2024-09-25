@@ -9,17 +9,18 @@ public class StateController : MonoBehaviour
     [Header("NPC AI settings")]
     [SerializeField] private Transform end;
     [SerializeField] private Transform start;
+    [SerializeField] private Animator NpcAnimator;
 
-    private AudioSource npcVoice;
+
+    // private AudioSource npcVoice;
     private NPCBaseState currentState;
     private NPCBaseState previousMoveState;
 
     private NavMeshAgent npc;
     private float xRotation = -90f;
-
     void Start(){
         npc = GetComponent<NavMeshAgent>();
-        npcVoice = GetComponent<AudioSource>();
+        // npcVoice = GetComponent<AudioSource>();
         currentState = new MoveState();
         previousMoveState = currentState;
         currentState.OnEnter(this);
@@ -27,6 +28,7 @@ public class StateController : MonoBehaviour
 
     void Update(){
         currentState.OnUpdate(this);
+        Debug.Log("Current State: " + currentState);
     }
 
     public void ChangeState(NPCBaseState newState){
@@ -67,9 +69,9 @@ public class StateController : MonoBehaviour
         npc.enabled = true;
     }
 
-    public AudioSource GetNpcVoice(){
-        return npcVoice; 
-    }
+    // public AudioSource GetNpcVoice(){
+    //     return npcVoice; 
+    // }
 
     public NPCBaseState GetCurrentState(){
         return currentState; 
@@ -77,6 +79,22 @@ public class StateController : MonoBehaviour
 
     public NPCBaseState GetPreviousState(){
         return previousMoveState; 
+    }
+
+    public void RecalculatePathForNPC()
+    {
+        if (!npc.enabled)
+        {
+            npc.enabled = true;
+            Vector3 currentDestination = npc.destination;
+            npc.ResetPath(); 
+            npc.SetDestination(currentDestination); 
+        }
+        
+    }
+
+    public Animator GetNpcAnimator(){
+        return NpcAnimator;
     }
 }
 

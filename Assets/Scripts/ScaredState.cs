@@ -14,18 +14,24 @@ public class ScaredState : NPCBaseState
 
     public override void OnEnter(StateController controller){  
         Debug.Log("Entering Scared State");
+        controller.GetNpcAnimator().SetBool("isScared", true);
+        controller.GetNpcAnimator().SetBool("isFleeing", false);
+        controller.GetNpcAnimator().SetBool("isSpeaking", false);
+        controller.GetNpcAnimator().SetBool("isMoving", false);
+        Debug.Log("isScared: " + controller.GetNpcAnimator().GetBool("isScared"));
+
         movingNpc = controller.GetNpc();
         if(movingNpc.enabled && !movingNpc.isStopped){
             movingNpc.isStopped = true;
         }
          
-
+        controller.RecalculatePathForNPC();
         animationStartTime = Time.time;
     
     }
     public override void OnUpdate(StateController controller){
         // placeholder for future animation
-        if (Time.time - animationStartTime >= animationDuration)
+        if ((Time.time - animationStartTime) >= animationDuration)
         {
             if(controller.GetPreviousState() is MoveState){
                 controller.ChangeState(new FleeState());
@@ -39,6 +45,8 @@ public class ScaredState : NPCBaseState
         if(movingNpc.enabled && movingNpc.isStopped){
             movingNpc.isStopped = false;
         }
+        controller.GetNpcAnimator().SetBool("isScared", false);
+
 
     }
 
