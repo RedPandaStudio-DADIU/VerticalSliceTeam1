@@ -28159,6 +28159,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4003995619136743714, guid: 4a6893f173e0d97499163d6fbfe4177d, type: 3}
   m_PrefabInstance: {fileID: 1549911471}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1865960827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865960829}
+  - component: {fileID: 1865960828}
+  m_Layer: 0
+  m_Name: ScaryObjectsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1865960828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865960827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959d70c5d59521948b349edbadf9f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 1059889125}
+  spawnHeight: 50
+  scaryObjectPrefab: {fileID: 1800808587883065105, guid: 23bd2ecb74d99dc4d82e89a0b42a58bd, type: 3}
+--- !u!4 &1865960829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865960827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 145, y: 5, z: 21.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1872361181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32127,3 +32174,4 @@ SceneRoots:
   - {fileID: 1628043096}
   - {fileID: 847904784}
   - {fileID: 340346964}
+  - {fileID: 1865960829}

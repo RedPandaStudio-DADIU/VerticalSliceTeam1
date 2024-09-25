@@ -5,13 +5,20 @@ using UnityEngine;
 public class ScaryObjectsController : MonoBehaviour
 {
     [SerializeField] private GameObject npc;
+    [SerializeField] private float spawnHeight = 50f;
+    [SerializeField] private GameObject scaryObjectPrefab;
 
-    private float collisionRadius = 3f;
+    private float waitTimeMin =7f;
+    private float waitTimeMax = 12f;
+    private float collisionRadius = 10f;
     private StateController stateController;
+    
 
     void Start()
     {
         stateController = npc.GetComponent<StateController>();
+        StartCoroutine(SpawnScaryObject());
+        collisionRadius = 30f;
     }
 
     void Update()
@@ -28,6 +35,25 @@ public class ScaryObjectsController : MonoBehaviour
                 // For now - put the object far away
                 col.transform.position = new Vector3(300f, 300f, 300f);
             }
+        }
+    }
+
+    private IEnumerator SpawnScaryObject()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(waitTimeMax, waitTimeMax)); 
+            Vector3 spawnPosition = npc.transform.position + npc.transform.forward * 15f;
+            spawnPosition.y = spawnHeight; 
+            GameObject scaryObject = Instantiate(scaryObjectPrefab, spawnPosition, Quaternion.identity);
+            Rigidbody rb = scaryObject.AddComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.mass = 1000f;
+            rb.isKinematic = false;
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            int layerIndex = LayerMask.NameToLayer("Scare");
+            scaryObject.layer = layerIndex;
+            scaryObject.tag = "ScaryObject"; 
         }
     }
 
