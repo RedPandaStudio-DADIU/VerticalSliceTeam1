@@ -22,7 +22,7 @@ public class CirclesManager : MonoBehaviour
     private StateController stateController;
     private float idleTime = 0f;
     private bool firefliesTriggered = false;
-    public float timeToTriggerFireflies = 3;
+    public float timeToTriggerFireflies = 3f;
 
     private AnimatorStateInfo currentAnimatorStateInfo;
     private AnimatorStateInfo previousAnimatorStateInfo;
@@ -85,62 +85,67 @@ public class CirclesManager : MonoBehaviour
     {
         
         currentAnimatorStateInfo = npcAnimator.GetCurrentAnimatorStateInfo(0);
-
-            
-            if (previousAnimatorStateInfo.IsName(idleStateName) == false && currentAnimatorStateInfo.IsName(idleStateName))
-            {
-                
-                Debug.Log("NPC into IdleState");
-                idleTime = 0f;  
-                firefliesTriggered = false; 
-            }
-
-            
-            if (currentAnimatorStateInfo.IsName(idleStateName))
-            {
-                idleTime += Time.deltaTime;
-
-                if (idleTime >= timeToTriggerFireflies && !firefliesTriggered)
-                {
-                    Debug.Log("time to show fireflies");
-
-                    ShowFirefliesAtCircle(0);  
-                    firefliesTriggered = true;  
-                }
-            }
-            else
-            {
-                
-                idleTime = 0f;  
-                firefliesTriggered = false;
-                //fireflyEffect.SetActive(false);
-            }
-
-            
-            previousAnimatorStateInfo = currentAnimatorStateInfo;
-            }
-
-   
-    public void ShowFirefliesAtCircle(int circleIndex)
-{
-    for (int i = 0; i < circles.Length; i++)
-    {
-        
-        // GameObject newFireflyEffect = Instantiate(fireflyPrefab, circles[i].transform.position, Quaternion.identity);
-        GameObject newFireflyEffect = Instantiate(fireflyPrefab, circles[i].transform.position, fireflyPrefab.transform.rotation);
-
-        
-        ParticleSystem fireflyParticleSystem = newFireflyEffect.GetComponent<ParticleSystem>();
-        
-        if (fireflyParticleSystem != null)
+        if((stateController.GetCurrentState() is IdleState || stateController.GetCurrentState() is SpeakState) && (stateController.GetEarlierState() is not IdleState && stateController.GetEarlierState() is not SpeakState))
         {
             
-            fireflyParticleSystem.Play();
+            Debug.Log("NPC into IdleState");
+            idleTime = 0f;  
+            firefliesTriggered = false; 
+            ShowFirefliesAtCircle(0, firefliesTriggered); 
+        }
+
+        
+        // if (currentAnimatorStateInfo.IsName(idleStateName))
+        // if ((stateController.GetCurrentState() is IdleState) || (stateController.GetCurrentState() is SpeakState))
+
+        // {
+        //     // idleTime += Time.deltaTime;
+
+        //     // if (idleTime >= timeToTriggerFireflies && !firefliesTriggered)
+        //     // {
+        //     //     Debug.Log("time to show fireflies");
+
+        //     firefliesTriggered = false;
+        //     ShowFirefliesAtCircle(0, firefliesTriggered);  
+        //     //     firefliesTriggered = true;  
+        //     // }
+        // }
+        else
+        {
+            
+            idleTime = 0f;  
+            firefliesTriggered = false;
+            //fireflyEffect.SetActive(false);
+        }
+
+        
+        previousAnimatorStateInfo = currentAnimatorStateInfo;
+    }
+
+   
+    public void ShowFirefliesAtCircle(int circleIndex, bool firefliesTriggered)
+    {
+        if(!firefliesTriggered){
+            for (int i = 0; i < circles.Length; i++)
+            {
+                
+                GameObject newFireflyEffect = Instantiate(fireflyPrefab, circles[i].transform.position, fireflyPrefab.transform.rotation);
+
+                
+                ParticleSystem fireflyParticleSystem = newFireflyEffect.GetComponent<ParticleSystem>();
+                
+                if (fireflyParticleSystem != null)
+                {
+                    
+                    fireflyParticleSystem.Play();
+                }
+                
+                Destroy(newFireflyEffect, 10f);
+            }
+            firefliesTriggered = true;
         }
         
-        Destroy(newFireflyEffect, 10f);
     }
-}
 
 
 
