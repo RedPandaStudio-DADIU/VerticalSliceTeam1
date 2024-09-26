@@ -126,8 +126,9 @@ public class CirclesManager : MonoBehaviour
     for (int i = 0; i < circles.Length; i++)
     {
         
-        GameObject newFireflyEffect = Instantiate(fireflyPrefab, circles[i].transform.position, Quaternion.identity);
-        
+        // GameObject newFireflyEffect = Instantiate(fireflyPrefab, circles[i].transform.position, Quaternion.identity);
+        GameObject newFireflyEffect = Instantiate(fireflyPrefab, circles[i].transform.position, fireflyPrefab.transform.rotation);
+
         
         ParticleSystem fireflyParticleSystem = newFireflyEffect.GetComponent<ParticleSystem>();
         
