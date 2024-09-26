@@ -27,11 +27,16 @@ public class FleeState : NPCBaseState
 
     }
     public override void OnUpdate(StateController controller){
-        // Vector3 direction = (controller.GetStartTransform().position - movingNpc.transform.position).normalized;
+        Vector3 direction = (controller.GetStartTransform().position - movingNpc.transform.position).normalized;
 
-        // if (direction != Vector3.zero){
-        //     controller.transform.LookAt(movingNpc.velocity.normalized);
-        // }
+        if (direction != Vector3.zero){
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            controller.transform.rotation = Quaternion.Slerp(
+                controller.transform.rotation, 
+                targetRotation, 
+                Time.deltaTime * 5f 
+            );
+        }
 
         if (movingNpc.remainingDistance <= movingNpc.stoppingDistance)
         {
