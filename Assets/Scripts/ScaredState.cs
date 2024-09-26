@@ -8,7 +8,7 @@ public class ScaredState : NPCBaseState
 {
 
     // placeholder for future animation
-    private float animationDuration = 5f;
+    private float animationDuration = 3f;
     private float animationStartTime;
     private NavMeshAgent movingNpc;
 
@@ -26,6 +26,7 @@ public class ScaredState : NPCBaseState
         }
          
         controller.RecalculatePathForNPC();
+        controller.GetNpcScreamEvent().Post(controller.GetNpcGameObject());
         animationStartTime = Time.time;
     
     }

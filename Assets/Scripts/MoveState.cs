@@ -38,11 +38,17 @@ public class MoveState : NPCBaseState
     }
 
     public override void OnUpdate(StateController controller){
-        // Vector3 direction = movingNpc.velocity.normalized;
+        Vector3 direction = movingNpc.velocity.normalized;
 
-        // if (direction != Vector3.zero){
-        //     controller.transform.LookAt(movingNpc.velocity.normalized);
-        // }
+        if (direction != Vector3.zero){
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            controller.transform.rotation = Quaternion.Slerp(
+                controller.transform.rotation, 
+                targetRotation, 
+                Time.deltaTime * 5f 
+            );
+        }
         Debug.Log("Destination: " + movingNpc.destination);
         if (movingNpc.pathStatus == NavMeshPathStatus.PathInvalid)
         {

@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 2f2b0de5195c5c43941fd434d05221fe
     GuidInternal: 
-    m_lastTime: -8584748620510555934
+    m_lastTime: -8584748667969154134
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: afa0ccff8dd15d49a8e8fddcc714e3c2
     GuidInternal: 
-    m_lastTime: -8584748620510624910
+    m_lastTime: -8584748667969274166
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -65,7 +65,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\MASTER
     guid: ca1c3809398f5642b7899de9c97df716
     GuidInternal: 
-    m_lastTime: -8584742572548020435
+    m_lastTime: -8584742558335060905
     List:
     - name: Reverb EXT
       guid: 31b4a870a81ea0469fe317324194b38f
@@ -93,7 +93,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e1f58c9fd8f7f24f83ecfe68991bf47b
     GuidInternal: 
-    m_lastTime: -8584748620510604935
+    m_lastTime: -8584748667969224015
     List: []
   - PhysicalPath: SoundBanks\Main.wwu
     PathAndIcons:
@@ -106,7 +106,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Main
     guid: a4a18768e11f834080b530d17c47024c
     GuidInternal: 
-    m_lastTime: -8584742572544816844
+    m_lastTime: -8584742531186961205
     List:
     - name: soundbank_MAIN
       guid: 11a4d6a248e66f45b2b5bf6b05ad1c46
@@ -134,7 +134,7 @@ MonoBehaviour:
     ParentPath: Events\Ambience
     guid: 327c3c83499d4d448aca931f701c7714
     GuidInternal: 
-    m_lastTime: -8584742572552718691
+    m_lastTime: -8584742558339739155
     List:
     - name: Ambience_play
       guid: 3b43ae7faf179d42a85c8ceb1c51ffb2
@@ -164,7 +164,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 6f754c0cf8408e479f04a27ec6303a2e
     GuidInternal: 
-    m_lastTime: -8584748620510645074
+    m_lastTime: -8584748667969284176
     List: []
   - PhysicalPath: Events\NPC_events.wwu
     PathAndIcons:
@@ -262,8 +262,8 @@ MonoBehaviour:
         guid: 87eb8fbb3f225e49905a6adc4ff33957
       Path: Events\NPC_events\npc_scream
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2.5
+      minDuration: 2.5
   - PhysicalPath: Events\Spirit_event.wwu
     PathAndIcons:
     - ElementName: Events
@@ -309,8 +309,8 @@ MonoBehaviour:
         guid: 46d1a5d5bd031c4da1886f4a6978bde6
       Path: Events\Spirit_event\Spirit_Jump
       maxAttenuation: 0
-      maxDuration: 7.205116
-      minDuration: 4.75
+      maxDuration: 6.4819236
+      minDuration: 4.375
     - name: Spirit_lift_rock
       guid: bed48fb4ddec7e47961f5e8555ad743f
       id: 6041474
@@ -326,8 +326,8 @@ MonoBehaviour:
         guid: bed48fb4ddec7e47961f5e8555ad743f
       Path: Events\Spirit_event\Spirit_lift_rock
       maxAttenuation: 0
-      maxDuration: 14
-      minDuration: 14
+      maxDuration: 13.5625
+      minDuration: 13.5625
     - name: Spirit_put_rock_down
       guid: 9969d421cbf1d0498d9e2deaa4978d17
       id: 1498164727
@@ -343,8 +343,8 @@ MonoBehaviour:
         guid: 9969d421cbf1d0498d9e2deaa4978d17
       Path: Events\Spirit_event\Spirit_put_rock_down
       maxAttenuation: 0
-      maxDuration: 8.5
-      minDuration: 8.5
+      maxDuration: 7.719896
+      minDuration: 7.719896
     - name: Spirit_scream
       guid: c2084580ebee004fb568f51feb52c9e2
       id: 4075077934
@@ -391,7 +391,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 553769691640d14a98dcd5bfa885a15f
     GuidInternal: 
-    m_lastTime: -8584748620510645074
+    m_lastTime: -8584748667969284176
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -405,7 +405,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 2ac0a700840e5346accd834b52f43ef8
     GuidInternal: 
-    m_lastTime: -8584748620510585429
+    m_lastTime: -8584748667969204054
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -419,7 +419,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: da9e6721aaae5043a8d4022d2b4d5ce0
     GuidInternal: 
-    m_lastTime: -8584742572544811524
+    m_lastTime: -8584742558334876421
     List: []
   - PhysicalPath: Switches\Footsteps.wwu
     PathAndIcons:
@@ -510,7 +510,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit\Jump
     guid: 60c1f8551de97c4fbc5a04db03d4c286
     GuidInternal: 
-    m_lastTime: -8584742572544800964
+    m_lastTime: -8584742558334871186
     List:
     - name: Jump_SW
       guid: ca7e3d19628cca40a3fe6991cfecd38e
@@ -602,7 +602,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: bd121b40c0a291499c257c7878614b03
     GuidInternal: 
-    m_lastTime: -8584748620510575952
+    m_lastTime: -8584748667969194078
     List: []
   ExpandedFileSystemItemIds: 0200000004000000060000000a0000000b0000000d0000001300000014000000190000001a000000
   ExpandedWaapiItemIds: 020000000400000005000000070000001000000012000000130000001400000015000000160000001f000000

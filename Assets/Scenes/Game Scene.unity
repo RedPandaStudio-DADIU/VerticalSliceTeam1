@@ -25327,6 +25327,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: fc075b169dd24cc40bbb07ba4b9a26d8, type: 2}
+  npcScreamEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8a701855cf07f504d9a0f0713a347830, type: 2}
 --- !u!95 &1739602235
 Animator:
   serializedVersion: 5
@@ -27272,7 +27276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1865960828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31315,6 +31319,10 @@ PrefabInstance:
     - target: {fileID: 656493101284091538, guid: 8442a8604f45f094aaacfcde631da7a5, type: 3}
       propertyPath: m_Name
       value: fireFlyHintN
+      objectReference: {fileID: 0}
+    - target: {fileID: 656493101284091538, guid: 8442a8604f45f094aaacfcde631da7a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6100130045634000646, guid: 8442a8604f45f094aaacfcde631da7a5, type: 3}
       propertyPath: m_LocalPosition.x
