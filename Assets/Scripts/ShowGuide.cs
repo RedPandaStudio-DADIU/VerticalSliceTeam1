@@ -34,9 +34,13 @@ public class ShowGuide  : MonoBehaviour
     {
         if (guide != null)
         {
+            videoPlayer.enabled = false;
             guide.SetActive(true);  
             yield return new WaitForSeconds(guideDisplayTime);  // 等待 10 秒
             guide.SetActive(false);  
+
+            
+            
         }
     }
 }
