@@ -22,7 +22,7 @@ public class CirclesManager : MonoBehaviour
     private StateController stateController;
     private float idleTime = 0f;
     private bool firefliesTriggered = false;
-    public float timeToTriggerFireflies = 3f;
+    public float timeToTriggerFireflies = 8f;
 
     private AnimatorStateInfo currentAnimatorStateInfo;
     private AnimatorStateInfo previousAnimatorStateInfo;
@@ -91,7 +91,14 @@ public class CirclesManager : MonoBehaviour
             Debug.Log("NPC into IdleState");
             idleTime = 0f;  
             firefliesTriggered = false; 
-            ShowFirefliesAtCircle(0, firefliesTriggered); 
+             StartCoroutine(ShowFirefliesAfterDelay(0, timeToTriggerFireflies, firefliesTriggered));
+  
+            //ShowFirefliesAtCircle(0, firefliesTriggered); 
+        }
+        else
+        {
+            idleTime = 0f;  
+            firefliesTriggered = false;
         }
 
         
@@ -110,18 +117,22 @@ public class CirclesManager : MonoBehaviour
         //     //     firefliesTriggered = true;  
         //     // }
         // }
-        else
-        {
-            
-            idleTime = 0f;  
-            firefliesTriggered = false;
-            //fireflyEffect.SetActive(false);
-        }
+        
 
         
         previousAnimatorStateInfo = currentAnimatorStateInfo;
     }
 
+    private IEnumerator ShowFirefliesAfterDelay(int circleIndex, float delay, bool firefliesTriggered)
+    {
+        
+        yield return new WaitForSeconds(delay);
+
+        
+        
+            ShowFirefliesAtCircle(circleIndex,firefliesTriggered);  
+          
+    }
    
     public void ShowFirefliesAtCircle(int circleIndex, bool firefliesTriggered)
     {
