@@ -18,9 +18,12 @@ public class StateController : MonoBehaviour
     [SerializeField] private GameObject npcGameObject;
     [SerializeField] private AK.Wwise.Event npcWalkEvent;
     [SerializeField] private AK.Wwise.Event npcDialogEvent;
+    [SerializeField] private AK.Wwise.Event npcScreamEvent;
 
 
     private NPCBaseState currentState;
+    private NPCBaseState previousState;
+
     private NPCBaseState previousMoveState;
     private string soundBank = "soundbank_MAIN";
 
@@ -37,12 +40,14 @@ public class StateController : MonoBehaviour
         npc = GetComponent<NavMeshAgent>();
         currentState = new MoveState();
         previousMoveState = currentState;
+        previousState = currentState;
         currentState.OnEnter(this);
         AkSoundEngine.LoadBank(soundBank, out uint bankID);
     }
 
     void Update(){
         currentState.OnUpdate(this);
+        previousState = currentState;
         Debug.Log("Current State: " + currentState);
     }
 
@@ -98,6 +103,11 @@ public class StateController : MonoBehaviour
         return previousMoveState; 
     }
 
+    public NPCBaseState GetEarlierState(){
+        return previousState; 
+    }
+
+
     public void RecalculatePathForNPC()
     {
         if (!npc.enabled)
@@ -120,6 +130,10 @@ public class StateController : MonoBehaviour
 
     public AK.Wwise.Event GetNpcDialogEvent(){
         return npcDialogEvent;
+    }
+
+    public AK.Wwise.Event GetNpcScreamEvent(){
+        return npcScreamEvent;
     }
 
     public GameObject GetNpcGameObject(){

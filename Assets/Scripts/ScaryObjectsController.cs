@@ -20,8 +20,8 @@ public class ScaryObjectsController : MonoBehaviour
         StartCoroutine(SpawnScaryObject());
         collisionRadius = 30f;
         spawnHeight = 20f;
-        waitTimeMin = 15f;
-        waitTimeMax = 30f;
+        waitTimeMin = 30f;
+        waitTimeMax = 60f;
     }
 
     void Update()
