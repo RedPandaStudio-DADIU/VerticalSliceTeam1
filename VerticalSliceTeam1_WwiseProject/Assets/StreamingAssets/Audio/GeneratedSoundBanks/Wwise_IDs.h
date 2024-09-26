@@ -18,6 +18,7 @@ namespace AK
         static const AkUniqueID NPC_DIALOGUE_CLOSE_TO_SPIRIT = 2961262330U;
         static const AkUniqueID NPC_DIALOGUE_START_GAME = 1639183423U;
         static const AkUniqueID NPC_FOOTSTEPS = 4148702810U;
+        static const AkUniqueID NPC_SCREAM = 1220083274U;
         static const AkUniqueID SPIRIT_FOOTSTEPS = 1695590886U;
         static const AkUniqueID SPIRIT_JUMP = 41484105U;
         static const AkUniqueID SPIRIT_LIFT_ROCK = 6041474U;
