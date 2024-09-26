@@ -31933,6 +31933,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fireFlyHintN
       objectReference: {fileID: 0}
+    - target: {fileID: 656493101284091538, guid: 8442a8604f45f094aaacfcde631da7a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6100130045634000646, guid: 8442a8604f45f094aaacfcde631da7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40
