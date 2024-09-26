@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using AK.Wwise;
+using UnityEngine.SceneManagement;
+
 
 
 
@@ -66,6 +68,8 @@ public class MoveState : NPCBaseState
                     controller.ChangeState(new IdleState());
                     Debug.Log("Found the end");
                     controller.SetIsAgentDone(true);
+                    SceneManager.LoadScene("EndScene");
+
                     // controller.RecalculatePathForNPC();
                 }
 
