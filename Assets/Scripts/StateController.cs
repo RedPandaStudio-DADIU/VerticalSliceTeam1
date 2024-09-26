@@ -2,31 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using AK.Wwise;
+
 
 public class StateController : MonoBehaviour
 {
 
     [Header("NPC AI settings")]
-    [SerializeField] private Transform end;
-    [SerializeField] private Transform start;
+    [SerializeField] private Queue<Transform> ends = new Queue<Transform>();
+    [SerializeField] private Transform end1;
+    [SerializeField] private Transform end2;
 
-    private AudioSource npcVoice;
+    [SerializeField] private Transform start;
+    [SerializeField] private Animator NpcAnimator;
+    [SerializeField] private GameObject npcGameObject;
+    [SerializeField] private AK.Wwise.Event npcWalkEvent;
+    [SerializeField] private AK.Wwise.Event npcDialogEvent;
+
+
     private NPCBaseState currentState;
+    private NPCBaseState previousState;
+
     private NPCBaseState previousMoveState;
+    private string soundBank = "soundbank_MAIN";
 
     private NavMeshAgent npc;
     private float xRotation = -90f;
+    private bool isAgentDone = false;
+
+    void Awake(){
+        ends.Enqueue(end1);
+        ends.Enqueue(end2);
+    }
 
     void Start(){
         npc = GetComponent<NavMeshAgent>();
-        npcVoice = GetComponent<AudioSource>();
         currentState = new MoveState();
         previousMoveState = currentState;
+        previousState = currentState;
         currentState.OnEnter(this);
+        AkSoundEngine.LoadBank(soundBank, out uint bankID);
     }
 
     void Update(){
         currentState.OnUpdate(this);
+        previousState = currentState;
+        Debug.Log("Current State: " + currentState);
     }
 
     public void ChangeState(NPCBaseState newState){
@@ -51,7 +72,14 @@ public class StateController : MonoBehaviour
     }
 
     public Transform GetEndTransform(){
-        return end;
+        return ends.Peek();
+    }
+    public Transform RemoveEndTransform(){
+        if(ends.Count > 1){
+            return ends.Dequeue();
+        } else{
+            return null;
+        }
     }
     public Transform GetStartTransform(){
         return start;
@@ -66,11 +94,6 @@ public class StateController : MonoBehaviour
     public void EnableNavMeshAgent(){
         npc.enabled = true;
     }
-
-    public AudioSource GetNpcVoice(){
-        return npcVoice; 
-    }
-
     public NPCBaseState GetCurrentState(){
         return currentState; 
     }
@@ -78,6 +101,50 @@ public class StateController : MonoBehaviour
     public NPCBaseState GetPreviousState(){
         return previousMoveState; 
     }
+
+    public NPCBaseState GetEarlierState(){
+        return previousState; 
+    }
+
+
+    public void RecalculatePathForNPC()
+    {
+        if (!npc.enabled)
+        {
+            npc.enabled = true;
+            Vector3 currentDestination = npc.destination;
+            npc.ResetPath(); 
+            npc.SetDestination(currentDestination); 
+        }
+        
+    }
+
+    public Animator GetNpcAnimator(){
+        return NpcAnimator;
+    }
+
+    public AK.Wwise.Event GetNpcWalkEvent(){
+        return npcWalkEvent;
+    }
+
+    public AK.Wwise.Event GetNpcDialogEvent(){
+        return npcDialogEvent;
+    }
+
+    public GameObject GetNpcGameObject(){
+        return npcGameObject;
+    }
+
+    public void SetIsAgentDone(bool done){
+        isAgentDone = true;
+    }
+
+    public bool GetIsAgentDone(){
+        return isAgentDone;
+    }
+
+
 }
+
 
 
