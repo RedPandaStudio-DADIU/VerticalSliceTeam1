@@ -312,18 +312,20 @@ public class PlayerController : MonoBehaviour
         if (isCarryingRock)
         {
             circlesManager.SetCircleInteraction(false);
+            Debug.Log("is carry rock?");
         }
         else
         {
             circlesManager.SetCircleInteraction(true);
+            Debug.Log("is not carry rock?");
         }
 
         if (currentCircleIndex != -1 && Input.GetKeyDown(KeyCode.E))
         {
             spiritAnimator.SetBool("isInteracting", true);
             circlesManager.RemoveObstacle(currentCircleIndex); // Remove the obstacle associated with the current circle
-            Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
-            spiritAnimator.SetBool("isInteracting", false);
+            
+           Debug.Log("Pressed E, removing obstacle for circle: " + currentCircleIndex); spiritAnimator.SetBool("isInteracting", false);
 
         }
 
