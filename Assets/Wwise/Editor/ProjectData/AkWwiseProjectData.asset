@@ -79,7 +79,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Main
     guid: a4a18768e11f834080b530d17c47024c
     GuidInternal: 
-    m_lastTime: -8584743522358817847
+    m_lastTime: -8584742752477105594
     List:
     - name: soundbank_MAIN
       guid: 11a4d6a248e66f45b2b5bf6b05ad1c46
@@ -120,7 +120,7 @@ MonoBehaviour:
     ParentPath: Events\Spirit_event
     guid: e684ff11c4c38d48b479935a4cda4bb3
     GuidInternal: 
-    m_lastTime: -8584743522359961303
+    m_lastTime: -8584742752479947503
     List:
     - name: Spirit_Footsteps
       guid: d107c2bf45160140bcb2c88bef0be922
@@ -247,7 +247,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: da9e6721aaae5043a8d4022d2b4d5ce0
     GuidInternal: 
-    m_lastTime: -8584743522358817847
+    m_lastTime: -8584742752477100348
     List: []
   - PhysicalPath: Switches\Footsteps.wwu
     PathAndIcons:
@@ -263,7 +263,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit\Footsteps
     guid: 99d3be6018fe624ea8c8fdb25d5d320b
     GuidInternal: 
-    m_lastTime: -8584743522358802985
+    m_lastTime: -8584742752477095223
     List:
     - name: Footsteps_SW
       guid: 4a3f6dbebef8864cbb7e3e31ce83f8d2
