@@ -2,48 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.UIElements; 
 
 public class ShowGuide  : MonoBehaviour
 {
-    [SerializeField] private VideoPlayer videoPlayer;   
-    [SerializeField] private GameObject guide;          
-    [SerializeField] private float guideDisplayTime = 10f;  
+     
+    [SerializeField] private UIDocument guideDocument;  // Reference to the UIDocument
+     [SerializeField] private float guideDisplayTime = 5f;  
+    
 
     private void Start()
     {
-        if (videoPlayer != null)
-        {
-            
-            videoPlayer.loopPointReached += OnVideoEnd;
-             Time.timeScale = 0f;
-             videoPlayer.Play(); 
-        }
 
-        if (guide != null)
+       if (guideDocument != null)
         {
-            guide.SetActive(false);  
+            guideDocument.enabled = false;  // Hide the UI document initially
         }
-    }
-
-    
-    private void OnVideoEnd(VideoPlayer vp)
-    {
         StartCoroutine(ShowGuideCoroutine());
-        Time.timeScale = 1f; 
     }
 
     
-    private IEnumerator ShowGuideCoroutine()
+  
+    
+     private IEnumerator ShowGuideCoroutine()
     {
-        if (guide != null)
-        {
-            videoPlayer.enabled = false;
-            guide.SetActive(true);  
-            yield return new WaitForSeconds(guideDisplayTime); 
-            guide.SetActive(false);  
-
-            
-            
-        }
+        guideDocument.enabled = true;  // Show the UI document
+            yield return new WaitForSeconds(guideDisplayTime);  // Wait for the specified time
+            guideDocument.enabled = false;  // Hide the UI document after the time elapses
+       
     }
 }
