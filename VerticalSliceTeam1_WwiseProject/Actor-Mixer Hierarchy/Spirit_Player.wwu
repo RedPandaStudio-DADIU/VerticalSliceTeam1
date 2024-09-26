@@ -17,13 +17,16 @@
 						<Reference Name="SwitchGroupOrStateGroup">
 							<ObjectRef Name="Footsteps_SW" ID="{BE6D3F4A-F8BE-4C86-BB7E-3E31CE83F8D2}" WorkUnitID="{60BED399-FE18-4E62-A8C8-FDB25D5D320B}"/>
 						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Rvrb_Forest_General" ID="{CB093780-467C-4E86-BD73-28A0E345CA09}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<RandomSequenceContainer Name="Footsteps_spirit_grass" ID="{CBE97511-F364-4640-A3B7-818867E20977}" ShortID="312250723">
 							<PropertyList>
 								<Property Name="InitialDelay" Type="Real64">
 									<ValueList>
-										<Value>0.5</Value>
+										<Value>0.1</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Pitch" Type="int32">
@@ -44,6 +47,11 @@
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
 								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

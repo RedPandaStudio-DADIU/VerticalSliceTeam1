@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{DF68BD9A-2EAF-1286-F965-58B19CDD83CA}">
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{875B9F7B-C154-C883-8572-6B614BDCBED2}">
 			<ShortName>soundbank_MAIN</ShortName>
 			<Path>soundbank_MAIN.bnk</Path>
 			<Media>
@@ -47,7 +47,10 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="Mixed" DurationMin="2.7694633" DurationMax="Infinite">
+				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="Infinite">
+					<AuxBusRefs>
+						<AuxBusRef Id="4099384154" Name="Rvrb_Forest_General"/>
+					</AuxBusRefs>
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1724755387" Id="2058049674" Default="true"/>
@@ -79,19 +82,45 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6CBD692-12EC-CDBA-0932-48F63C40C91F}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{9016B084-7B14-378B-9F67-2EEAE37B7862}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<ShareSets>
+					<Plugin Id="506891147" Name="Plate_Small" LibName="Wwise RoomVerb" LibId="7733251"/>
+					<Plugin Id="1125262053" Name="Blue_Distant_Echoes" LibName="Wwise Stereo Delay" LibId="8847363"/>
+					<Plugin Id="3442768367" Name="Hall_Large_Dark" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</ShareSets>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="491961918" Name="Forest"/>
+				<Bus Id="2735937508" Name="Reverb EXT"/>
+				<Bus Id="3104353442" Name="Reverb INT"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<AuxBusses>
+				<AuxBus Id="4099384154" Name="Rvrb_Forest_General">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="506891147"/>
+							<PluginRef Id="1125262053"/>
+							<PluginRef Id="3442768367"/>
+						</ShareSets>
+					</PluginRefs>
+				</AuxBus>
+			</AuxBusses>
 			<SwitchGroups>
+				<SwitchGroup Id="562888138" Name="Jump_SW">
+					<Switches>
+						<Switch Id="433051569" Name="Double_jump"/>
+						<Switch Id="2401821937" Name="Land_jump"/>
+						<Switch Id="2925909356" Name="single_jump"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="1724755387" Name="Footsteps_SW">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
@@ -101,5 +130,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{09069041-0AAD-4C1E-CABE-DD587D177572}</FileHash>
+	<FileHash>{54F9576F-8787-6E95-4442-E1733BD441F4}</FileHash>
 </SoundBanksInfo>

@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy/Default Work Unit
     guid: afa0ccff8dd15d49a8e8fddcc714e3c2
     GuidInternal: 
-    m_lastTime: -8584743448211317111
+    m_lastTime: -8584743172269894679
     List:
     - name: Forest
       guid: b8d22594fd5e6a4580afa1de2f9882ae
@@ -125,7 +125,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy/MASTER
     guid: ca1c3809398f5642b7899de9c97df716
     GuidInternal: 
-    m_lastTime: -8584743486556668009
+    m_lastTime: -8584743224161195084
     List:
     - name: Reverb EXT
       guid: 31b4a870a81ea0469fe317324194b38f
@@ -180,7 +180,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Main
     guid: a4a18768e11f834080b530d17c47024c
     GuidInternal: 
-    m_lastTime: -8584743505686048447
+    m_lastTime: -8584743224159124584
     List:
     - name: soundbank_MAIN
       guid: 11a4d6a248e66f45b2b5bf6b05ad1c46
@@ -208,7 +208,7 @@ MonoBehaviour:
     ParentPath: Events/Ambience
     guid: 327c3c83499d4d448aca931f701c7714
     GuidInternal: 
-    m_lastTime: -8584743505688096102
+    m_lastTime: -8584743224161416769
     List:
     - name: Ambience_play
       guid: 3b43ae7faf179d42a85c8ceb1c51ffb2
@@ -251,7 +251,7 @@ MonoBehaviour:
     ParentPath: Events/NPC_events
     guid: 7a800fb7ae1c5f439f4e2aa5ee425465
     GuidInternal: 
-    m_lastTime: -8584743505688095202
+    m_lastTime: -8584743224161414886
     List:
     - name: npc_footsteps
       guid: feffed8b9635594f942c6a820a92201e
@@ -281,7 +281,7 @@ MonoBehaviour:
     ParentPath: Events/Spirit_event
     guid: e684ff11c4c38d48b479935a4cda4bb3
     GuidInternal: 
-    m_lastTime: -8584743505688094253
+    m_lastTime: -8584743224161412245
     List:
     - name: Spirit_Footsteps
       guid: d107c2bf45160140bcb2c88bef0be922
@@ -298,8 +298,8 @@ MonoBehaviour:
         guid: d107c2bf45160140bcb2c88bef0be922
       Path: Events/Spirit_event/Spirit_Footsteps
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: Infinity
+      minDuration: 2.291785
     - name: Spirit_Jump
       guid: 46d1a5d5bd031c4da1886f4a6978bde6
       id: 41484105
@@ -425,7 +425,7 @@ MonoBehaviour:
     ParentPath: Switches/Default Work Unit
     guid: da9e6721aaae5043a8d4022d2b4d5ce0
     GuidInternal: 
-    m_lastTime: -8584743505686046501
+    m_lastTime: -8584743224159105849
     List: []
   - PhysicalPath: Switches/Footsteps.wwu
     PathAndIcons:
@@ -441,7 +441,7 @@ MonoBehaviour:
     ParentPath: Switches/Default Work Unit/Footsteps
     guid: 99d3be6018fe624ea8c8fdb25d5d320b
     GuidInternal: 
-    m_lastTime: -8584743505686045833
+    m_lastTime: -8584743224159101725
     List:
     - name: Footsteps_SW
       guid: 4a3f6dbebef8864cbb7e3e31ce83f8d2
@@ -516,7 +516,7 @@ MonoBehaviour:
     ParentPath: Switches/Default Work Unit/Jump
     guid: 60c1f8551de97c4fbc5a04db03d4c286
     GuidInternal: 
-    m_lastTime: -8584743505686044842
+    m_lastTime: -8584743224159084204
     List:
     - name: Jump_SW
       guid: ca7e3d19628cca40a3fe6991cfecd38e
@@ -611,7 +611,7 @@ MonoBehaviour:
     m_lastTime: -8584743519793174149
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 020000000400000005000000070000001000000012000000130000001400000015000000160000001f000000
+  ExpandedWaapiItemIds: 02000000040000000500000007000000090000000a0000000f00000010000000120000001300000014000000150000001d0000001e0000001f0000002400000035000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ProjectInfo>
-	<Project Name="VerticalSliceTeam1_WwiseProject" GUID="{C6472FCE-7EF5-47D4-BAE3-DF1836DC27BB}" Generator="2023.1.7.8574"/>
+	<Project Name="VerticalSliceTeam1_WwiseProject" GUID="{C6472FCE-7EF5-47D4-BAE3-DF1836DC27BB}" Generator="2023.1.6.8555"/>
 	<CacheRoot>../../../../.cache</CacheRoot>
 	<Platforms>
 		<Platform Name="Mac" GUID="{6E152799-015C-40E6-BF9D-C17DEE4FE1A6}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../GeneratedSoundBanks/Mac"/>
@@ -9,5 +9,5 @@
 	<Languages>
 		<Language Name="English(US)" Id="684519430" GUID="{A53880DD-A973-4BEB-B83C-2020E5DA0C6D}" Default="true" UseAsStandIn="true"/>
 	</Languages>
-	<FileHash>{BCDD4EC6-C380-2C84-AEE3-906F87080618}</FileHash>
+	<FileHash>{7C29EBBE-F6D4-BD23-F19C-B4C51546DF94}</FileHash>
 </ProjectInfo>

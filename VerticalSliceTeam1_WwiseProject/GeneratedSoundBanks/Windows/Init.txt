@@ -1,5 +1,16 @@
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	491961918	Forest			\Default Work Unit\Master Audio Bus\Rooms\Forest	
+	2735937508	Reverb EXT			\MASTER\Reverb EXT	
+	3104353442	Reverb INT			\MASTER\Reverb INT	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	4099384154	Rvrb_Forest_General			\Default Work Unit\Master Audio Bus\Rooms\Forest\Rvrb_Forest_General	
+
+Effect plug-ins	ID	Name	Type				Notes
+	506891147	Plate_Small	Wwise RoomVerb			
+	1125262053	Blue_Distant_Echoes	Wwise Stereo Delay			
+	3442768367	Hall_Large_Dark	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

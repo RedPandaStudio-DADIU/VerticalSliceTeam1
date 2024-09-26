@@ -15,6 +15,13 @@
 								<Bus Name="Forest" ID="{9425D2B8-5EFD-456A-80AF-A1DE2F9882AE}">
 									<ChildrenList>
 										<AuxBus Name="Rvrb_Forest_General" ID="{CB093780-467C-4E86-BD73-28A0E345CA09}">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64">
+													<ValueList>
+														<Value>-10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ObjectLists>
 												<ObjectList Name="Effects">
 													<Reference>
