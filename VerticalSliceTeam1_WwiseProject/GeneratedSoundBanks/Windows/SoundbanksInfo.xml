@@ -9,33 +9,121 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{875B9F7B-C154-C883-8572-6B614BDCBED2}">
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{DBB95D0F-4C10-87DD-755F-983F170F6673}">
 			<ShortName>soundbank_MAIN</ShortName>
 			<Path>soundbank_MAIN.bnk</Path>
 			<Media>
+				<File Id="111721188" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NPC_dialouge_5.wav</ShortName>
+					<CachePath>SFX/NPC_dialouge_5_818F3B66.wem</CachePath>
+				</File>
 				<File Id="114548734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS_Spirit_wood_4.wav</ShortName>
 					<CachePath>SFX/FS_Spirit_wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="118344990" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Spirit_Scream.wav</ShortName>
+					<CachePath>SFX/Spirit_Scream_818F3B66.wem</CachePath>
+				</File>
+				<File Id="120818419" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Npc_footsteps_2.wav</ShortName>
+					<CachePath>SFX/Npc_footsteps_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="128956055" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NPC_start_dialouge.wav</ShortName>
+					<CachePath>SFX/NPC_start_dialouge_818F3B66.wem</CachePath>
 				</File>
 				<File Id="277534849" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS_Spirit_2.wav</ShortName>
 					<CachePath>SFX/FS_Spirit_2_818F3B66.wem</CachePath>
 				</File>
+				<File Id="281730157" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Jam 2_ambience_1.wav</ShortName>
+					<CachePath>SFX/Game Jam 2_ambience_1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="304120103" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Spirit_double_jump.wav</ShortName>
+					<CachePath>SFX/Spirit_double_jump_818F3B66.wem</CachePath>
+				</File>
 				<File Id="389824459" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS_Spirit_wood_3.wav</ShortName>
 					<CachePath>SFX/FS_Spirit_wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="396086929" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NPC_dialouge_1.wav</ShortName>
+					<CachePath>SFX/NPC_dialouge_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="432606348" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Jam 2_ambience_2.wav</ShortName>
+					<CachePath>SFX/Game Jam 2_ambience_2_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="460389106" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_jump.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_jump_818F3B66.wem</CachePath>
+				</File>
+				<File Id="471097908" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Spirit_lift_Rock.wav</ShortName>
+					<CachePath>SFX/Spirit_lift_Rock_818F3B66.wem</CachePath>
+				</File>
+				<File Id="475927476" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Npc_footsteps_3.wav</ShortName>
+					<CachePath>SFX/Npc_footsteps_3_818F3B66.wem</CachePath>
 				</File>
 				<File Id="517003019" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS_Spirit_1.wav</ShortName>
 					<CachePath>SFX/FS_Spirit_1_818F3B66.wem</CachePath>
 				</File>
+				<File Id="556107957" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS_Spirit_land.wav</ShortName>
+					<CachePath>SFX/FS_Spirit_land_818F3B66.wem</CachePath>
+				</File>
+				<File Id="586710283" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NPC_dialouge_3.wav</ShortName>
+					<CachePath>SFX/NPC_dialouge_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="595758990" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NPC_dialouge_4.wav</ShortName>
+					<CachePath>SFX/NPC_dialouge_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="653060333" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Jam 2_ambience_4.wav</ShortName>
+					<CachePath>SFX/Game Jam 2_ambience_4_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="690589593" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Spirit_put_down_Rock.wav</ShortName>
+					<CachePath>SFX/Spirit_put_down_Rock_818F3B66.wem</CachePath>
+				</File>
 				<File Id="698900304" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS_Spirit_4.wav</ShortName>
 					<CachePath>SFX/FS_Spirit_4_818F3B66.wem</CachePath>
 				</File>
+				<File Id="729821709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Npc_footsteps_4.wav</ShortName>
+					<CachePath>SFX/Npc_footsteps_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="804016461" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NPC_dialouge_9_close.wav</ShortName>
+					<CachePath>SFX/NPC_dialouge_9_close_818F3B66.wem</CachePath>
+				</File>
+				<File Id="811388392" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Jam 2_ambience_3.wav</ShortName>
+					<CachePath>SFX/Game Jam 2_ambience_3_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="834553686" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NPC_dialouge_8_close.wav</ShortName>
+					<CachePath>SFX/NPC_dialouge_8_close_818F3B66.wem</CachePath>
+				</File>
 				<File Id="873667171" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS_Spirit_wood_2.wav</ShortName>
 					<CachePath>SFX/FS_Spirit_wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="913920049" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Npc_footsteps_1.wav</ShortName>
+					<CachePath>SFX/Npc_footsteps_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="942835718" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Spirit_Spell.wav</ShortName>
+					<CachePath>SFX/Spirit_Spell_818F3B66.wem</CachePath>
 				</File>
 				<File Id="981129124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS_Spirit_wood_1.wav</ShortName>
@@ -46,11 +134,55 @@
 					<CachePath>SFX/FS_Spirit_3_818F3B66.wem</CachePath>
 				</File>
 			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="626361572" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
+					<Plugin Id="965071797" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
+				</Custom>
+			</Plugins>
 			<Events>
+				<Event Id="1496310610" Name="Ambience_play" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="281730157"/>
+						<MediaRef Id="432606348"/>
+						<MediaRef Id="653060333"/>
+						<MediaRef Id="811388392"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1541636155" Name="npc_dialogue" DurationType="OneShot" DurationMin="6.5" DurationMax="15">
+					<MediaRefs>
+						<MediaRef Id="111721188"/>
+						<MediaRef Id="396086929"/>
+						<MediaRef Id="586710283"/>
+						<MediaRef Id="595758990"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="626361572"/>
+							<PluginRef Id="965071797"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="2961262330" Name="npc_dialogue_close_to_spirit" DurationType="OneShot" DurationMin="15.875" DurationMax="16">
+					<MediaRefs>
+						<MediaRef Id="804016461"/>
+						<MediaRef Id="834553686"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1639183423" Name="npc_dialogue_start_game" DurationType="OneShot" DurationMin="40" DurationMax="40">
+					<MediaRefs>
+						<MediaRef Id="128956055"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4148702810" Name="npc_footsteps" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="120818419"/>
+						<MediaRef Id="475927476"/>
+						<MediaRef Id="729821709"/>
+						<MediaRef Id="913920049"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1695590886" Name="Spirit_Footsteps" DurationType="Infinite">
-					<AuxBusRefs>
-						<AuxBusRef Id="4099384154" Name="Rvrb_Forest_General"/>
-					</AuxBusRefs>
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1724755387" Id="2058049674" Default="true"/>
@@ -72,8 +204,57 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="41484105" Name="Spirit_Jump" DurationType="OneShot" DurationMin="4.75" DurationMax="7.205116">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="562888138" Id="2401821937"/>
+							<MediaRefs>
+								<MediaRef Id="556107957"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="562888138" Id="433051569"/>
+							<MediaRefs>
+								<MediaRef Id="304120103"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="562888138" Id="2925909356"/>
+							<MediaRefs>
+								<MediaRef Id="460389106"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="6041474" Name="Spirit_lift_rock" DurationType="OneShot" DurationMin="14" DurationMax="14">
+					<MediaRefs>
+						<MediaRef Id="471097908"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1498164727" Name="Spirit_put_rock_down" DurationType="OneShot" DurationMin="8.5" DurationMax="8.5">
+					<MediaRefs>
+						<MediaRef Id="690589593"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4075077934" Name="Spirit_scream" DurationType="OneShot" DurationMin="11.25" DurationMax="11.25">
+					<MediaRefs>
+						<MediaRef Id="118344990"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="214727577" Name="Spirit_Spell" DurationType="OneShot" DurationMin="11.75" DurationMax="11.75">
+					<MediaRefs>
+						<MediaRef Id="942835718"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<SwitchGroups>
+				<SwitchGroup Id="562888138" Name="Jump_SW">
+					<Switches>
+						<Switch Id="433051569" Name="Double_jump"/>
+						<Switch Id="2401821937" Name="Land_jump"/>
+						<Switch Id="2925909356" Name="single_jump"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="1724755387" Name="Footsteps_SW">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
@@ -82,37 +263,19 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{9016B084-7B14-378B-9F67-2EEAE37B7862}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{61A0B56C-7CF2-AB1E-8A95-EC581191CB40}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
-				<ShareSets>
-					<Plugin Id="506891147" Name="Plate_Small" LibName="Wwise RoomVerb" LibId="7733251"/>
-					<Plugin Id="1125262053" Name="Blue_Distant_Echoes" LibName="Wwise Stereo Delay" LibId="8847363"/>
-					<Plugin Id="3442768367" Name="Hall_Large_Dark" LibName="Wwise RoomVerb" LibId="7733251"/>
-				</ShareSets>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
-				<Bus Id="491961918" Name="Forest"/>
 				<Bus Id="2735937508" Name="Reverb EXT"/>
-				<Bus Id="3104353442" Name="Reverb INT"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
-			<AuxBusses>
-				<AuxBus Id="4099384154" Name="Rvrb_Forest_General">
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="506891147"/>
-							<PluginRef Id="1125262053"/>
-							<PluginRef Id="3442768367"/>
-						</ShareSets>
-					</PluginRefs>
-				</AuxBus>
-			</AuxBusses>
 			<SwitchGroups>
 				<SwitchGroup Id="562888138" Name="Jump_SW">
 					<Switches>
@@ -130,5 +293,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{54F9576F-8787-6E95-4442-E1733BD441F4}</FileHash>
+	<FileHash>{3A94D9B8-77C4-1DFB-4940-2A6AFD76F1EB}</FileHash>
 </SoundBanksInfo>

@@ -13,7 +13,17 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMBIENCE_PLAY = 1496310610U;
+        static const AkUniqueID NPC_DIALOGUE = 1541636155U;
+        static const AkUniqueID NPC_DIALOGUE_CLOSE_TO_SPIRIT = 2961262330U;
+        static const AkUniqueID NPC_DIALOGUE_START_GAME = 1639183423U;
+        static const AkUniqueID NPC_FOOTSTEPS = 4148702810U;
         static const AkUniqueID SPIRIT_FOOTSTEPS = 1695590886U;
+        static const AkUniqueID SPIRIT_JUMP = 41484105U;
+        static const AkUniqueID SPIRIT_LIFT_ROCK = 6041474U;
+        static const AkUniqueID SPIRIT_PUT_ROCK_DOWN = 1498164727U;
+        static const AkUniqueID SPIRIT_SCREAM = 4075077934U;
+        static const AkUniqueID SPIRIT_SPELL = 214727577U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -51,16 +61,9 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID FOREST = 491961918U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID REVERB_EXT = 2735937508U;
-        static const AkUniqueID REVERB_INT = 3104353442U;
     } // namespace BUSSES
-
-    namespace AUX_BUSSES
-    {
-        static const AkUniqueID RVRB_FOREST_GENERAL = 4099384154U;
-    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {

@@ -25,17 +25,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Spirit_landing" ID="{FC963AB7-83A9-480C-A7FF-82453DAB272B}">
-					<ChildrenList>
-						<Action Name="" ID="{F02B4A50-2036-4768-BF56-8F888BB74A00}" ShortID="545929227">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Spirit_land" ID="{597C4338-0CC9-44D2-A2F8-A69AF9661915}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Spirit_lift_rock" ID="{B48FD4BE-ECDD-477E-961F-5E8555AD743F}">
 					<ChildrenList>
 						<Action Name="" ID="{62F75D78-2C5E-47DA-9A08-CECD563D7B94}" ShortID="550790864">
@@ -64,6 +53,17 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Spell_spirit" ID="{09D21584-2319-483F-AFCD-E303E843FA78}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_scream" ID="{804508C2-EEEB-4F00-B568-F51FEB52C9E2}">
+					<ChildrenList>
+						<Action Name="" ID="{D9660079-4D29-4CEE-BFD8-9BD8AA9630B9}" ShortID="832941674">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Scream_scare_spirit" ID="{3A84A07B-4E58-4C40-BC99-098EB81D9C22}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

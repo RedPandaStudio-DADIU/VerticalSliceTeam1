@@ -14,7 +14,11 @@ public class CirclesManager : MonoBehaviour
     [SerializeField] private Material disabledMaterial;  // The disabled material for circles
     [SerializeField] private NavMeshAgent movingNPC;
     [SerializeField] private float radiusOverlap = 5f;
+    private StateController stateController;
 
+    void Start(){
+        stateController = FindObjectOfType<StateController>();
+    }
 
     // Method to remove the obstacle based on the circle index
     public void RemoveObstacle(int circleIndex)
@@ -32,7 +36,7 @@ public class CirclesManager : MonoBehaviour
                     {
                         obstacles[circleIndex].SetActive(false);  // Disable the obstacle
                         Debug.Log("Obstacle " + obstacles[circleIndex].name + " removed.");
-                        RecalculatePathForNPC();
+                        stateController.RecalculatePathForNPC();
                     }
                 }
 
@@ -42,17 +46,7 @@ public class CirclesManager : MonoBehaviour
     }
 
 
-void RecalculatePathForNPC()
-{
-    if (!movingNPC.enabled)
-    {
-        movingNPC.enabled = true;
-        Vector3 currentDestination = movingNPC.destination;
-        movingNPC.ResetPath(); 
-        movingNPC.SetDestination(currentDestination); 
-    }
-    
-}
+
 
     // Method to get the index of the entered circle
     public int GetCircleIndex(GameObject circle)

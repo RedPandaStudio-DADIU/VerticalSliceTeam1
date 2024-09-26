@@ -119,6 +119,305 @@
 						</Reference>
 					</ReferenceList>
 				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Dialogue_npc_start_game" ID="{3CB656BA-9622-4C82-9021-A2375F9F2E0B}" ShortID="989695103">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="NPC_start_dialouge" ID="{F19F99EC-171B-4A16-AF28-51796B825C8C}" ShortID="193405032">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_start_dialouge" ID="{7A3D43A8-357C-47DD-8D01-3B0592BD3230}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_start_dialouge.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="128956055"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_start_dialouge" ID="{7A3D43A8-357C-47DD-8D01-3B0592BD3230}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Dialogue_npc" ID="{C9FED763-79C7-4BDC-A889-19E3D06366C9}" ShortID="495359782">
+					<PropertyList>
+						<Property Name="InitialDelay" Type="Real64">
+							<ValueList>
+								<Value>5.5</Value>
+							</ValueList>
+						</Property>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="10"/>
+						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="NPC_dialogue_1" ID="{33ED4271-C8F1-4AA0-B7E9-5942CA40B90C}" ShortID="1013076362">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_dialouge_1" ID="{E27A4E82-3FC1-4DB7-8EEA-1767ED4B07B0}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_dialouge_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="396086929"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_dialouge_1" ID="{E27A4E82-3FC1-4DB7-8EEA-1767ED4B07B0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="NPC_dialogue_3" ID="{F739D133-AD1A-4248-BEF6-BA7734536D24}" ShortID="36231687">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_dialouge_3" ID="{6BE307BC-016D-499E-964E-DFE5414B01B4}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_dialouge_3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="586710283"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_dialouge_3" ID="{6BE307BC-016D-499E-964E-DFE5414B01B4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="NPC_dialogue_4" ID="{8172AC49-AB15-4884-A329-BEA06772960B}" ShortID="318127746">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_dialouge_4" ID="{9BF93830-323F-4810-B44A-F20C44CA9744}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_dialouge_4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="595758990"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_dialouge_4" ID="{9BF93830-323F-4810-B44A-F20C44CA9744}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="NPC_dialogue_5" ID="{36CD4347-1824-46F2-9302-09098BCD2EFF}" ShortID="929871700">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_dialouge_5" ID="{C67EDCC2-FE09-4FFE-8607-684D1EDC023A}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_dialouge_5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="111721188"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_dialouge_5" ID="{C67EDCC2-FE09-4FFE-8607-684D1EDC023A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="NPC_silence" ID="{4BFF57A6-6841-4D50-B503-3142E00A0A3B}" ShortID="235141198">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SourcePlugin Name="Silence" ID="{24E35D51-485A-4FCC-8783-8AB53A74C62A}" ShortID="626361572" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Silence" ID="{24E35D51-485A-4FCC-8783-8AB53A74C62A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="NPC_silence_2" ID="{0CDFFE16-8E65-4E83-BC30-DD85FD21A4DE}" ShortID="416268015">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SourcePlugin Name="Silence" ID="{4814973B-CE17-48EC-8D79-A503DD6465D8}" ShortID="965071797" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Silence" ID="{4814973B-CE17-48EC-8D79-A503DD6465D8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Playlist">
+							<Reference>
+								<ObjectRef Name="NPC_dialogue_1" ID="{33ED4271-C8F1-4AA0-B7E9-5942CA40B90C}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="NPC_silence" ID="{4BFF57A6-6841-4D50-B503-3142E00A0A3B}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="NPC_dialogue_3" ID="{F739D133-AD1A-4248-BEF6-BA7734536D24}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="NPC_silence_2" ID="{0CDFFE16-8E65-4E83-BC30-DD85FD21A4DE}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="NPC_dialogue_4" ID="{8172AC49-AB15-4884-A329-BEA06772960B}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="NPC_dialogue_5" ID="{36CD4347-1824-46F2-9302-09098BCD2EFF}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="dialogue_npc_close_to_spirit" ID="{98B57E60-B677-4EE1-8EFB-DF50464CA31F}" ShortID="614897744">
+					<PropertyList>
+						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="NPC_dialouge_8_close" ID="{0B2A5747-1E27-4877-B48A-639F23EC03AC}" ShortID="107361506">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_dialouge_8_close" ID="{AD7F1B22-6AD0-4B44-936C-CED6C5192CFD}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_dialouge_8_close.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="834553686"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_dialouge_8_close" ID="{AD7F1B22-6AD0-4B44-936C-CED6C5192CFD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="NPC_dialouge_9_close" ID="{10A03081-1C68-4FD7-99A6-0FEFE311B398}" ShortID="211916717">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_dialouge_9_close" ID="{37447A40-5FC0-4012-AE0A-A12DADBCBABE}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_dialouge_9_close.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="804016461"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_dialouge_9_close" ID="{37447A40-5FC0-4012-AE0A-A12DADBCBABE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Npc_scream" ID="{56E60A1C-C82E-484E-A4FB-1EE6D3ECAF07}" ShortID="361404149">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="NPC_dialouge_scream" ID="{BCD1FB41-6BA4-4309-A1D2-51416DE79A7D}" ShortID="624480547">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{66ECDC6A-CEEF-4F7A-BF47-4C996A6F6A0A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFCCA0AF-D18D-495D-A8E8-FDDCC714E3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="NPC_dialouge_scream" ID="{D1E100FF-C792-4D53-B1E8-56F8556DD6E7}">
+									<Language>SFX</Language>
+									<AudioFile>NPC_dialouge_scream.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="260690313"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="NPC_dialouge_scream" ID="{D1E100FF-C792-4D53-B1E8-56F8556DD6E7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
