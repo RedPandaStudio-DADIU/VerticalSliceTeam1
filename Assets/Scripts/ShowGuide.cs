@@ -36,7 +36,7 @@ public class ShowGuide  : MonoBehaviour
         {
             videoPlayer.enabled = false;
             guide.SetActive(true);  
-            yield return new WaitForSeconds(guideDisplayTime);  // 等待 10 秒
+            yield return new WaitForSeconds(guideDisplayTime); 
             guide.SetActive(false);  
 
             
