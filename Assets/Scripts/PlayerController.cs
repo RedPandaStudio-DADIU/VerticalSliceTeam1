@@ -220,9 +220,11 @@ public class PlayerController : MonoBehaviour
             if(!isCarryingRock){
                 if(currentRockIndex != -1){
                     spiritAnimator.SetBool("isInteracting", true);
+                    stateController.ChangeState(new MoveState());
                     PickupRock();
                 } else if (currentFreeRockIndex!= -1){
                     spiritAnimator.SetBool("isInteracting", true);
+                    stateController.ChangeState(new MoveState());
                     PickupFreeRock();
                 }
             // } else if (isCarryingRock && currentRockIndex!=-1 && closeByRockSet != null){
@@ -362,6 +364,7 @@ public class PlayerController : MonoBehaviour
             spiritAnimator.SetBool("isInteracting", true);
             in_movingStuffID = spellEvent.Post(gameObject);;
             circlesManager.RemoveObstacle(currentCircleIndex); 
+            stateController.ChangeState(new MoveState());
             Debug.Log("Pressed R, removing obstacle for circle: " + currentCircleIndex);
             spiritAnimator.SetBool("isInteracting", false);
 
