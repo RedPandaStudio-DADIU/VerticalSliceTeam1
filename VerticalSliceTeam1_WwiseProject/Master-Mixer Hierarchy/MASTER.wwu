@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{09381CCA-8F39-4256-B789-9DE9C97DF716}" SchemaVersion="119">
+	<Busses>
+		<WorkUnit Name="MASTER" ID="{09381CCA-8F39-4256-B789-9DE9C97DF716}" PersistMode="Standalone">
+			<ChildrenList>
+				<Bus Name="Reverb EXT" ID="{70A8B431-1EA8-46A0-9FE3-17324194B38F}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{8FBCD410-CA5F-45AF-8188-BCACB626A9D3}" WorkUnitID="{E2B1EF4A-4B6F-4296-811F-9FB8BA261C1E}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
+			</ChildrenList>
+		</WorkUnit>
+	</Busses>
+</WwiseDocument>

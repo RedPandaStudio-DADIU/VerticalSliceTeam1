@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="Spirit_event" ID="{11FF84E6-C3C4-488D-B479-935A4CDA4BB3}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Spirit_Footsteps" ID="{BFC207D1-1645-4001-BCB2-C88BEF0BE922}">
+					<ChildrenList>
+						<Action Name="" ID="{2B7FCB34-3E9B-4021-97DD-08C281B083E0}" ShortID="794442241">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps_spirit_SW" ID="{2C489323-CD58-4660-9B59-67F8E1876A02}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_Jump" ID="{D5A5D146-03BD-4D1C-A188-6F4A6978BDE6}">
+					<ChildrenList>
+						<Action Name="" ID="{99257A74-FE38-4B63-B688-096132949543}" ShortID="701395627">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jump_Spirit_SW" ID="{1DCEFD06-BEB7-40D3-B41E-B1D2E8298768}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_lift_rock" ID="{B48FD4BE-ECDD-477E-961F-5E8555AD743F}">
+					<ChildrenList>
+						<Action Name="" ID="{62F75D78-2C5E-47DA-9A08-CECD563D7B94}" ShortID="550790864">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lift_rock_spirit" ID="{1A4AD56A-34EC-4D82-84AF-EA340BBAB7BD}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_put_rock_down" ID="{21D46999-F1CB-49D0-8D9E-2DEAA4978D17}">
+					<ChildrenList>
+						<Action Name="" ID="{59CEF73A-64B8-4545-9613-733774F10CC1}" ShortID="920674053">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="put_down_rock_spirit" ID="{67878402-106D-41D5-A55A-98477BC90EDD}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_Spell" ID="{085B1577-036C-483C-864E-EB6D2D1A8E77}">
+					<ChildrenList>
+						<Action Name="" ID="{55B03C09-4AE3-40E4-BB5D-D156E37F9259}" ShortID="853425310">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Spell_spirit" ID="{09D21584-2319-483F-AFCD-E303E843FA78}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spirit_scream" ID="{804508C2-EEEB-4F00-B568-F51FEB52C9E2}">
+					<ChildrenList>
+						<Action Name="" ID="{D9660079-4D29-4CEE-BFD8-9BD8AA9630B9}" ShortID="832941674">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Scream_scare_spirit" ID="{3A84A07B-4E58-4C40-BC99-098EB81D9C22}" WorkUnitID="{89B1C15F-ADDF-41DB-B349-BDAC7D7AB128}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

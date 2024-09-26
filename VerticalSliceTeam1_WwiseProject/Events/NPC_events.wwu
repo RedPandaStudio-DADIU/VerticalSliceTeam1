@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B70F807A-1CAE-435F-9F4E-2AA5EE425465}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="NPC_events" ID="{B70F807A-1CAE-435F-9F4E-2AA5EE425465}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="npc_footsteps" ID="{8BEDFFFE-3596-4F59-942C-6A820A92201E}">
+					<ChildrenList>
+						<Action Name="" ID="{791A4DAB-B01B-456E-9591-1D7B1AFEBD33}" ShortID="659512169">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="npc_footsteps" ID="{CDF6C686-A5D7-4BF4-9DCA-FB79BFC289D5}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="npc_dialogue_start_game" ID="{3DEE82E6-209A-443C-866D-1DE909940D5A}">
+					<ChildrenList>
+						<Action Name="" ID="{D3E66534-FD44-4027-9618-C592CBBAC673}" ShortID="945445905">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dialogue_npc_start_game" ID="{3CB656BA-9622-4C82-9021-A2375F9F2E0B}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="npc_dialogue" ID="{DE3B71A7-A9BB-4FB3-88E5-31A5A7735074}">
+					<ChildrenList>
+						<Action Name="" ID="{40F656C8-2A2C-44AC-832B-3595CE946268}" ShortID="144701793">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dialogue_npc" ID="{C9FED763-79C7-4BDC-A889-19E3D06366C9}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="npc_dialogue_close_to_spirit" ID="{32FF0D24-666A-44DD-95F2-CF8C2C977254}">
+					<ChildrenList>
+						<Action Name="" ID="{A30252C6-06E5-40BF-8301-38191C0E548B}" ShortID="208219169">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="dialogue_npc_close_to_spirit" ID="{98B57E60-B677-4EE1-8EFB-DF50464CA31F}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="npc_scream" ID="{BB8FEB87-223F-495E-905A-6ADC4FF33957}">
+					<ChildrenList>
+						<Action Name="" ID="{CA19D23B-D9E8-45BA-8426-A8931D58FC8C}" ShortID="698646214">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Npc_scream" ID="{56E60A1C-C82E-484E-A4FB-1EE6D3ECAF07}" WorkUnitID="{C2B7CEC8-F651-4B2A-8DAC-F86B4133BDF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
