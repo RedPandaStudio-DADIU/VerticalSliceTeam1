@@ -77,3 +77,4 @@ Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkSoundEngine.dll
 .DS_Store
 .DS_Store
 .DS_Store
+*.validationcache
