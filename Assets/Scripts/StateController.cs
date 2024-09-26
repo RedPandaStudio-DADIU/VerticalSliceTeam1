@@ -21,6 +21,8 @@ public class StateController : MonoBehaviour
 
 
     private NPCBaseState currentState;
+    private NPCBaseState previousState;
+
     private NPCBaseState previousMoveState;
     private string soundBank = "soundbank_MAIN";
 
@@ -37,12 +39,14 @@ public class StateController : MonoBehaviour
         npc = GetComponent<NavMeshAgent>();
         currentState = new MoveState();
         previousMoveState = currentState;
+        previousState = currentState;
         currentState.OnEnter(this);
         AkSoundEngine.LoadBank(soundBank, out uint bankID);
     }
 
     void Update(){
         currentState.OnUpdate(this);
+        previousState = currentState;
         Debug.Log("Current State: " + currentState);
     }
 
@@ -97,6 +101,11 @@ public class StateController : MonoBehaviour
     public NPCBaseState GetPreviousState(){
         return previousMoveState; 
     }
+
+    public NPCBaseState GetEarlierState(){
+        return previousState; 
+    }
+
 
     public void RecalculatePathForNPC()
     {

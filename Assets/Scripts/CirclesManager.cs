@@ -10,20 +10,36 @@ public class CirclesManager : MonoBehaviour
     [Header("Circle and Obstacle Configuration")]
     [SerializeField] private GameObject[] circles;  // Array to hold circle objects
     [SerializeField] private GameObject[] obstacles;  // Array to hold obstacle objects
-    [SerializeField] private Material defaultMaterial;  // The default material for circles
-    [SerializeField] private Material disabledMaterial;  // The disabled material for circles
     [SerializeField] private NavMeshAgent movingNPC;
+    [SerializeField] private GameObject npc;
     [SerializeField] private float radiusOverlap = 5f;
-    private StateController stateController;
+    public GameObject fireflyPrefab; 
+    //[SerializeField] private GameObject fireflyEffect; 
+    [SerializeField] private PlayerController playerController; 
+    [SerializeField] private Animator npcAnimator;  
+    [SerializeField] private string idleStateName = "IdleState";  
 
+    private StateController stateController;
+    private float idleTime = 0f;
+    private bool firefliesTriggered = false;
+    public float timeToTriggerFireflies = 3f;
+
+    private AnimatorStateInfo currentAnimatorStateInfo;
+    private AnimatorStateInfo previousAnimatorStateInfo;
+    
     void Start(){
+        
+        SetCircleInteraction(false); 
+
+        //fireflyEffect.SetActive(false);
+
         stateController = FindObjectOfType<StateController>();
     }
 
     // Method to remove the obstacle based on the circle index
     public void RemoveObstacle(int circleIndex)
     {
-        if (circleIndex >= 0 && circleIndex < obstacles.Length)
+        /*if (circleIndex >= 0 && circleIndex < obstacles.Length)
         {
             if (obstacles[circleIndex] != null)
             {
@@ -43,6 +59,92 @@ public class CirclesManager : MonoBehaviour
                 
             }
         }
+        */
+
+
+         if (circleIndex >= 0 && circleIndex < obstacles.Length && obstacles[circleIndex] != null)
+        {
+            
+            obstacles[circleIndex].SetActive(false);  // Disable the obstacle
+            Debug.Log("Obstacle " + obstacles[circleIndex].name + " removed.");
+            
+            // Recalculate the path for the NPC
+            if (stateController != null)
+            {
+                stateController.RecalculatePathForNPC();
+            }
+        }
+        else
+        {
+            Debug.Log("Invalid circle index or obstacle is null.");
+        }
+
+    }
+
+    private void Update()
+    {
+        
+        currentAnimatorStateInfo = npcAnimator.GetCurrentAnimatorStateInfo(0);
+        if((stateController.GetCurrentState() is IdleState || stateController.GetCurrentState() is SpeakState) && (stateController.GetEarlierState() is not IdleState && stateController.GetEarlierState() is not SpeakState))
+        {
+            
+            Debug.Log("NPC into IdleState");
+            idleTime = 0f;  
+            firefliesTriggered = false; 
+            ShowFirefliesAtCircle(0, firefliesTriggered); 
+        }
+
+        
+        // if (currentAnimatorStateInfo.IsName(idleStateName))
+        // if ((stateController.GetCurrentState() is IdleState) || (stateController.GetCurrentState() is SpeakState))
+
+        // {
+        //     // idleTime += Time.deltaTime;
+
+        //     // if (idleTime >= timeToTriggerFireflies && !firefliesTriggered)
+        //     // {
+        //     //     Debug.Log("time to show fireflies");
+
+        //     firefliesTriggered = false;
+        //     ShowFirefliesAtCircle(0, firefliesTriggered);  
+        //     //     firefliesTriggered = true;  
+        //     // }
+        // }
+        else
+        {
+            
+            idleTime = 0f;  
+            firefliesTriggered = false;
+            //fireflyEffect.SetActive(false);
+        }
+
+        
+        previousAnimatorStateInfo = currentAnimatorStateInfo;
+    }
+
+   
+    public void ShowFirefliesAtCircle(int circleIndex, bool firefliesTriggered)
+    {
+        if(!firefliesTriggered){
+            for (int i = 0; i < circles.Length; i++)
+            {
+                
+                GameObject newFireflyEffect = Instantiate(fireflyPrefab, circles[i].transform.position, fireflyPrefab.transform.rotation);
+
+                
+                ParticleSystem fireflyParticleSystem = newFireflyEffect.GetComponent<ParticleSystem>();
+                
+                if (fireflyParticleSystem != null)
+                {
+                    
+                    fireflyParticleSystem.Play();
+                }
+                
+                Destroy(newFireflyEffect, 10f);
+            }
+            firefliesTriggered = true;
+        }
+        
     }
 
 
@@ -69,14 +171,14 @@ public class CirclesManager : MonoBehaviour
             Renderer circleRenderer = circle.GetComponent<Renderer>();
             if (circleRenderer != null)
             {
-                circleRenderer.material = isEnabled ? defaultMaterial : disabledMaterial;
+                circleRenderer.enabled = false;  // Keep the object invisible
             }
 
-            // Disable/Enable the circle's collider to prevent interaction
+            // Keep the collider active for interaction
             Collider circleCollider = circle.GetComponent<Collider>();
             if (circleCollider != null)
             {
-                circleCollider.enabled = isEnabled;
+                circleCollider.enabled = isEnabled;  // Only disable collider when explicitly needed
             }
         }
 
