@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.UIElements; 
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,9 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private VisualElement controlPicture;  // UI Toolkit VisualElement
     [SerializeField] private VisualElement creditsPicture;
-
+     [SerializeField] private VideoPlayer videoPlayer; 
+      [SerializeField] private UIDocument uiDocument;  
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +36,47 @@ public class MenuManager : MonoBehaviour
         quitButton.clicked += OnQuitButtonPressed;
         controlsButton.clicked += OnControlsButtonPressed;
         creditsButton.clicked += OnCreditsButtonPressed;
+
+        videoPlayer.gameObject.SetActive(false);
     }
 
     // Start the game by loading another scene
     public void OnStartButtonPressed()
     {
-        SceneManager.LoadScene("Game Scene");  // Replace with your actual scene name
+        StartCoroutine(PlayVideoAndLoadScene());// Load the game scene after the video finishes
+        
     }
+
+    private IEnumerator PlayVideoAndLoadScene()
+    {
+        // Enable and start the video player
+        videoPlayer.gameObject.SetActive(true);
+        videoPlayer.Play();
+
+        if (uiDocument != null)
+        {
+            uiDocument.enabled = false;  
+        }
+
+        // Give it a brief moment to start playing
+        yield return new WaitForSeconds(0.1f);
+
+        // Wait until the video finishes
+        while (videoPlayer.isPlaying == false)
+        {
+            yield return null; // Wait for the video to start playing
+        }
+
+        // Wait until the video finishes playing
+        while (videoPlayer.isPlaying)
+        {
+            yield return null; // Wait for the video to finish
+        }
+        // Load the game scene after the video finishes
+        SceneManager.LoadScene("Game Scene");  // Replace with your actual scene name
+   
+    }
+
 
     // Quit the game (this works in the built version of the game, not in the editor)
     public void OnQuitButtonPressed()
