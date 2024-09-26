@@ -15,6 +15,8 @@ public class ShowGuide  : MonoBehaviour
         {
             
             videoPlayer.loopPointReached += OnVideoEnd;
+             Time.timeScale = 0f;
+             videoPlayer.Play(); 
         }
 
         if (guide != null)
@@ -27,6 +29,7 @@ public class ShowGuide  : MonoBehaviour
     private void OnVideoEnd(VideoPlayer vp)
     {
         StartCoroutine(ShowGuideCoroutine());
+        Time.timeScale = 1f; 
     }
 
     
